@@ -8,7 +8,7 @@ class Client extends Model
 {
   protected $fillable = ['name','email','street','number','floor','aparment','zip_code','localidad_id','provincia_id'];
 
-  public function purchase()
+  public function purchases()
   {
     return $this->hasMany('App\Purchase');
   }

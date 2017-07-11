@@ -12,13 +12,15 @@ class Purchase extends Model
     {
         return $this->belongsTo('App/Client');
     }
-    public function purchases_states()
+
+    public function state()
     {
-        return $this->belongsTo('App/Purchases_states');
+        return $this->belongsTo('App/PurchaseState', 'state_id');
     }
-    public function item()
+
+    public function items()
     {
-        return $this->belongsTo('App/Item');
+        return $this->hasMany('App/Item');
     }
 
 }

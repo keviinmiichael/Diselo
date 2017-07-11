@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slid extends Model
+class Slide extends Model
 {
     protected $fillable = ['name'];
 
-    public function image()
+    public function images()
     {
-        return $this->morphMany('App\Image', 'imageable');
+        return $this->morphMany('App\Image');
     }
 }

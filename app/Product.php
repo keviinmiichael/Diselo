@@ -6,19 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-  protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','visible'];
+    protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','visible'];
 
-  public function item()
+    public function item()
     {
-      return $this->belongsTo('App\Item');
+        return $this->belongsTo('App\Item');
     }
-  public function category()
+  
+    public function category()
     {
-      return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category');
     }
-  public function image()
+
+    public function images()
     {
-      return $this->morphMany('App\Image');
+        return $this->morphMany('App\Image');
     }
 
 }
