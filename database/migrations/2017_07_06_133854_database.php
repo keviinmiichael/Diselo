@@ -19,7 +19,7 @@ class Database extends Migration
             $table->smallIncrements('id');
             $table->string('name');
             $table->string('slug');
-            $table->string('code',50)->unique(); //código interno de indentificación que tiene el cliente
+            $table->string('code',50)->unique(); //código interno de indentificación que tiene el cliente.
             $table->float('price',8,2)->unsigned()->nullable();
             $table->float('cost',8,2)->unsigned();
             $table->smallInteger('profit_margin')->unsigned()->nullable();
