@@ -37,7 +37,24 @@
 <!-- MAIN APP JS FILE -->
 <script src="/js/admin/app.min.js"></script>
 
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+</script>
+
+<!-- DATA TABLES -->
+<script src="/js/admin/plugin/datatables/jquery.dataTables.min.js"></script>
+<script src="/js/admin/plugin/datatables/dataTables.colVis.min.js"></script>
+<script src="/js/admin/plugin/datatables/dataTables.tableTools.min.js"></script>
+<script src="/js/admin/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/js/admin/plugin/datatables/i18n/spanish.js"></script>
+<script src="/js/admin/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+
 <!-- JS PROPIOS -->
+<script src="/js/admin/DT.js"></script>
 <script src="/js/admin/Box.js"></script>
 
 <!-- PAGE RELATED PLUGIN(S) -->

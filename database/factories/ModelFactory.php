@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'code' => uniqid(),
+        'cost' => rand(100,500),
+        'profit_margin' => rand(40,70),
+        'stock' => rand(10,30),
+    ];
+});
+

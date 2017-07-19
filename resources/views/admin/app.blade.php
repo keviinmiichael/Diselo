@@ -11,6 +11,7 @@
         @yield('content')
 
         @include('admin.partials.footer')
+        @include('admin.modals.delete')
         @include('admin.partials.scripts')
     </body>
 </html>

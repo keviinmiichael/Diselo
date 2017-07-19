@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="_token" content="{{csrf_token()}}">
 <title>{{config('app.name')}} - CMS</title>
 <meta name="description" content="Administrador de contenido">
 

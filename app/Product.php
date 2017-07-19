@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
 {
+    use Sluggable;
+    
     protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','visible'];
 
     public function item()
@@ -21,6 +24,13 @@ class Product extends Model
     public function images()
     {
         return $this->morphMany('App\Image');
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => ['source' => 'name']
+        ];
     }
 
 }
