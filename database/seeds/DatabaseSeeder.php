@@ -13,7 +13,15 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         factory(App\Category::class, 3)->create()->each(function ($category) {
-            $category->products()->saveMany(factory(App\Product::class, 5)->make());
+            $subcategries = factory(App\Subcategory::class, 3)->create();
+            $subcategries->each(function ($subcategory) use ($category) {
+                $product = factory(App\Product::class)->make();
+                $product->category_id = $category->id;
+                $rand = rand(0,1);
+                if ($rand) $product->subcategory_id = $subcategory->id;
+                $product->save();
+            });
+            $category->subcategories()->saveMany($subcategries);
         });
 
         \DB::table('users')->insert([

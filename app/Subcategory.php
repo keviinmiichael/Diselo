@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Category extends Model
+class Subcategory extends Model
 {
     use SoftDeletes, Sluggable;
 
     protected $fillable = ['name', 'slug'];
 
-    public function subcategories()
+    public function category()
     {
-      return $this->hasMany('App\Subcategory');
+      return $this->belongsTo('App\Category');
     }
 
     public function products()
@@ -28,20 +28,4 @@ class Category extends Model
             'slug' => ['source' => 'name']
         ];
     }
-
-    //scopes
-    public function scopeSearch($query)
-    {
-        if (request('search.value')) {
-            $query->where('name', 'like', request('search.value').'%');
-        }
-    }
-
-    public function scopeDt($query)
-    {
-        $query->take(request('length'))->skip(request('start'));
-    }
-    //------
-
-    
 }

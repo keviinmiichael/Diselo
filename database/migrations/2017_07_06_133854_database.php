@@ -23,11 +23,27 @@ class Database extends Migration
             $table->float('price',8,2)->unsigned()->nullable();
             $table->float('cost',8,2)->unsigned();
             $table->smallInteger('profit_margin')->unsigned()->nullable();
-            $table->smallInteger('stock');
+            //$table->smallInteger('stock'); El stock es la cantidad de un producto en relación a un talle
             $table->smallInteger('category_id')->unsigned()->index(); //<<relación>> con category
+            $table->smallInteger('subcategory_id')->nullable()->unsigned()->index(); //<<relación>> con category
             $table->boolean('visible')->default(1);
             $table->softDeletes();
             $table->timestamps();
+        });
+
+        //STOCK
+        Schema::create('stock', function (Blueprint $table) {
+            $table->smallInteger('product_id')->unsigned();
+            $table->tinyInteger('size_id')->unsigned();
+
+            //índices
+            $table->primary(['product_id', 'size_id']);
+        });
+
+        //SIZES (talles)
+        Schema::create('sizes', function (Blueprint $table) {
+            $table->tinyInteger('id')->unsigned()->autoIncrement();
+            $table->string('value',30);
         });
 
         //PURCHASES
@@ -67,6 +83,16 @@ class Database extends Migration
             $table->timestamps();
         });
 
+        //SUBCATEGORIES
+        Schema::create('subcategories', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('name');
+            $table->string('slug');
+            $table->softDeletes();
+            $table->timestamps();
+            $table->smallInteger('category_id')->nullable()->unsigned()->index(); //<<relación>> con categories
+        });
+
         //CLIENTS
         Schema::create('clients', function (Blueprint $table) {
             $table->smallIncrements('id');
@@ -85,7 +111,7 @@ class Database extends Migration
 
         //IMAGES
         Schema::create('images', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->autoIncrement();
+            $table->increments('id');
             $table->string('src');
             $table->integer('imageable_id')->unsigned();
             $table->string('imageable_type', 80);
@@ -127,6 +153,8 @@ class Database extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('stock');
+        Schema::dropIfExists('sizes');
         Schema::dropIfExists('purchases');
         Schema::dropIfExists('purchases_states');
         Schema::dropIfExists('items');

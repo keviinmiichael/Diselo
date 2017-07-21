@@ -29,13 +29,18 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'code' => uniqid(),
         'cost' => rand(100,500),
-        'profit_margin' => rand(40,70),
-        'stock' => rand(10,30),
+        'profit_margin' => rand(40,70)
     ];
 });
 

@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
 {
-    use Sluggable;
+    use SoftDeletes, Sluggable;
     
     protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','visible'];
 
