@@ -27,10 +27,16 @@ var DT = (function (w, $, undefined) {
                 data: function(d) {
                     if (settings.data) {
                         for (var i in settings.data)
-                        d[i] = settings.data[i];
+                        d[i] = oSettings.data[i];
                     }
                 }
             },
+            fnServerParams: function(data) {
+                  data['order'].forEach(function(items, index) {
+                      data['order'][index]['column'] = data['columns'][items.column]['data'];
+                });
+            },
+            aoColumns: getColumns(),
             language: window.dtLanguage,
             preDrawCallback: function() {
                 if (!responsiveHelper_dt_basic) {
@@ -53,6 +59,18 @@ var DT = (function (w, $, undefined) {
             columnDefs: generateColumns(),
             order: [[ 1, "desc" ]]
         });
+    }
+
+    function getColumns () {
+        var result = [], column;
+        for (var i in settings.columns) {
+            column = settings.columns[i].split('|', 1).join('');
+            result.push({
+                mData: column,
+                sTitle: column
+            });
+        }
+        return result;
     }
 
     function generateColumns() {
@@ -88,6 +106,9 @@ var DT = (function (w, $, undefined) {
     }
 
     var filters = {
+        image: function (row, prop, parameters) {
+            return image.render(row.prop);
+        },
         limit: function (row, prop, parameters) {
             var length = (parameters.indexOf(':') != -1) ? parameters.split(':')[1] : 34;
             return (row[prop].length > length)?'<a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title=\''+row[prop]+'\' data-html="false">'+row[prop].substring(0, length)+'...'+'</a>':row[prop];
@@ -104,6 +125,23 @@ var DT = (function (w, $, undefined) {
             return actions.render(row);
         }
     }
+
+    //IMAGEN
+    var image = {
+        defaultImage: 'imagen-no-disponible.jpg',
+        render: function (imagen) {
+            var time = (new Date).getTime(), path;
+            imagen = imagen || this.defaultImage;
+            imagen += '?'+time;
+            path = '/content/' + settings.resource + '/thumb/' + imagen;
+            return '\
+                <a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title="<img width=\'150\' src=\''+path+'\' class=\'online\'>" data-html="true">\
+                     <img style="width:30px; border: solid 1px #ccc" src="'+path+'"\
+                </a>\
+            ';
+        }
+    }
+    //FIN IMAGEN
 
     //ESTADO
     var stateSwicher = {
@@ -130,7 +168,7 @@ var DT = (function (w, $, undefined) {
                 if (!waiting) {
                     waiting = true;
                     $.ajax({
-                        type:'post',
+                        type:'put',
                         url:'/admin/'+settings.resource+'/'+$this.data('id'),
                         data:data,
                         success: function (object) {

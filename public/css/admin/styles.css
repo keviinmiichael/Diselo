@@ -1,1 +1,14 @@
 .dataTable td:last-child, .dataTable th:last-child {text-align: right;}
+
+input[disabled] {background-color: #efefef !important; cursor: not-allowed !important}
+
+/* nav */
+.login-info p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.minified .login-info p {
+    display: none
+}

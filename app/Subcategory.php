@@ -2,13 +2,15 @@
 
 namespace App;
 
+use App\CustomClasses\ToForm;
+use App\CustomClasses\Unite;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 class Subcategory extends Model
 {
-    use SoftDeletes, Sluggable;
+    use SoftDeletes, Sluggable, Unite, ToForm;
 
     protected $fillable = ['name', 'slug'];
 

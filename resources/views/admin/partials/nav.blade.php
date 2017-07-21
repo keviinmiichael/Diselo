@@ -5,35 +5,29 @@
 
     <!-- User info -->
     <div class="login-info">
-        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
-            
-            <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-                <img src="/images/admin/avatars/sunny.png" alt="me" class="online" /> 
-                <span>
-                    john.doe 
-                </span>
-                <i class="fa fa-angle-down"></i>
-            </a> 
-            
-        </span>
+        <p>Menú</p>
     </div>
     <!-- end user info -->
 
     <nav>
         <ul>
-            <li>
-                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
-                <ul>
-                    <li>
-                        <a href="index.html" title="Dashboard"><span class="menu-item-parent">Analytics Dashboard</span></a>
-                    </li>
-                    <li class="">
-                        <a href="dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
-                    </li>
-                </ul>   
+            <li data-nav="categories">
+                <a href="/admin/categories"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">Categorías</span></a>
             </li>
-            <li>
-                <a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
+            <li data-nav="products">
+                <a href="/admin/products"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">Productos</span></a>
+            </li>
+            <li data-nav="purchases">
+                <a href="/admin/purchases"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Compras</span></a>
+            </li>
+            <li data-nav="stock">
+                <a href="/admin/stock-listado"><i class="fa fa-lg fa-fw fa-dropbox"></i> <span class="menu-item-parent">Stock</span></a>
+            </li>
+            <li data-nav="precios">
+                <a href="/admin/precios"><i class="fa fa-lg fa-fw fa-dollar"></i> <span class="menu-item-parent">Precios</span></a>
+            </li>
+            <li data-nav="clientes">
+                <a href="/admin/clientes"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Clientes</span></a>
             </li>
         </ul>
     </nav>

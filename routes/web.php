@@ -17,4 +17,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     //categorias
     Route::get('categories/json', 'CategoriesController@json');
     Route::resource('categories', 'CategoriesController');
+
+    //productos
+    Route::get('products/json', 'ProductsController@json');
+    Route::resource('products', 'ProductsController');
 });
