@@ -34,8 +34,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return 'test';
-    }
+		 Category::create(request()->all());
+		 return redirect('admin/products');    
+	 }
 
     /**
      * Store a newly created resource in storage.

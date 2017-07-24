@@ -11,7 +11,7 @@ Route::group(['namespace' => 'Front'], function() {
 
 //Admin
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
-    
+
     Route::get('/', 'DashboardController@index');
 
     //categorias
@@ -21,6 +21,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     //productos
     Route::get('products/json', 'ProductsController@json');
     Route::resource('products', 'ProductsController');
+
+	 //clientes
+    Route::get('clients/json', 'ClientsController@json');
+    Route::resource('clients', 'ClientsController');
+
+	 //compras
+    Route::get('purchases/json', 'PurchasesController@json');
+    Route::resource('purchases', 'PurchasesController');
 
     //manejo de imagenes
     Route::post('images/upload', 'ImagesController@upload');

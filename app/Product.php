@@ -10,14 +10,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use SoftDeletes, Sluggable, Unite;
-    
+
     protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','subcategory_id','visible'];
 
     public function item()
     {
         return $this->belongsTo('App\Item');
     }
-  
+
     public function category()
     {
         return $this->belongsTo('App\Category');
@@ -60,6 +60,5 @@ class Product extends Model
             ->groupBy('products.id')
         ;
     }
-    //------
 
 }
