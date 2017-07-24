@@ -9,7 +9,9 @@ class PurchaseState extends Model
 {
     use Unite;
 
+    protected $table = 'purchases_states';
     protected $fillable = ['value'];
+
 
     public function purchases()
     {

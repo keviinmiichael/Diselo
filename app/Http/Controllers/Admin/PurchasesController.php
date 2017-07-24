@@ -34,6 +34,13 @@ class PurchasesController extends Controller
         //
     }
 
+    /**
+    * Observaciones:
+    * El Método show solamente debe mostrar la vista individual de un recurso.
+    * Para hacer la persistencia de un recurso se hace en el método store.
+    * En este caso show mostraría la vista de una compra, que consiste en una tabla
+    * con el listado de todos los "items" que fueron comprados.
+    */
     public function show($id)
     {
 		 Purchase::create(request()->all());

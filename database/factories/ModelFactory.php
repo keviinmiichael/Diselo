@@ -44,3 +44,23 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'street' => $faker->streetName,
+        'number' => rand(100,2000),
+        'zip_code' => $faker->postcode,
+        'localidad_id' => 1,
+        'provincia_id' => 1
+    ];
+});
+
+$factory->define(App\Purchase::class, function (Faker\Generator $faker) {
+    return [
+        'total' => rand(1000,5000),
+        'cost' => rand(1000,5000),
+        'state_id' => 1
+    ];
+});
+

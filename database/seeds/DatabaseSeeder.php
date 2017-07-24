@@ -24,10 +24,36 @@ class DatabaseSeeder extends Seeder
             $category->subcategories()->saveMany($subcategries);
         });
 
+        \DB::table('purchases_states')->insert([
+            ['value' => 'Pendiente'],
+            ['value' => 'Enviada'],
+            ['value' => 'Recibida']
+        ]);
+
+        factory(App\Client::class, 3)->create()->each(function ($client) {
+            $client->purchases()->saveMany(factory(App\Purchase::class,2)->make());
+        });
+
+        \App\Purchase::all()->each(function ($purchase) {
+            $times = rand(1, 3);
+            for ($i=0; $i<$times; $i++) {
+                $product =  \App\Product::find(rand(1,9));
+                $item = new \App\Item;
+                $item->name = $product->name;
+                $item->price = rand(100,500);
+                $item->cost = rand(100,500);
+                $item->amount = rand(1,3);
+                $item->purchase_id = $purchase->id;
+                $item->product_id = $purchase->id;
+                $item->save();
+            }
+        });
+        
         \DB::table('users')->insert([
             'name' => env('ADMIN_NAME'),
             'email' => env('ADMIN_EMAIL'),
             'password' => bcrypt(env('ADMIN_PASS'))
         ]);
     }
+
 }

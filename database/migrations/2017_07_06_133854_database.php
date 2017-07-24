@@ -101,7 +101,7 @@ class Database extends Migration
             $table->string('street',127);
             $table->string('number',10);
             $table->string('floor',20);
-            $table->string('aparment',20);
+            $table->string('apartment',20);
             $table->string('zip_code',20);
             $table->smallInteger('localidad_id')->unsigned()->index(); //<<relación>> con localidades
             $table->smallInteger('provincia_id')->unsigned()->index(); //<<relación>> con provincias

@@ -11,10 +11,11 @@ trait Unite {
             $query->uniteRelated($relation, $left);
         } elseif ($cardinality == 'MorphMany') {
             $query->uniteMorphMany($relation, $left);
+        } elseif ($cardinality == 'HasMany') {
+            $query->uniteHasMany($relation, $left);
         } else {
             $query->uniteSimple($relation, $left);
         }
-
         if ($this->id) $query->where($this->getTable().'.'.$this->primaryKey, $this->id);
     }
 
@@ -25,6 +26,19 @@ trait Unite {
         $ownerKey = $this->$relation()->getQualifiedOwnerKeyName();
         $foreignKey = $this->$relation()->getQualifiedForeignKey();
         $query->$join($relationTable, $ownerKey, '=', $foreignKey);
+    }
+
+    public function scopeUniteHasMany($query, $relation, $left)
+    {
+        $join = ($left)?'leftJoin':'join';
+        $relationTable = $this->$relation()->getRelated()->getTable();
+        
+
+        $query->$join($relationTable, function ($join) use ($relation) {
+            $ownerKey = $this->getTable().'.'.$this->primaryKey;
+            $foreignKey = $this->$relation()->getQualifiedForeignKeyName();
+            $join->on($ownerKey, '=', $foreignKey);
+        });
     }
 
     public function scopeUniteRelated($query, $relation, $left)
@@ -48,9 +62,9 @@ trait Unite {
 
         $query->$join($relationTable, function ($join) use ($relation) {
             $ownerKey = $this->getTable().'.'.$this->primaryKey;
-        $foreignKey = $this->$relation()->getQualifiedForeignKeyName();
-        $morphType = $this->$relation()->getQualifiedMorphType();
-        $morphClass = $this->$relation()->getMorphClass();
+            $foreignKey = $this->$relation()->getQualifiedForeignKeyName();
+            $morphType = $this->$relation()->getQualifiedMorphType();
+            $morphClass = $this->$relation()->getMorphClass();
             $join->on($ownerKey, '=', $foreignKey)
                  ->where($morphType, $morphClass);
         });

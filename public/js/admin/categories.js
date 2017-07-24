@@ -18,7 +18,7 @@ var Categories = (function (w, $, undefined) {
         window.DT.create('#datatable', {
             resource: 'categories',
             columns: [
-                'name|limit:2',
+                'name|limit',
                 'id|actions'
             ]
         });

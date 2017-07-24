@@ -23,11 +23,11 @@
             <li data-nav="stock">
                 <a href="/admin/stock-listado"><i class="fa fa-lg fa-fw fa-dropbox"></i> <span class="menu-item-parent">Stock</span></a>
             </li>
-            <li data-nav="precios">
+            <li data-nav="prices">
                 <a href="/admin/precios"><i class="fa fa-lg fa-fw fa-dollar"></i> <span class="menu-item-parent">Precios</span></a>
             </li>
-            <li data-nav="clientes">
-                <a href="/admin/clientes"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Clientes</span></a>
+            <li data-nav="clients">
+                <a href="/admin/clients"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Clientes</span></a>
             </li>
         </ul>
     </nav>

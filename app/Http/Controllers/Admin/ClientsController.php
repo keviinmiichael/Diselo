@@ -21,6 +21,11 @@ class ClientsController extends Controller
 		 return view('admin.clients.index');
     }
 
+    /**
+    * Observaciones:
+    * El Método create solamente debe mostrar el formlario de creación.
+    * Para hacer la persistencia de un recurso se hace en el método store.
+    */
     public function create()
     {
 		 Client::create(request()->all());
