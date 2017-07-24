@@ -21,4 +21,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     //productos
     Route::get('products/json', 'ProductsController@json');
     Route::resource('products', 'ProductsController');
+
+    //manejo de imagenes
+    Route::post('images/upload', 'ImagesController@upload');
+    Route::post('images/{image}/delete', 'ImagesController@destroy');
+
+    //orden
+    Route::post('sort/{table}', 'SortController@sort');
 });

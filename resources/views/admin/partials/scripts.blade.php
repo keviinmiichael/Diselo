@@ -60,6 +60,8 @@
 <!-- PAGE RELATED PLUGIN(S) -->
 @yield('scripts')
 
+@stack('scripts')
+
 <script type="text/javascript">
     $(document).ready(function() {
         pageSetUp();        

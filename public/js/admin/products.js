@@ -29,9 +29,6 @@ var Products = (function (w, $, undefined) {
         $('.saveForm').on('click', function () {
             $('#form').submit();
         });
-        $('#sliderImagenes').on('click', '.btn-danger', function () {
-            borrar($(this));
-        });
         $('#tipo-precio').on('change', function() {
             togglePrecio();
         });

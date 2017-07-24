@@ -107,11 +107,12 @@ var DT = (function (w, $, undefined) {
 
     var filters = {
         image: function (row, prop, parameters) {
-            return image.render(row.prop);
+            return image.render(row[prop]);
         },
         limit: function (row, prop, parameters) {
             var length = (parameters.indexOf(':') != -1) ? parameters.split(':')[1] : 34;
-            return (row[prop].length > length)?'<a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title=\''+row[prop]+'\' data-html="false">'+row[prop].substring(0, length)+'...'+'</a>':row[prop];
+            var text = row[prop] || '';
+            return (text.length > length)?'<a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title=\''+text+'\' data-html="false">'+text.substring(0, length)+'...'+'</a>':text;
         },
         stateSwicher: function (row, prop, parameters) {
             var index = parameters.indexOf(':');

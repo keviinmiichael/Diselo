@@ -53,10 +53,12 @@ class Product extends Model
     {
         $query->select(\DB::raw('products.*, images.src as thumb, categories.name as category, subcategories.name as subcategory'))
             ->unite('category')
-            ->unite('subcategory')
+            ->unite('subcategory', true)
             ->unite('images', true)
             ->take(request('length'))
-            ->skip(request('start'));
+            ->skip(request('start'))
+            ->groupBy('products.id')
+        ;
     }
     //------
 

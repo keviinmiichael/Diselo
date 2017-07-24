@@ -15,4 +15,14 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+
+    public static function nextId ()
+    {
+        if (!$imagen = self::select('id')->orderBy('id', 'desc')->first()) {
+            $imagen = new self();
+            $imagen->id = 0;
+        }
+        return $imagen->id + 1;
+    }
+
 }

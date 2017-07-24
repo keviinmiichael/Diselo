@@ -169,13 +169,21 @@
         </section>
         <!-- end widget grid -->
 
+        <!-- IMAGENES -->
+        @include('admin.components.images-uploader', ['model' => $product, 'resource' => 'products'])
+        <!-- /IMAGENES -->
+
     </div>
     <!-- END MAIN CONTENT -->
 
 </div>
 <!-- END MAIN PANEL -->
+
+@include('admin.modals.delete')
+
 @endsection
 
 @section('scripts')
+    <script src="/js/admin/plugin/jquery-form/jquery-form.min.js"></script>
     <script src="/js/admin/products.js"></script>
 @endsection

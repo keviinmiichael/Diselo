@@ -46,6 +46,7 @@ class ProductsController extends Controller
     public function update(Product $product)
     {
         $product->update(request()->all());
+        $this->addImages($product);
         if (request()->ajax()) return $product->toArray();
         return redirect('admin/products');
     }
@@ -53,5 +54,16 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function addImages($product)
+    {
+        //slider
+        if (request()->has('imagesIds')) {
+            $images = \App\Image::whereIn('id', request('imagesIds'));
+            $product->images()->saveMany($images->get());
+            $images->update(['pending'=>0]);
+        }
+        $product->save();
     }
 }

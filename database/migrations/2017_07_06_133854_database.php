@@ -113,19 +113,25 @@ class Database extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('src');
-            $table->integer('imageable_id')->unsigned();
-            $table->string('imageable_type', 80);
-            $table->tinyInteger('is_video')->unsigned();
+            $table->integer('imageable_id')->nullable()->unsigned();
+            $table->string('imageable_type', 80)->nullable();
+            $table->tinyInteger('is_video')->default(0)->unsigned();
             $table->boolean('pending')->default(1);
-            $table->smallInteger('order')->unsigned();
-            $table->string('title');
-            $table->string('caption');
-            $table->string('url');
+            $table->smallInteger('order')->default(0)->unsigned();
             $table->timestamps();
 
             //indices
             $table->index(['imageable_id', 'imageable_type']);
             $table->index('order');
+        });
+
+        //IMAGES INFO
+        Schema::create('images_info', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->string('value', 50);
+
+            $table->integer('image_id')->unsigned()->index();
         });
 
         //SLIDES <<relación>> tiene una relación polimórfica de uno a muchos con images
@@ -158,9 +164,11 @@ class Database extends Migration
         Schema::dropIfExists('purchases');
         Schema::dropIfExists('purchases_states');
         Schema::dropIfExists('items');
+        Schema::dropIfExists('subcategories');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('clients');
         Schema::dropIfExists('images');
+        Schema::dropIfExists('images_info');
         Schema::dropIfExists('slides');
         Schema::dropIfExists('related_products');
     }
