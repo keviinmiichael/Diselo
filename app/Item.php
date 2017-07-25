@@ -14,7 +14,7 @@ class Item extends Model
 
     public function product()
     {
-        return $this->hasOne('App\product');
+        return $this->belongsTo('App\product');
     }
 
     public function purchase()

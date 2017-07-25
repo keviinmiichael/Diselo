@@ -6,7 +6,9 @@ Route::get('/', function () {
 
 //Frontend
 Route::group(['namespace' => 'Front'], function() {
-
+    Route::get('test', function () {
+        return view('front.test');
+    });
 });
 
 //Admin

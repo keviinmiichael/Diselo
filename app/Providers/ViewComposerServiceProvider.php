@@ -9,6 +9,9 @@ use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
+    
+    private static $categories;
+
     /**
      * Bootstrap the application services.
      *
@@ -16,6 +19,11 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //front
+        $this->nav();
+
+        $this->bestsellers();
+
         //admin
         view()->composer('admin/*/form*', 'App\Http\ViewComposers\FormComposer');
     }
@@ -28,6 +36,36 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    private function nav ()
+    {
+        view()->composer('front/partials/main-menu', function ($view)
+        {
+            $categories = self::getCategories();
+            $view->with('categories', $categories);
+        });
+
+        view()->composer('front/asides/categories', function ($view)
+        {
+            $categories = self::getCategories();
+            $view->with('categories', $categories);
+        });
+    }
+
+    private function bestsellers()
+    {
+        view()->composer('front/asides/bestsellers', function ($view)
+        {
+            $bestsellers = \App\Product::bestsellers();
+            $view->with('bestsellers', $bestsellers);
+        });
+    }
+
+    private static function getCategories()
+    {
+        if(!self::$categories) self::$categories = \App\Category::with('subcategories')->get();
+        return self::$categories;
     }
 
 }

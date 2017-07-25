@@ -13,6 +13,8 @@ trait Unite {
             $query->uniteMorphMany($relation, $left);
         } elseif ($cardinality == 'HasMany') {
             $query->uniteHasMany($relation, $left);
+        } elseif ($cardinality == 'HasOne') {
+            //to do
         } else {
             $query->uniteSimple($relation, $left);
         }
