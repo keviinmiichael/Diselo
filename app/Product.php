@@ -12,7 +12,7 @@ class Product extends Model
 {
     use SoftDeletes, Sluggable, Unite;
 
-    protected $fillable = ['name','slug','code','price','cost','profit_margin','stock','category_id','subcategory_id','visible'];
+    protected $fillable = ['name', 'description','slug','code','price','cost','profit_margin','stock','category_id','subcategory_id','is_visible'];
 
     public function item()
     {
@@ -57,6 +57,15 @@ class Product extends Model
         }
         return $src;
     }
+
+    public function getStockAttribute()
+    {
+        return (int)Stock::select(\DB::raw('sum(amount) as total'))
+            ->where('product_id', $this->id)
+            ->first()
+            ->total
+        ;
+    }
     //-----------------
 
     public static function bestsellers()
@@ -67,7 +76,7 @@ class Product extends Model
             ->unite('purchase')
             ->unite('product')
             ->whereBetween('purchases.created_at', [$start, $end])
-            ->where('products.visible', 1)
+            ->where('products.is_visible', 1)
             ->groupBy('product_id')
             ->orderBy('total', 'desc')
             ->first()

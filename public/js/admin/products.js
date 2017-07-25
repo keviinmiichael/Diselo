@@ -3,6 +3,7 @@ var Products = (function (w, $, undefined) {
     function init () {
         dtInit();
         listeners();
+        boxes();
         $('#left-panel li[data-nav="products"]').addClass('active');
     }
 
@@ -15,7 +16,7 @@ var Products = (function (w, $, undefined) {
                 'name|limit',
                 'code',
                 'cost',
-                'visible|stateSwicher',
+                'is_visible|stateSwicher',
                 'category|limit',
                 'subcategory|limit',
                 'id|actions'
@@ -59,6 +60,12 @@ var Products = (function (w, $, undefined) {
             $('input[name="profit_margin"]').attr('disabled', true);
             $('input[name="profit_margin"]').val('');
         }
+    }
+
+    function boxes () {
+        Box.small({title:'Perfecto', content:'El producto se cargó con éxito.'}).success().showIfHash('new');
+        Box.small({title:'Perfecto', content:'El producto se editó con éxito.'}).success().showIfHash('edit');
+        Box.small({title:'Perfecto', content:'El stock se actualizó con éxito.'}).success().showIfHash('stock');
     }
     
     return {

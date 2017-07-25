@@ -24,6 +24,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('products/json', 'ProductsController@json');
     Route::resource('products', 'ProductsController');
 
+    //stock
+    Route::get('stock/create', 'StockController@create');
+    Route::post('stock', 'StockController@store');
+
 	 //clientes
     Route::get('clients/json', 'ClientsController@json');
     Route::resource('clients', 'ClientsController');
