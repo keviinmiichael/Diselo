@@ -38,35 +38,6 @@ class Client extends Model
         ;
     }
 
-    /**
-    * Observaciones:
-    *
-    * Dentro del select al hacer por ejemplo: purchases.total lo que estamos haciendo es un request al
-    * mysql en donde solicitamos la columna total de la tabla purchase. Todo lo que sucede acá tiene que
-    * poder ser comprendido por mysql. Cosas como purchases.client no son sql válido, porque si bien
-    * para laravel existe la relación entre un purchase y un client, para mysql no existe la columna
-    * client en la tabla purchases.
-    *
-    * Otra cosa, (me olvidé de avisarte, mala mía) yo usó un scope para abreviar los join. Ese scope es
-    * unite. Unite recibe el nombre de la relación. Sólo se pueden hacer unites con relaciones válidas.
-    * Por ejemplo, total no es una relación del modelo Client.
-    *
-    * Por último, como estamos usando un select tenemos que indicar que columnas queremos devolver. Eloquent
-    * por más que estemos trabajando sobre el modelo client, no trae por defecto las columnas de este modelo.
-    * Eso lo tenemos que hacer nosotros "a mano" haciendo clients.*
-    */
-
-    /*
-    public function scopeDt($query)
-    {
-        $query->select(\DB::raw('purchases.total as total, purchases.client as client, purchases.state as state'))
-            ->unite('total')
-            ->unite('client')
-            ->unite('state')
-            ->take(request('length'))
-            ->skip(request('start'));
-    }
-    */
 
 
 }

@@ -30,4 +30,17 @@ class Subcategory extends Model
             'slug' => ['source' => 'name']
         ];
     }
+
+	 //scopes
+    public function scopeSearch($query)
+    {
+        if (request('search.value')) {
+            $query->where('name', 'like', request('search.value').'%');
+        }
+    }
+
+    public function scopeDt($query)
+    {
+        $query->take(request('length'))->skip(request('start'));
+    }
 }

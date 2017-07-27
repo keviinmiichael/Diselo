@@ -28,14 +28,14 @@ class ClientsController extends Controller
     */
     public function create()
     {
-		 Client::create(request()->all());
-		 return redirect('admin/products');
+		 
 	 }
 
 
     public function store(Request $request)
     {
-        //
+		 Client::create(request()->all());
+		 return redirect('admin/products');
     }
 
     public function show($id)

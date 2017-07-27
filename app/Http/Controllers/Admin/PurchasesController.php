@@ -31,7 +31,8 @@ class PurchasesController extends Controller
 
     public function store(Request $request)
     {
-        //
+		 Purchase::create(request()->all());
+		 return redirect('admin/products');
     }
 
     /**
@@ -43,8 +44,6 @@ class PurchasesController extends Controller
     */
     public function show($id)
     {
-		 Purchase::create(request()->all());
-		 return redirect('admin/products');
     }
 
     public function edit($id)

@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.products.show');
 });
 
 //Frontend
@@ -19,6 +19,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     //categorias
     Route::get('categories/json', 'CategoriesController@json');
     Route::resource('categories', 'CategoriesController');
+
+    //subcategorias
+    Route::get('subcategories/json', 'SubcategoriesController@json');
+    Route::resource('subcategories', 'SubcategoriesController');
 
     //productos
     Route::get('products/json', 'ProductsController@json');

@@ -14,6 +14,9 @@
             <li data-nav="categories">
                 <a href="/admin/categories"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">Categorías</span></a>
             </li>
+            <li data-nav="subcategories">
+                <a href="/admin/subcategories"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">Subcategorías</span></a>
+            </li>
             <li data-nav="products">
                 <a href="/admin/products"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">Productos</span></a>
             </li>
@@ -32,8 +35,8 @@
         </ul>
     </nav>
 
-    <span class="minifyme" data-action="minifyMenu"> 
-        <i class="fa fa-arrow-circle-left hit"></i> 
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
     </span>
 
 </aside>
