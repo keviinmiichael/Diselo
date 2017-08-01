@@ -14,7 +14,7 @@ var Purchases = (function (w, $, undefined) {
                 'cost',
                 'paid',
                 'client',
-                'state',
+                'state_id|stateSwitcher',
                 'id|actions'
             ]
         });

@@ -30,7 +30,7 @@ class CategoriesController extends Controller
 	 }
 
 
-    public function store(Request $request)
+    public function store()
     {
 		 Category::create(request()->all());
 		 return redirect('admin/categories');

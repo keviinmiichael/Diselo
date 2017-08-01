@@ -135,7 +135,7 @@
                                         <section class="col col-md-4 col-sm-12 col-xs-12">
                                             <label class="label">Estado:</label>
                                             <label class="select">
-                                                {!! Form::select('visible', [0=>'Oculto', 1=>'Visible']) !!}
+                                                {!! Form::select('is_visible', ['0'=>'Oculto', '1'=>'Visible']) !!}
                                                 <i></i>
                                             </label>
                                         </section>

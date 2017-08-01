@@ -33,7 +33,7 @@ class ProductsController extends Controller
     public function store()
     {
         Product::create(request()->all());
-        return redirect('admin/products');
+        return redirect('admin/products#new');
     }
 
     public function edit(Product $product)
@@ -48,7 +48,7 @@ class ProductsController extends Controller
         $product->update(request()->all());
         $this->addImages($product);
         if (request()->ajax()) return $product->toArray();
-        return redirect('admin/products');
+        return redirect('admin/products#edit');
     }
 
     public function destroy($id)

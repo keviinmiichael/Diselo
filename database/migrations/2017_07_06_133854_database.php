@@ -18,6 +18,7 @@ class Database extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name');
+            $table->text('description');
             $table->string('slug');
             $table->string('code',50)->unique(); //código interno de indentificación que tiene el cliente.
             $table->float('price',8,2)->unsigned()->nullable();
@@ -26,7 +27,7 @@ class Database extends Migration
             //$table->smallInteger('stock'); El stock es la cantidad de un producto en relación a un talle
             $table->smallInteger('category_id')->unsigned()->index(); //<<relación>> con category
             $table->smallInteger('subcategory_id')->nullable()->unsigned()->index(); //<<relación>> con category
-            $table->boolean('visible')->default(1);
+            $table->boolean('is_visible')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +36,7 @@ class Database extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->smallInteger('product_id')->unsigned();
             $table->tinyInteger('size_id')->unsigned();
+            $table->smallInteger('amount')->unsigned();
 
             //índices
             $table->primary(['product_id', 'size_id']);

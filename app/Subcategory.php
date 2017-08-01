@@ -12,7 +12,7 @@ class Subcategory extends Model
 {
     use SoftDeletes, Sluggable, Unite, ToForm;
 
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'category_id'];
 
     public function category()
     {

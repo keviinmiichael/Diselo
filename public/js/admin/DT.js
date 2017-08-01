@@ -53,7 +53,7 @@ var DT = (function (w, $, undefined) {
                 $('.datatable_filter input').focus();
                 responsiveHelper_dt_basic.respond();
                 settings.fnDrawCallback(oSettings);
-                if (settings.columns.join().indexOf('stateSwicher') != -1) stateSwicher.onChange();
+                if (settings.columns.join().indexOf('stateSwitcher') != -1) stateSwitcher.onChange();
                 if (settings.columns.join().indexOf('actions') != -1) actions.onDelete();
             },
             columnDefs: generateColumns(),
@@ -114,13 +114,13 @@ var DT = (function (w, $, undefined) {
             var text = row[prop] || '';
             return (text.length > length)?'<a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title=\''+text+'\' data-html="false">'+text.substring(0, length)+'...'+'</a>':text;
         },
-        stateSwicher: function (row, prop, parameters) {
+        stateSwitcher: function (row, prop, parameters) {
             var index = parameters.indexOf(':');
             if (index != -1) {
                 var states = JSON.parse(parameters.slice(index+1));
-                stateSwicher.setState(states);
+                stateSwitcher.setState(states);
             }
-            return stateSwicher.render(row[prop], row);
+            return stateSwitcher.render(row[prop], row);
         },
         actions:  function(row, prop, parameters) {
             return actions.render(row);
@@ -145,7 +145,7 @@ var DT = (function (w, $, undefined) {
     //FIN IMAGEN
 
     //ESTADO
-    var stateSwicher = {
+    var stateSwitcher = {
         states: {
             0:{label:'danger', value:'Oculto'},
             1:{label:'success', value:'Visible'}
@@ -160,7 +160,7 @@ var DT = (function (w, $, undefined) {
         onChange: function() {
             var $this, estado_id, state, waiting = false, data = {};
             var prop = settings.columns.join('|');
-            prop = /\|([^\|]+)\|stateSwicher/.exec(prop)[1];
+            prop = /\|([^\|]+)\|stateSwitcher/.exec(prop)[1];
             $('#datatable').on('click', '.estado', function () {
                 $this = $(this);
                 estado_id = nextState($this.data('estado'));
@@ -173,7 +173,7 @@ var DT = (function (w, $, undefined) {
                         url:'/admin/'+settings.resource+'/'+$this.data('id'),
                         data:data,
                         success: function (object) {
-                            $this.replaceWith(stateSwicher.render(estado_id, object));
+                            $this.replaceWith(stateSwitcher.render(estado_id, object));
                             waiting = false;
                         }
                     });
@@ -183,7 +183,7 @@ var DT = (function (w, $, undefined) {
     }
     function nextState(index) {
         var indexes = [], i = 0, currentIndex, state;
-        for (var key in stateSwicher.states) {
+        for (var key in stateSwitcher.states) {
             indexes.push(key);
             if (key == index) currentIndex = i;
             i++;
@@ -264,7 +264,7 @@ var DT = (function (w, $, undefined) {
         }
     }
     //FIN MODALS
-    
+
     return {
         create : function (selector, data) {
             create(selector, data);

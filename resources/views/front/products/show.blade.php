@@ -3,6 +3,10 @@
 @section('title', 'Diselo')
 @section('description', 'Coso')
 
+@section('breadcrumb')
+	@parent
+	<li class="active">Test</li>
+@endsection
 
 
 @section('body')
@@ -139,11 +143,6 @@
 					<li class="active">
 						<a href="#tab-description">Description</a>
 					</li>
-					<li>
-						<a href="#tab-specification">Specification</a>
-					</li>
-					<li><a href="#tab-ainfo">Additional Information</a></li>
-					<li><a href="#tab-review">Review</a></li>
 				</ul>
 			<!-- Nav Tabs Ends -->
 			<!-- Tab Content Starts -->
@@ -158,87 +157,6 @@
 						</p>
 					</div>
 				<!-- Description Ends -->
-				<!-- Specification Starts -->
-					<div class="tab-pane" id="tab-specification">
-						<table class="table table-bordered">
-							<thead>
-							  <tr>
-								<td colspan="2"><strong>Name</strong></td>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-								<td>Name</td>
-								<td>Attribute Specification</td>
-							  </tr>
-							</tbody>
-						</table>
-						<table class="table table-bordered">
-							<thead>
-							  <tr>
-								<td colspan="2"><strong>Name</strong></td>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-								<td>Name</td>
-								<td>Attribute Specification</td>
-							  </tr>
-							</tbody>
-						</table>
-					</div>
-				<!-- Specification Ends -->
-				<!-- Additional Information Starts -->
-					<div class="tab-pane" id="tab-ainfo">
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-						</p>
-					</div>
-				<!-- Additional Information Ends -->
-				<!-- Review Starts -->
-					<div class="tab-pane" id="tab-review">
-						<form class="form-horizontal">
-							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-name">Name</label>
-								<div class="col-sm-10">
-								<input type="text" name="name" value="" id="input-name" class="form-control" />
-								</div>
-							</div>
-							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-review">Review</label>
-								<div class="col-sm-10">
-									<textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-									<div class="help-block">
-										Some note goes here..
-									</div>
-								</div>
-							</div>
-							<div class="form-group required">
-								<label class="col-sm-2 control-label ratings">Ratings</label>
-								<div class="col-sm-10">
-									Bad&nbsp;
-									<input type="radio" name="rating" value="1" />
-									&nbsp;
-									<input type="radio" name="rating" value="2" />
-									&nbsp;
-									<input type="radio" name="rating" value="3" />
-									&nbsp;
-									<input type="radio" name="rating" value="4" />
-									&nbsp;
-									<input type="radio" name="rating" value="5" />
-									&nbsp;Good
-								</div>
-							</div>
-							<div class="buttons">
-								<div class="col-sm-offset-2 col-sm-10">
-									<button type="button" id="button-review" class="btn btn-main">
-										Submit
-									</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				<!-- Review Ends -->
 				</div>
 			<!-- Tab Content Ends -->
 			</div>
@@ -380,10 +298,4 @@
 		</div>
 	<!-- Main Container Ends -->
 
-@endsection
-
-
-@section('breadcrumb')
-    @parent
-    <li class="active">Test</li>
 @endsection

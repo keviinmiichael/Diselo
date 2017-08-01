@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Subcategory;
 
 class SubcategoriesController extends Controller
 {
@@ -20,15 +21,17 @@ class SubcategoriesController extends Controller
 		 return view('admin.subcategories.index');
     }
 
-    public function create()
+	 public function create($category_id)
     {
-        //
-    }
+		 $subcategory = new Subcategory;
+		 return view('admin.subcategories.form', compact('subcategory', 'category_id'));
+	 }
 
 
-    public function store(Request $request)
+    public function store()
     {
-        //
+		 Subcategory::create(request()->all());
+		 return redirect('admin/categories');
     }
 
 

@@ -30,6 +30,14 @@ class DatabaseSeeder extends Seeder
             ['value' => 'Recibida']
         ]);
 
+        \DB::table('sizes')->insert([
+            ['value' => 'XS'],
+            ['value' => 'S'],
+            ['value' => 'M'],
+            ['value' => 'L'],
+            ['value' => 'XL']
+        ]);
+
         factory(App\Client::class, 3)->create()->each(function ($client) {
             $client->purchases()->saveMany(factory(App\Purchase::class,2)->make());
         });

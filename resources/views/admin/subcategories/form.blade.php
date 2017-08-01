@@ -9,7 +9,7 @@
         <!-- breadcrumb -->
         <ol class="breadcrumb">
             <li>Home</li>
-            <li>Categorias</li>
+            <li>Subcategorias</li>
             <li>{{ $viewConfig['accion'] }}</li>
         </ol>
         <!-- end breadcrumb -->
@@ -28,7 +28,7 @@
 
                     <!-- PAGE HEADER -->
                     <i class="fa-fw fa fa-th-large"></i>
-                        Categorias
+                        Subcategorias
                     <span>>
                         {{ $viewConfig['accion'] }}
                     </span>
@@ -70,7 +70,8 @@
 
                         <!-- widget content -->
                         <div class="widget-body">
-                            {!! Form::model($category, $formOptions) !!}
+                            {!! Form::model($subcategory, $formOptions) !!}
+									 <input type="hidden" name="category_id" value="{{$category_id}}">
                                 <fieldset>
                                     <legend>Datos</legend>
                                     <div class="row">
@@ -122,5 +123,5 @@
 
 @section('scripts')
     <script src="/js/admin/plugin/jquery-form/jquery-form.min.js"></script>
-    <script src="/js/admin/category.js"></script>
+    <script src="/js/admin/subcategory.js"></script>
 @endsection
