@@ -16,7 +16,7 @@
             <!-- Sidebar Starts -->
             <div class="col-md-3">
                  @include('front.asides.categories')
-                 @include('front.asides.bestsellers')
+                 {{-- @include('front.asides.bestsellers') --}}
             </div>
             <!-- Sidebar Ends -->
             <!-- Primary Content Starts -->

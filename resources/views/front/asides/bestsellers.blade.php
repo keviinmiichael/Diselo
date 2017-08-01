@@ -9,7 +9,7 @@
             We are so lucky living in such a wonderful time. Our almost unlimited ...
         </div>
         <div class="price">
-            <span class="price-new">${{ $bestsellers->price }}</span> 
+            <span class="price-new">${{ $bestsellers->price }}</span>
         </div>
     </div>
 </div>
