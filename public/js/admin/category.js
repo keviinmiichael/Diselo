@@ -1,9 +1,10 @@
 var Category = (function (w, $, undefined) {
 
     function init () {
-		 $('.saveForm').on('click', function () {
-			  $('#form').submit();
-		 });
+		$('.saveForm').on('click', function () {
+		  $('#form').submit();
+		});
+        $('#left-panel li[data-nav="categories"]').addClass('active');
     }
 
     return {

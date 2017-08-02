@@ -2,16 +2,13 @@ var Categories = (function (w, $, undefined) {
 
     function init () {
         dtInit();
+        boxes();
+        $('#left-panel li[data-nav="categories"]').addClass('active');
     }
 
-    /*
-
-    var states = {
-        2:{label:'warning', value:'Oculto'},
-        1:{label:'success', value:'Visible'}
-    };
-
-    */
+    var extraButtons = [
+        {'title': 'Subcategorías', 'class': 'btn-success', 'href': '/admin/categories/${row.id}/subcategories', 'icon': 'fa-list'}
+    ]    
 
     //Data Table
     function dtInit() {
@@ -19,11 +16,16 @@ var Categories = (function (w, $, undefined) {
             resource: 'categories',
             columns: [
                 'name|limit',
-                'id|actions'
+                'id|actions:'+JSON.stringify(extraButtons)
             ]
         });
     }
     //fin Data Table
+
+    function boxes () {
+        Box.small({title: 'Perfecto', content:'La categoría se cargó con éxito.'}).success().showIfHash('new');
+        Box.small({title: 'Perfecto', content:'La categoría se editó con éxito.'}).success().showIfHash('edit');
+    }
     
     return {
         init : function () {

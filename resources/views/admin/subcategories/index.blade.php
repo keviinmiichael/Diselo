@@ -8,7 +8,9 @@
     <div id="ribbon">
         <!-- breadcrumb -->
         <ol class="breadcrumb">
-            <li>Home</li><li>Subcategorías</li>
+            <li>Home</li>
+            <li>{{ $category->name }}</li>
+            <li>Subcategorías</li>
         </ol>
         <!-- end breadcrumb -->
     </div>
@@ -26,13 +28,17 @@
 
                     <!-- PAGE HEADER -->
                     <i class="fa-fw fa fa-list"></i>
-                        Subcategorías
+                        {{ $category->name }}
                     <span>>
-                        Listado
+                        Subcategorías
                     </span>
                 </h1>
             </div>
             <!-- end col -->
+
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8 text-right">
+                <a href="/admin/categories/{{$category->id}}/subcategories/create" class="btn btn-success"><span class="fa fa-plus"></span> Agregar</a>
+            </div>
 
         </div>
         <!-- end row -->
@@ -82,6 +88,7 @@
 
                                     </tbody>
                                 </table>
+                                <input type="hidden" name="category_id" id="category_id" value="{{ $category->id }}">
                             </div>
                             <!-- /widget content -->
 

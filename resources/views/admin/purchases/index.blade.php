@@ -25,7 +25,7 @@
                 <h1 class="page-title txt-color-blueDark">
 
                     <!-- PAGE HEADER -->
-                    <i class="fa-fw fa fa-list"></i>
+                    <i class="fa-fw fa fa-shopping-cart"></i>
                         Compras
                     <span>>
                         Listado

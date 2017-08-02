@@ -9,33 +9,28 @@ use App\Http\Controllers\Controller;
 class ClientsController extends Controller
 {
 
-	 public function json()
-	 {
-		 $data = Client::dt()->search()->get();
-		 $recordsTotal = Client::count();
-		 $recordsFiltered = Client::search()->count();
-		 return compact('data', 'recordsTotal', 'recordsFiltered');
-	 }
+	public function json()
+	{
+		$data = Client::dt()->search()->get();
+		$recordsTotal = Client::count();
+		$recordsFiltered = Client::search()->count();
+		return compact('data', 'recordsTotal', 'recordsFiltered');
+	}
+
     public function index()
     {
-		 return view('admin.clients.index');
+		return view('admin.clients.index');
     }
 
-    /**
-    * Observaciones:
-    * El Método create solamente debe mostrar el formlario de creación.
-    * Para hacer la persistencia de un recurso se hace en el método store.
-    */
     public function create()
     {
 		 
-	 }
+	}
 
-
-    public function store(Request $request)
+    public function store()
     {
-		 Client::create(request()->all());
-		 return redirect('admin/products');
+		Client::create(request()->all());
+		return redirect('admin/clients#new');
     }
 
     public function show($id)

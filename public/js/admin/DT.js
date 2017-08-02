@@ -27,7 +27,7 @@ var DT = (function (w, $, undefined) {
                 data: function(d) {
                     if (settings.data) {
                         for (var i in settings.data)
-                        d[i] = oSettings.data[i];
+                        d[i] = settings.data[i];
                     }
                 }
             },
@@ -67,7 +67,7 @@ var DT = (function (w, $, undefined) {
             column = settings.columns[i].split('|', 1).join('');
             result.push({
                 mData: column,
-                sTitle: column
+                //sTitle: column
             });
         }
         return result;
@@ -123,7 +123,13 @@ var DT = (function (w, $, undefined) {
             return stateSwitcher.render(row[prop], row);
         },
         actions:  function(row, prop, parameters) {
-            return actions.render(row);
+            var buttons = actions.render(row);
+            var index = parameters.indexOf(':');
+            if (index != -1) {
+                var options = JSON.parse(parameters.slice(index+1));
+                buttons = actions.extraButtons(row, prop, options);
+            }
+            return buttons.replace(/\$\{[a-zA-Z0-9\._-]+\}/g, '');
         }
     }
 
@@ -170,7 +176,7 @@ var DT = (function (w, $, undefined) {
                     waiting = true;
                     $.ajax({
                         type:'put',
-                        url:'/admin/'+settings.resource+'/'+$this.data('id'),
+                        url:settings.resource+'/'+$this.data('id'),
                         data:data,
                         success: function (object) {
                             $this.replaceWith(stateSwitcher.render(estado_id, object));
@@ -194,11 +200,36 @@ var DT = (function (w, $, undefined) {
 
     //ACCIONES
     var actions = {
+        tpl: '',
         render: function (row) {
-            return '\
-                <a href="/admin/'+settings.resource+'/'+row.id+'/edit" title="Editar" rel="tooltip" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>\
+            this.tpl = '\
+                <a href="'+settings.resource+'/'+row.id+'/edit" title="Editar" rel="tooltip" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>\
+                ${extraButtons}\
                 <a data-id="'+row.id+'" title="Borrar" rel="tooltip" class="borrar btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>\
             ';
+            return this.tpl;
+        },
+        extraButtons: function (row, prop, options) {
+            var button, value, i, attr, matches, regex = /\$\{row\.([a-zA-Z0-9_]+)\}/g;
+            var anchor = '<a rel="tooltip" class="btn btn-sm ${class}" ${attr}><i class="fa ${icon}"></i></a>';
+            for (i in options) {
+                button = options[i];
+                tpl = anchor;
+                for (attr in button) {
+                    value = button[attr];
+                    if (attr == 'class' || attr == 'icon') {
+                        tpl = tpl.replace('${'+attr+'}', value);
+                    } else {
+                        tpl = tpl.replace('${attr}', attr+'="'+value+'" '+'${attr}');
+                    }
+                }
+                while ((matches = regex.exec(tpl)) !== null) {
+                    tpl = tpl.replace(matches[0], row[matches[1]]);
+                }
+                this.tpl = this.tpl.replace('${extraButtons}', tpl+' ${extraButtons}');
+            }
+            this.tpl = this.tpl.replace('${extraButtons}', '');
+            return this.tpl;
         },
         onDelete: function() {
             var $this, id;
@@ -212,7 +243,7 @@ var DT = (function (w, $, undefined) {
                     modals.loader();
                     $.ajax({
                         type:'delete',
-                        url: '/admin/'+settings.resource+'/'+id,
+                        url: settings.resource+'/'+id,
                         success: function (response) {
                             modals.delete.hide();
                             if (response.success) {

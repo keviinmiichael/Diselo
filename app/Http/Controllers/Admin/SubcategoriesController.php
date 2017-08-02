@@ -8,48 +8,42 @@ use App\Subcategory;
 
 class SubcategoriesController extends Controller
 {
-	 public function json()
-	 {
-		  $data = Subcategory::dt()->search()->get();
-		  $recordsTotal = Subcategory::count();
-		  $recordsFiltered = Subcategory::search()->count();
-		  return compact('data', 'recordsTotal', 'recordsFiltered');
-	 }
-
-    public function index()
-    {
-		 return view('admin.subcategories.index');
+	public function json()
+	{
+		$data = Subcategory::where('category_id', request('category_id'))->dt()->search()->get();
+		$recordsTotal = Subcategory::where('category_id', request('category_id'))->count();
+		$recordsFiltered = Subcategory::where('category_id', request('category_id'))->search()->count();
+		return compact('data', 'recordsTotal', 'recordsFiltered');
     }
 
-	 public function create($category_id)
+    public function index(\App\Category $category)
     {
-		 $subcategory = new Subcategory;
-		 return view('admin.subcategories.form', compact('subcategory', 'category_id'));
-	 }
+		return view('admin.subcategories.index', compact('category'));
+    }
+
+	 public function create(\App\Category $category)
+    {
+		$subcategory = new Subcategory;
+		return view('admin.subcategories.form', compact('subcategory', 'category'));
+	}
 
 
     public function store()
     {
-		 Subcategory::create(request()->all());
-		 return redirect('admin/categories');
+		Subcategory::create(request()->all());
+		return redirect('admin/categories/'.request('category_id').'/subcategories#new');
+    }
+
+    public function edit(\App\Category $category, Subcategory $subcategory)
+    {
+        return view('admin.subcategories.form', compact('subcategory', 'category'));
     }
 
 
-    public function show($id)
+    public function update(\App\Category $category, Subcategory $subcategory)
     {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
+        $subcategory->update(request()->all());
+        return redirect('admin/categories/'.$category->id.'/subcategories#new');
     }
 
 

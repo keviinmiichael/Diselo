@@ -24,4 +24,5 @@ input[disabled] {background-color: #efefef !important; cursor: not-allowed !impo
 .ui-sortable-placeholder {height: auto !important; visibility: visible !important; vertical-align: top;}
 .ui-sortable-placeholder::before {content: ''; display: block; outline: 1px dashed #a8a8a8; width: 100%; padding-top: 100%; box-sizing: border-box;}
 #sliderImagenes .empty {margin: 60px 0; font-size: 24px; text-align: center}
+.dataTable .label {cursor: pointer}
 /*FIN SLIDER*/

@@ -33,6 +33,10 @@
                 </h1>
             </div>
             <!-- end col -->
+
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8 text-right">
+                <a href="/admin/products/create" class="btn btn-success"><span class="fa fa-plus"></span> Agregar</a>
+            </div>
             
         </div>
         <!-- end row -->

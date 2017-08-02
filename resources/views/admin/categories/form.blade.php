@@ -27,7 +27,7 @@
                 <h1 class="page-title txt-color-blueDark">
 
                     <!-- PAGE HEADER -->
-                    <i class="fa-fw fa fa-th-large"></i>
+                    <i class="fa-fw fa fa-list"></i>
                         Categorias
                     <span>>
                         {{ $viewConfig['accion'] }}
@@ -74,7 +74,7 @@
                                 <fieldset>
                                     <legend>Datos</legend>
                                     <div class="row">
-                                        <section class="col col-md-9 col-sm-12 col-xs-12">
+                                        <section class="col col-md-12 col-sm-12 col-xs-12">
                                             <label class="label">Nombre:</label>
                                             <label class="input">
                                                 {!! Form::text('name', null, ['autofocus']) !!}

@@ -5,6 +5,17 @@ var Purchases = (function (w, $, undefined) {
         $('#left-panel li[data-nav="purchases"]').addClass('active');
     }
 
+    var states = {
+        1:{label:'danger', value:'Pendiente'},
+        2:{label:'warning', value:'Enviada'},
+        3:{label:'success', value:'Recibida'},
+    };
+
+    var paid = {
+        0:{label:'danger', value:'Impaga'},
+        1:{label:'success', value:'Saldada'}
+    }
+
     //Data Table
     function dtInit() {
         window.DT.create('#datatable', {
@@ -14,7 +25,7 @@ var Purchases = (function (w, $, undefined) {
                 'cost',
                 'paid',
                 'client',
-                'state_id|stateSwitcher',
+                'state_id|stateSwitcher:'+JSON.stringify(states),
                 'id|actions'
             ]
         });

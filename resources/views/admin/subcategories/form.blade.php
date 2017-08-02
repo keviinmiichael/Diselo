@@ -9,6 +9,7 @@
         <!-- breadcrumb -->
         <ol class="breadcrumb">
             <li>Home</li>
+            <li>{{ $category->name }}</li>
             <li>Subcategorias</li>
             <li>{{ $viewConfig['accion'] }}</li>
         </ol>
@@ -27,7 +28,7 @@
                 <h1 class="page-title txt-color-blueDark">
 
                     <!-- PAGE HEADER -->
-                    <i class="fa-fw fa fa-th-large"></i>
+                    <i class="fa-fw fa fa-list"></i>
                         Subcategorias
                     <span>>
                         {{ $viewConfig['accion'] }}
@@ -71,11 +72,11 @@
                         <!-- widget content -->
                         <div class="widget-body">
                             {!! Form::model($subcategory, $formOptions) !!}
-									 <input type="hidden" name="category_id" value="{{$category_id}}">
+								<input type="hidden" name="category_id" value="{{ $category->id }}">
                                 <fieldset>
                                     <legend>Datos</legend>
                                     <div class="row">
-                                        <section class="col col-md-9 col-sm-12 col-xs-12">
+                                        <section class="col col-md-12 col-sm-12 col-xs-12">
                                             <label class="label">Nombre:</label>
                                             <label class="input">
                                                 {!! Form::text('name', null, ['autofocus']) !!}
