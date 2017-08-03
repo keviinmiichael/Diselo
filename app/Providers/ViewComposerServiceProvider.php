@@ -57,7 +57,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         view()->composer('front/asides/bestsellers', function ($view)
         {
-            $bestsellers = \App\Product::bestsellers();
+            $bestsellers = \App\Product::bestsellers(2);
             $view->with('bestsellers', $bestsellers);
         });
     }
