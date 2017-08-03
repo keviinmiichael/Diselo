@@ -4,12 +4,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-//Frontend
-Route::group(['namespace' => 'Front'], function() {
-    Route::get('test', function () {
-        return view('front.test');
-    });
-});
 
 //Admin
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
@@ -46,4 +40,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
     //orden
     Route::post('sort/{table}', 'SortController@sort');
+});
+
+//Frontend
+Route::group(['namespace' => 'Front'], function() {
+    Route::get('productos', 'ProductsController@index');
+    Route::get('productos/{product}', 'ProductsController@show');
+    
+    Route::get('{category}', 'ProductsController@byCategory');
+    Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
 });

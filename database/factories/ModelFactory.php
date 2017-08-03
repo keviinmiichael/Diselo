@@ -40,6 +40,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'name' => $faker->word,
         'code' => uniqid(),
         'cost' => rand(100,500),
+        'description' => $faker->text(200),
         'profit_margin' => rand(40,70)
     ];
 });
@@ -48,6 +49,7 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'phone' => $faker->phoneNumber,
         'street' => $faker->streetName,
         'number' => rand(100,2000),
         'zip_code' => $faker->postcode,

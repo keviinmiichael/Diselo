@@ -36,6 +36,7 @@ class Database extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->smallInteger('product_id')->unsigned();
             $table->tinyInteger('size_id')->unsigned();
+            $table->tinyInteger('color_id')->unsigned();
             $table->smallInteger('amount')->unsigned();
 
             //índices
@@ -45,7 +46,13 @@ class Database extends Migration
         //SIZES (talles)
         Schema::create('sizes', function (Blueprint $table) {
             $table->tinyInteger('id')->unsigned()->autoIncrement();
-            $table->string('value',30);
+            $table->string('value', 30);
+        });
+
+        //COLORS
+        Schema::create('colors', function (Blueprint $table) {
+            $table->tinyInteger('id')->unsigned()->autoIncrement();
+            $table->string('value', 30);
         });
 
         //PURCHASES
@@ -73,6 +80,8 @@ class Database extends Migration
             $table->float('cost',8,2)->unsigned(); //por unidad
             $table->smallInteger('amount')->unsigned();
             $table->smallInteger('product_id')->unsigned()->index(); //<<relación>> con products
+            $table->tinyInteger('size_id')->unsigned()->index();
+            $table->tinyInteger('color_id')->unsigned()->index();
             $table->mediumInteger('purchase_id')->unsigned()->index(); //<<relación>> con purchase
         });
 
@@ -100,6 +109,7 @@ class Database extends Migration
             $table->smallIncrements('id');
             $table->string('name',127);
             $table->string('email',127);
+            $table->string('phone',50);
             $table->string('street',127);
             $table->string('number',10);
             $table->string('floor',20);
@@ -163,6 +173,7 @@ class Database extends Migration
         Schema::dropIfExists('products');
         Schema::dropIfExists('stock');
         Schema::dropIfExists('sizes');
+        Schema::dropIfExists('colors');
         Schema::dropIfExists('purchases');
         Schema::dropIfExists('purchases_states');
         Schema::dropIfExists('items');

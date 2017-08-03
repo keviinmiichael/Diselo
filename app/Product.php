@@ -87,6 +87,10 @@ class Product extends Model
     }
 
     //scopes
+    public function scopeVisible($query)
+    {
+        $query->where('is_visible', 1);
+    }
     public function scopeSearch($query)
     {
         if (request('search.value')) {
