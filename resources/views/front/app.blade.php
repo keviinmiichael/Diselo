@@ -6,9 +6,10 @@
 </head>
 <body>
     @include('front.partials.header')
-    @include('front.partials.breadcrumb')
 
+@section('body')
 
+	@include('front.partials.breadcrumb')
     <!-- Main Container Starts -->
     <div class="main-container container inner">
         <div class="row">
@@ -28,7 +29,7 @@
         </div>
     </div>
 <!-- Main Container Ends -->
-
+@show
 
 
 @include('front.partials.footer')
