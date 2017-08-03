@@ -46,6 +46,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 Route::group(['namespace' => 'Front'], function() {
     Route::get('productos', 'ProductsController@index');
     Route::get('productos/{product}', 'ProductsController@show');
+
+    Route::post('cart/add', 'CartController@add');
     
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');

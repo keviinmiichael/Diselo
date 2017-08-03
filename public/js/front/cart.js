@@ -1,3 +1,11 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+    }
+});
+
+console.log($('meta[name="csrf-token"]').attr('content'))
+
 var Cart = (function (w, $, undefined) {
 
     function init () {

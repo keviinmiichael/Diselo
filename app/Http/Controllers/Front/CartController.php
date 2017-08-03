@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Subcategory;
 
-class SubcategoriesController extends Controller
+class CartController extends Controller
 {
 
 
-    public function add($id)
+    public function add()
     {
-        //
+        return request('product_id');
     }
 
 
