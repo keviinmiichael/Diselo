@@ -40,7 +40,7 @@ class Database extends Migration
             $table->smallInteger('amount')->unsigned();
 
             //índices
-            $table->primary(['product_id', 'size_id']);
+            $table->primary(['product_id', 'size_id', 'color_id']);
         });
 
         //SIZES (talles)
@@ -108,6 +108,8 @@ class Database extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',127);
+            $table->string('business_name',127);
+            $table->string('shipping',127);
             $table->string('email',127);
             $table->string('phone',50);
             $table->string('street',127);

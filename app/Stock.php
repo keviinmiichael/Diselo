@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-    protected $primaryKey = ['product_id', 'size_id'];
+    protected $primaryKey = ['product_id', 'size_id', 'color_id'];
     protected $table = 'stock';
     protected $fillable = ['product_id', 'size_id', 'amount'];
     public $incrementing = false;
@@ -21,5 +21,20 @@ class Stock extends Model
         }else{
             return parent::setKeysForSaveQuery($query);
         }
+    }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
+
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
+
+    public function size()
+    {
+        return $this->belongsTo('App\Size');
     }
 }
