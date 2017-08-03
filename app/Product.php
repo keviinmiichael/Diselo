@@ -68,20 +68,22 @@ class Product extends Model
     }
     //-----------------
 
-    public static function bestsellers()
+    public static function bestsellers($take=3)
     {
         $start = Carbon::now()->startOfMonth()->toDateString();
         $end = Carbon::now()->endOfMonth()->toDateString();
-        $result = Item::select(\DB::raw('count(product_id) as total, product_id'))
+        $query = Item::select(\DB::raw('count(product_id) as total, product_id'))
             ->unite('purchase')
             ->unite('product')
-            ->whereBetween('purchases.created_at', [$start, $end])
             ->where('products.is_visible', 1)
             ->groupBy('product_id')
             ->orderBy('total', 'desc')
-            ->first()
+            ->take($take)
         ;
-        return Product::find($result->product_id);
+        $products = $query->whereBetween('purchases.created_at', [$start, $end])->get();
+        if (!$products->count()) $products = $query->get();
+        $ids = $products->map(function ($item, $key) {return $item->product_id;});
+        return Product::whereIn('id', $ids->toArray())->get();
     }
 
     //scopes
