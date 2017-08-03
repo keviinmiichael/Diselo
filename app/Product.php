@@ -29,6 +29,11 @@ class Product extends Model
         return $this->belongsTo('App\Subcategory');
     }
 
+    public function stocks()
+    {
+        return $this->hasMany('App\Stock');
+    }
+
     public function images()
     {
         return $this->morphMany('App\Image', 'imageable')->orderBy('order');
