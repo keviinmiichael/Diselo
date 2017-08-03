@@ -52,34 +52,21 @@
 							<div class="form-group">
 								<label for="select" class="control-label text-uppercase">Color:</label>
 								<select name="select" id="select" class="form-control">
-									<option value="1" selected>Color 1</option>
-									<option value="2">Color 2</option>
-									<option value="3">Color 3</option>
+									<option value="0" selected>Selecciona Color</option>
+									@foreach ($color as $key => $value)
+										<option value="{{$key}}">{{$value}}</option>
+									@endforeach
 								</select>
 							</div>
 							<div class="form-group">
 								<label class="control-label text-uppercase">Talle:</label>
 								<div class="radio">
+									@foreach ($size as $key => $value)
 									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-										XS
+										<input type="radio" name="optionsRadios" id="optionsRadios1" value="{{$key}}" checked>
+										{{$value}}
 									</label>
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										S
-									</label>
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										M
-									</label>
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										L
-									</label>
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										XL
-									</label>
+									@endforeach
 								</div>
 							</div>
 
