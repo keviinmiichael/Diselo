@@ -16,6 +16,12 @@ class ProductsController extends Controller
         return view('front.products.index', compact('products'));
 	}
 
+    public function show($product)
+	{
+		$product = \App\Product::where('slug', $product)->firstOrFail();
+        return view('front.products.show', compact('product'));
+	}
+
     public function byCategory($category)
     {
         $category = \App\Category::where('slug', $category)->firstOrFail();

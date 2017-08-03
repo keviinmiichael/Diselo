@@ -16,30 +16,13 @@
 			<div class="row product-info full">
 			<!-- Left Starts -->
 				<div class="col-sm-4 images-block">
-					<a href="images/product-images/big-pimg1.jpg">
-						<img src="images/product-images/pimg3.jpg" alt="Image" class="img-responsive thumbnail" />
-					</a>
+						<img src="/content/products/250x320/{{$product->thumb}}" alt="Image" class="img-responsive thumbnail" />
 					<ul class="list-unstyled list-inline">
-						<li>
-							<a href="images/product-images/big-pimg2.jpg">
-								<img src="images/product-images/thumb1.jpg" alt="Image" class="img-responsive thumbnail" />
-							</a>
+					@foreach ($product->images as $image)
+						<li style="width:77px">
+								<img src="/content/products/thumb/{{$image->src}}" alt="Image" class="img-responsive thumbnail" />
 						</li>
-						<li>
-							<a href="images/product-images/big-pimg3.jpg">
-								<img src="images/product-images/thumb2.jpg" alt="Image" class="img-responsive thumbnail" />
-							</a>
-						</li>
-						<li>
-							<a href="images/product-images/big-pimg4.jpg">
-								<img src="images/product-images/thumb3.jpg" alt="Image" class="img-responsive thumbnail" />
-							</a>
-						</li>
-						<li>
-							<a href="images/product-images/big-pimg4.jpg">
-								<img src="images/product-images/thumb4.jpg" alt="Image" class="img-responsive thumbnail" />
-							</a>
-						</li>
+					@endforeach
 					</ul>
 				</div>
 			<!-- Left Ends -->
@@ -47,28 +30,19 @@
 				<div class="col-sm-8 product-details">
 					<div class="panel-smart">
 					<!-- Product Name Starts -->
-						<h2>Digital Electro Goods</h2>
+						<h2>{{$product->name}}</h2>
 					<!-- Product Name Ends -->
 						<hr />
 					<!-- Manufacturer Starts -->
 						<ul class="list-unstyled manufacturer">
-							<li>
-								<span>Brand:</span> Indian spices
-							</li>
-							<li><span>Model:</span> SKU012452</li>
-							<li><span>Reward Points:</span> 300</li>
-							<li>
-								<span>Availability:</span> <strong class="label label-danger">Out Of Stock</strong>
-							</li>
+							<li><span>Modelo:</span> {{$product->code}}</li>
 						</ul>
 					<!-- Manufacturer Ends -->
 						<hr />
 					<!-- Price Starts -->
 						<div class="price">
-							<span class="price-head">Price :</span>
-							<span class="price-new">$199.50</span>
-							<span class="price-old">$249.50</span>
-							<p class="price-tax">Ex Tax: $279.99</p>
+							<span class="price-head">Precio :</span>
+							<span class="price-new">${{$product->price}}</span>
 						</div>
 					<!-- Price Ends -->
 						<hr />
@@ -108,21 +82,7 @@
 									</label>
 								</div>
 							</div>
-							{{-- <div class="form-group">
-								<label class="control-label text-uppercase">Checkbox:</label>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="">
-										Option one is this and that&mdash;be sure to include why it's great
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="" checked>
-										Option two is checked
-									</label>
-								</div>
-							</div> --}}
+
 							<div class="form-group">
 								<label class="control-label text-uppercase" for="input-quantity">Cantidad:</label>
 								<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
@@ -151,7 +111,7 @@
 			<!-- Nav Tabs Starts -->
 				<ul class="nav nav-tabs">
 					<li class="active">
-						<a href="#tab-description">Description</a>
+						<a href="#tab-description">Descripcion</a>
 					</li>
 				</ul>
 			<!-- Nav Tabs Ends -->
@@ -160,11 +120,9 @@
 				<!-- Description Starts -->
 					<div class="tab-pane active" id="tab-description">
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+							{{$product->description}}
 						</p>
-						<p>
-							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-						</p>
+
 					</div>
 				<!-- Description Ends -->
 				</div>

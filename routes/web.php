@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('front.cart.index');
+    return view('front.products.show');
 });
 
 
@@ -44,9 +44,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
 //Frontend
 Route::group(['namespace' => 'Front'], function() {
-    Route::get('productos', 'ProductsController@index');
-    Route::get('productos/{product}', 'ProductsController@show');
-    
-    Route::get('{category}', 'ProductsController@byCategory');
-    Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
+	Route::get('productos', 'ProductsController@index');
+	Route::get('productos/{product}', 'ProductsController@show');
+
+	// Route::get('{category}', 'ProductsController@byCategory');
+	// Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
 });
