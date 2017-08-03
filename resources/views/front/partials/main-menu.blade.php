@@ -1,3 +1,4 @@
+
 <nav id="main-menu" class="navbar" role="navigation">
     <!-- Nested Container Starts -->
     <div class="container">
@@ -27,7 +28,7 @@
                         <li><a href="{{$category->slug}}">{{$category->name}}</a></li>
                     @endif
                 @endforeach
-                
+
             </ul>
         </div>
         <!-- Navbar Cat collapse Ends -->

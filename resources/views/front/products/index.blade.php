@@ -19,7 +19,7 @@
 						<img src="images/product-images/15.jpg" alt="product" class="img-responsive" />
 					</div>
 					<div class="caption">
-						<h4><a href="product.html">Digital Electro Goods</a></h4>
+						<h4><a href="product.html">NOMBRE DE PRDUCTOO</a></h4>
 						<div class="description">
 							We are so lucky living in such a wonderful time. Our almost unlimited ...
 						</div>
@@ -44,5 +44,7 @@
 			</div>
 		<!-- Product #1 Ends -->
 	@endsection
+
+
 
 @endsection

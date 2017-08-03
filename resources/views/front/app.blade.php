@@ -9,25 +9,25 @@
     @include('front.partials.breadcrumb')
 
 
-@section('body')
     <!-- Main Container Starts -->
     <div class="main-container container inner">
         <div class="row">
-            <!-- Sidebar Starts -->
-            <div class="col-md-3">
-                 @include('front.asides.categories')
-                 @include('front.asides.bestsellers')
-            </div>
-            <!-- Sidebar Ends -->
+			@section('left-bar')
+				<!-- Sidebar Starts -->
+				<div class="col-md-3">
+					@include('front.asides.categories')
+					{{-- @include('front.asides.bestsellers') --}}
+				</div>
+				<!-- Sidebar Ends -->
+			@show
             <!-- Primary Content Starts -->
-            <div class="col-md-9">
+            <div class="col-md-@yield("col", 9)">
 					@yield("content")
             </div>
             <!-- Primary Content Ends -->
         </div>
     </div>
 <!-- Main Container Ends -->
-@show
 
 
 

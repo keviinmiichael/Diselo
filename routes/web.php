@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('front.products.index');
+    return view('index');
 });
 
 //Frontend
