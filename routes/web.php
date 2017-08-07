@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('front.cart.index');
+    return view('front.products.show');
 });
 
 
