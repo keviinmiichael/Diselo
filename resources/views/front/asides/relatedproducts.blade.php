@@ -17,18 +17,11 @@
 						</div>
 						<div class="price">
 							<span class="price-new">$199.50</span>
-							<span class="price-old">$249.50</span>
 						</div>
 						<div class="cart-button button-group">
 							<button type="button" class="btn btn-cart">
 								<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
 								Add to Cart
-							</button>
-							<button type="button" title="Wishlist" class="btn btn-wishlist">
-								<i class="fa fa-heart"></i>
-							</button>
-							<button type="button" title="Compare" class="btn btn-compare">
-								<i class="fa fa-bar-chart-o"></i>
 							</button>
 						</div>
 					</div>
@@ -48,18 +41,11 @@
 						</div>
 						<div class="price">
 							<span class="price-new">$199.50</span>
-							<span class="price-old">$249.50</span>
 						</div>
 						<div class="cart-button button-group">
 							<button type="button" class="btn btn-cart">
 								<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
 								Add to Cart
-							</button>
-							<button type="button" title="Wishlist" class="btn btn-wishlist">
-								<i class="fa fa-heart"></i>
-							</button>
-							<button type="button" title="Compare" class="btn btn-compare">
-								<i class="fa fa-bar-chart-o"></i>
 							</button>
 						</div>
 					</div>
@@ -79,18 +65,11 @@
 						</div>
 						<div class="price">
 							<span class="price-new">$199.50</span>
-							<span class="price-old">$249.50</span>
 						</div>
 						<div class="cart-button button-group">
 							<button type="button" class="btn btn-cart">
 								<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
 								Add to Cart
-							</button>
-							<button type="button" title="Wishlist" class="btn btn-wishlist">
-								<i class="fa fa-heart"></i>
-							</button>
-							<button type="button" title="Compare" class="btn btn-compare">
-								<i class="fa fa-bar-chart-o"></i>
 							</button>
 						</div>
 					</div>
@@ -110,18 +89,11 @@
 						</div>
 						<div class="price">
 							<span class="price-new">$199.50</span>
-							<span class="price-old">$249.50</span>
 						</div>
 						<div class="cart-button button-group">
 							<button type="button" class="btn btn-cart">
 								<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
 								Add to Cart
-							</button>
-							<button type="button" title="Wishlist" class="btn btn-wishlist">
-								<i class="fa fa-heart"></i>
-							</button>
-							<button type="button" title="Compare" class="btn btn-compare">
-								<i class="fa fa-bar-chart-o"></i>
 							</button>
 						</div>
 					</div>
