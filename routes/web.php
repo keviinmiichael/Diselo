@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', function () {
+Route::get('test', function () {
     return view('front.products.show');
 });
 
@@ -44,6 +44,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
 //Frontend
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/', function () {
+        return view('front.index');
+    });
+
     Route::get('productos', 'ProductsController@index');
     Route::get('productos/{product}', 'ProductsController@show');
 

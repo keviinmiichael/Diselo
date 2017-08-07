@@ -44,18 +44,23 @@ var Cart = (function (w, $, undefined) {
         $('.cart-button .btn').on('click', function (e) {
             e.preventDefault();
             var $this = $(this);
-            $this.find('i').toggleClass('fa-spin fa-spinner');
+            $this.find('i').attr('class', 'fa fa-spin fa-spinner');
             $.ajax({
                 url: '/cart/add',
                 type: 'post',
-                data: {producto_id: $this.data('id')},
+                data: {product_id: $this.data('id')},
                 success: function (response) {
-                    /*
-                    $this.replaceWith('<a href="remover-producto" data-id="'+$this.data('id')+'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>');
-                    $("#nav-pedido").effect("shake", {distance: 5, times: 2});
-                    totalItems = $("#nav-pedido .badge").text() || 0;
-                    $("#nav-pedido .badge").text(totalItems*1+1);
-                    */
+                    $('#cart-total').text(response.totalItems+' item(s)');
+                    if ($this.data('action') == 'add') {
+                        $this.data('action', 'remove');
+                        $this.find('i').attr('class', 'fa fa-trash');
+                        $this.find('span').text('Remover');
+                    } else {
+                        $this.data('action', 'add');
+                        $this.find('i').attr('class', 'fa fa-shopping-cart');
+                        $this.find('span').text('Agregar al carrito');
+                    }
+                    
                 }
             });
         });

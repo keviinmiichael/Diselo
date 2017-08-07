@@ -1,7 +1,7 @@
 @extends('front.app')
 
-@section('title', 'Diselo')
-@section('description', 'Coso')
+@section('title', 'Listado de proudctos')
+@section('description', 'Indumentaria - Remeras, vestidos, pantalones')
 
 @section('breadcrumb')
 	@parent
@@ -12,7 +12,7 @@
 @section('body')
 	@parent
 	@section('content')
-        @foreach($products as $product)
+        @forelse($products as $product)
             <div class="col-md-4 col-sm-6">
                 <div class="product-col">
                     <div class="image">
@@ -27,15 +27,24 @@
                             <span class="price-new">$ {{ number_format($product->price, 0, ',', '.') }}</span>
                         </div>
                         <div class="cart-button button-group">
-                            <button type="button" class="btn btn-cart">
-                                <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
-                                Add to Cart
-                            </button>
+                            @if(session()->has('cart') && in_array($product->id, session('cart')))
+                                <button type="button" class="btn btn-cart" data-action="remove" data-id="{{$product->id}}">
+                                    <i class="fa fa-trash"></i>
+                                    <span>Remover</span>
+                                </button>
+                            @else
+                                <button type="button" class="btn btn-cart" data-action="add" data-id="{{$product->id}}">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Agregar al carrito</span>
+                                </button>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <h1>Por el momento no contamos con stock para estos productos. Volvé a visitarnos en breve.</h1>
+        @endforelse
         {{ $products->links() }}
 	@endsection
 @endsection

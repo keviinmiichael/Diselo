@@ -12,7 +12,13 @@ class CartController extends Controller
 
     public function add()
     {
-        return request('product_id');
+        $id = request('product_id');
+        if (!session()->has('cart') || !in_array($id, session('cart'))) {
+            session()->push('cart',  $id);
+        } elseif ( ($key = array_search($id, session('cart'))) !== FALSE) {
+            session()->forget("cart.$key");
+        }
+        return ['success' => true, 'totalItems' => count(session('cart'))];
     }
 
 
