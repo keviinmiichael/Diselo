@@ -1,7 +1,7 @@
 <?php
 
 Route::get('test', function () {
-    return view('front.products.show');
+    return view('front.cart.index');
 });
 
 
@@ -52,7 +52,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('productos/{product}', 'ProductsController@show');
 
     Route::post('cart/add', 'CartController@add');
-    
+
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
 });

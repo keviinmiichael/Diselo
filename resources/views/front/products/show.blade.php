@@ -75,15 +75,9 @@
 								<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
 							</div>
 							<div class="cart-button button-group">
-								<button type="button" title="Wishlist" class="btn btn-wishlist">
-									<i class="fa fa-heart"></i>
-								</button>
-								<button type="button" title="Compare" class="btn btn-compare">
-									<i class="fa fa-bar-chart-o"></i>
-								</button>
 								<button type="button" class="btn btn-cart">
 									<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
-									Add to Cart
+									Agregar al Carrito
 								</button>
 							</div>
 						</div>
@@ -98,7 +92,7 @@
 			<!-- Nav Tabs Starts -->
 				<ul class="nav nav-tabs">
 					<li class="active">
-						<a href="#tab-description">Descripcion</a>
+						<a href="#tab-description">Descripción</a>
 					</li>
 				</ul>
 			<!-- Nav Tabs Ends -->
