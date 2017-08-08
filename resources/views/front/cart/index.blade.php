@@ -49,7 +49,7 @@
 								</a>
 							</td>
 							<td class="text-center">
-								<a href="product-full.html">Digital Electro Goods</a>
+								<a href="productos/">Digital Electro Goods</a>
 							</td>
 							<td class="text-center">
 								<div class="input-group btn-block">
@@ -104,19 +104,19 @@
 									<div class="form-group">
 										<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputFname" placeholder="First Name">
+											<input type="text" class="form-control" id="inputFname" placeholder="Primer Nombre">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputFname" placeholder="First Name">
+											<input type="text" class="form-control" id="inputFname" placeholder="Apellido">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPhone" class="col-sm-3 control-label">Telefono :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+											<input type="text" class="form-control" id="inputPhone" placeholder="Celular">
 										</div>
 									</div>
 									<div class="form-group">
@@ -128,37 +128,37 @@
 									<div class="form-group">
 										<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+											<input type="text" class="form-control" id="inputAddress1" placeholder="Nombre de calle">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+											<input type="text" class="form-control" id="inputAddress1" placeholder="Altura">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+											<input type="text" class="form-control" id="inputAddress1" placeholder="Número de piso">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+											<input type="text" class="form-control" id="inputAddress1" placeholder="Departamento">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputCity" placeholder="City">
+											<input type="text" class="form-control" id="inputCity" placeholder="Barrio">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputPostCode" class="col-sm-3 control-label">Postal Code :</label>
+										<label for="inputPostCode" class="col-sm-3 control-label">Código Postal :</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputPostCode" placeholder="Postal Code">
+											<input type="text" class="form-control" id="inputPostCode" placeholder="Código Postal">
 										</div>
 									</div>
 									<div class="form-group">
@@ -187,9 +187,26 @@
 										</div>
 										<br>
 										<div class="col-sm-offset-3 col-sm-9">
-											<button type="submit" class="btn btn-black">
+											<button type="button" id="myBtn" class="btn btn-black">
 												Finalizar Compra
 											</button>
+										</div>
+										<div id="myModal" class="modal">
+										  <!-- Modal content -->
+										  <div class="modal-content">
+										    <div class="modal-header">
+										      <h2>Gracias por comprar!</h2>
+										    </div>
+										    <div class="modal-body">
+										      <p>Te falta realizar la transferencia para recibir tu compra!</p>
+										      <p>Te enviamos un mail con los datos,solo tienes que avisarnos cuando este la transferencia realizada y nosotros nos encargamos del resto ! </p>
+										    </div>
+										    <div class="modal-footer">
+										    <span class="close"><a href="#" class="round-button">OK</a></span>
+										      <h3>Modal Footer</h3>
+										    </div>
+										  </div>
+
 										</div>
 									</div>
 								</form>
