@@ -16,7 +16,9 @@
 			<div class="row product-info full">
 			<!-- Left Starts -->
 				<div class="col-sm-4 images-block" >
+					<a href="/content/products/thumb/{{$product->thumb}}">
 						<img src="/content/products/250x320/{{$product->thumb}}" alt="Image" class="img-responsive thumbnail" />
+					</a>
 					<ul class="list-unstyled list-inline">
 					@foreach ($product->images as $image)
 						<li style="width:77px">
