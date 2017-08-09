@@ -10,6 +10,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="/css/front/bootstrap.min.css" rel="stylesheet">
+<link href="/css/front/magnific-popup.css" rel="stylesheet">
 
 <!-- Google Web Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
