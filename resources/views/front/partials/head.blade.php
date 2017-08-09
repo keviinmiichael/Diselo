@@ -20,6 +20,9 @@
 <link href="/js/front/plugin/stepper/jquery.fs.stepper.css" rel="stylesheet">
 <link href="/css/front/style.css" rel="stylesheet">
 <link href="/css/front/responsive.css" rel="stylesheet">
+{{-- <link rel="stylesheet" href="/css/front/owl.carousel-ultimos.min.css">
+<link rel="stylesheet" href="/css/front/owl.theme-ultimos.default.min.css"> --}}
+
 
 <!--[if lt IE 9]>
     <script src="js/ie8-responsive-file-warning.js"></script>

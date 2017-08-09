@@ -62,29 +62,34 @@
 			<!-- Products Row Starts -->
 				<div class="row">
 				<!-- Product Starts -->
-				{{-- @foreach ($products as $product) --}}
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/9.jpg" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4><a href="product-full.html">Quis Nostrud Exercitation </a></h4>
-								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
-								</div>
-								<div class="price">
-									<span class="price-new">$199.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-cart">
-										<i class="fa fa-shopping-cart"></i> Agregar al Carrito
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				{{-- @endforeach --}}
+				<div class="owl-carousel-ultimos owl-theme-ultimos">
+				@foreach ($productos as $producto)
+	              <div class="item">
+  						<div class="col-md-3 col-sm-6">
+  							<div class="product-col">
+  								<div class="image">
+  									<img src="images/product-images/9.jpg" alt="product" class="img-responsive" />
+  								</div>
+  								<div class="caption">
+  									<h4><a href="product-full.html">{{$producto->name}}</a></h4>
+  									<div class="description">
+  										We are so lucky living in such a wonderful time. Our almost unlimited ...
+  									</div>
+  									<div class="price">
+  										<span class="price-new">$199.50</span>
+  									</div>
+  									<div class="cart-button button-group">
+  										<button type="button" class="btn btn-cart">
+  											<i class="fa fa-shopping-cart"></i> Agregar al Carrito
+  										</button>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+	              </div>
+			  	@endforeach
+			  </div>
+
 				<!-- Product Ends -->
 				</div>
 			<!-- Products Row Ends -->
