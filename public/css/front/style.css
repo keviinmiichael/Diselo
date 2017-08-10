@@ -4,6 +4,16 @@ body{
 	font:14px/22px 'Roboto', sans-serif;
 }
 
+/* Product show */
+.product-info .product-details .price .price-head, .product-info .product-details .price .price-new {font-size: 18px}
+.product-details .description h3 {margin-bottom: 5px}
+/* End Product show */
+
+/* Stepper */
+.stepper {width: 60px}
+#selected-items .stepper {width: 100%}
+/* End Stepper*/
+
 /* Modal Styles Starts */
 
 .modal {

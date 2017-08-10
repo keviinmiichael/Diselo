@@ -184,32 +184,27 @@
 									<div class="checkbox col-sm-offset-2">
 											<label><input type="checkbox" value="">Aceptar términos y condiciones</label>
 									</div>
-									<div class="form-group">
-										<div class="checkbox col-sm-offset-2">
-  											<label><input type="checkbox" value="">Aceptar términos y condiciones</label>
-										</div>
-										<br>
-										<div class="col-sm-offset-3 col-sm-9">
-											<button type="button" id="myBtn" class="btn btn-black">
-												Finalizar Compra
-											</button>
-										</div>
-										<div id="myModal" class="modal">
-										  <!-- Modal content -->
-										  <div class="modal-content">
-										    <div class="modal-header">
-										      <h2>Gracias por comprar!</h2>
-										    </div>
-										    <div class="modal-body">
-										      <p>Te falta realizar la transferencia para recibir tu compra!</p>
-										      <p>Te enviamos un mail con los datos,solo tienes que avisarnos cuando este la transferencia realizada y nosotros nos encargamos del resto ! </p>
-										    </div>
-										    <div class="modal-footer">
-										    <span class="close"><a href="#" class="round-button">OK</a></span>
-										      <h3>Modal Footer</h3>
-										    </div>
-										  </div>
-										</div>
+									<br>
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="button" id="myBtn" class="btn btn-black">
+											Finalizar Compra
+										</button>
+									</div>
+									<div id="myModal" class="modal">
+									  <!-- Modal content -->
+									  <div class="modal-content">
+									    <div class="modal-header">
+									      <h2>Gracias por comprar!</h2>
+									    </div>
+									    <div class="modal-body">
+									      <p>Te falta realizar la transferencia para recibir tu compra!</p>
+									      <p>Te enviamos un mail con los datos,solo tienes que avisarnos cuando este la transferencia realizada y nosotros nos encargamos del resto ! </p>
+									    </div>
+									    <div class="modal-footer">
+									    <span class="close"><a href="#" class="round-button">OK</a></span>
+									      <h3>Modal Footer</h3>
+									    </div>
+									  </div>
 									</div>
 								</div>
 							</form>
@@ -226,4 +221,8 @@
 	<!-- Main Container Ends -->
 
 
+@endsection
+
+@section('scripts')
+	<script src="/js/front/cart.js"></script>
 @endsection

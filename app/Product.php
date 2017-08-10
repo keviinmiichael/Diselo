@@ -118,26 +118,38 @@ class Product extends Model
         ;
     }
 
-    public function availableColors($size=false)
+    public function availableColors($size_id=false)
     {
-        $query = Stock::select('colors.value as color')
+        $query = Stock::select('colors.id', 'colors.value as value')
             ->unite('color')
             ->where('product_id', $this->id)
+            ->where('amount', '>', 0)
             ->groupBy('colors.id')
         ;
-        if ($size) $query->where('stock.size_id', $size);
+        if ($size_id) $query->where('stock.size_id', $size_id);
         return $query->get();
     }
 
-    public function availableSizes($color=false)
+    public function availableSizes($color_id=false)
     {
-        $query = Stock::select('sizes.value as color')
+        $query = Stock::select('sizes.id', 'sizes.value as value')
             ->unite('size')
             ->where('product_id', $this->id)
+            ->where('amount', '>', 0)
             ->groupBy('sizes.id')
         ;
-        if ($color) $query->where('stock.color_id', $color);
+        if ($color_id) $query->where('stock.color_id', $color_id);
         return $query->get();
+    }
+
+    public function availableStock($size_id, $color_id)
+    {
+        return Stock::select('stock.amount')
+            ->where('product_id', $this->id)
+            ->where('stock.size_id', $size_id)
+            ->where('stock.color_id', $color_id)
+            ->first()
+        ;
     }
 
 }

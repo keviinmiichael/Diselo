@@ -37,7 +37,7 @@
 		 */
 		destroy: function() {
 			return $(this).each(function(i) {
-				var data = $(this).data("stepper");
+				var data = $(this).parent().data("stepper");
 
 				if (data) {
 					// Unbind click events
@@ -60,7 +60,7 @@
 		 */
 		disable: function() {
 			return $(this).each(function(i) {
-				var data = $(this).data("stepper");
+				var data = $(this).parent().data("stepper");
 
 				if (data) {
 					data.$input.attr("disabled", "disabled");
@@ -77,7 +77,7 @@
 		 */
 		enable: function() {
 			return $(this).each(function(i) {
-				var data = $(this).data("stepper");
+				var data = $(this).parent().data("stepper");
 
 				if (data) {
 					data.$input.attr("disabled", null);

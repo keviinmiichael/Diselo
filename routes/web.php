@@ -49,6 +49,7 @@ Route::group(['namespace' => 'Front'], function() {
     //productos
     Route::get('productos', 'ProductsController@index');
     Route::get('productos/{product}', 'ProductsController@show');
+    Route::get('productos/{product}/get-stock', 'ProductsController@getStock');
 
     //carrito
     Route::get('carrito', 'CartController@show');
