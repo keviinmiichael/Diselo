@@ -56,28 +56,9 @@
             <div class="container">
             <!-- Starts -->
                 <p class="pull-left">
-                    &copy; 2016 Elite Fashion Shoppe Stores. Designed By <a href="http://sainathchillapuram.com">Sainath Chillapuram</a>
+                    &copy; 2017 Díselo
                 </p>
             <!-- Ends -->
-            <!-- Payment Gateway Links Starts -->
-                <ul class="pull-right list-inline">
-                    <li>
-                        <img src="/images/front/payment-icon/cirrus.png" alt="PaymentGateway" />
-                    </li>
-                    <li>
-                        <img src="/images/front/payment-icon/paypal.png" alt="PaymentGateway" />
-                    </li>
-                    <li>
-                        <img src="/images/front/payment-icon/visa.png" alt="PaymentGateway" />
-                    </li>
-                    <li>
-                        <img src="/images/front/payment-icon/mastercard.png" alt="PaymentGateway" />
-                    </li>
-                    <li>
-                        <img src="/images/front/payment-icon/americanexpress.png" alt="PaymentGateway" />
-                    </li>
-                </ul>
-            <!-- Payment Gateway Links Ends -->
             </div>
         <!-- Container Ends -->
         </div>
@@ -95,5 +76,9 @@
 <script src="/js/front/plugin/remodal/remodal.min.js"></script>
 <script src="/js/front/custom.js"></script>
 <script src="/js/front/cart.js"></script>
+{{-- <script src="/js/front/jquery.min.js"></script>
+<script src="/js/front/owl.carousel.js"></script> --}}
+
+
 </body>
 </html>

@@ -14,7 +14,7 @@
                         </button>
                       </span>
                     </div>
-                </div>  
+                </div>
             </div>
             <!-- Search Ends -->
             <!-- Shopping Cart Starts -->

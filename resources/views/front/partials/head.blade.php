@@ -10,6 +10,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="/css/front/bootstrap.min.css" rel="stylesheet">
+<link href="/css/front/magnific-popup.css" rel="stylesheet">
 
 <!-- Google Web Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
@@ -21,6 +22,9 @@
 <link href="/js/front/plugin/remodal/remodal-default-theme.css" rel="stylesheet">
 <link href="/css/front/style.css" rel="stylesheet">
 <link href="/css/front/responsive.css" rel="stylesheet">
+{{-- <link rel="stylesheet" href="/css/front/owl.carousel-ultimos.min.css">
+<link rel="stylesheet" href="/css/front/owl.theme-ultimos.default.min.css"> --}}
+
 
 <!--[if lt IE 9]>
     <script src="js/ie8-responsive-file-warning.js"></script>

@@ -15,12 +15,16 @@
 		<!-- Product Info Starts -->
 			<div class="row product-info full">
 			<!-- Left Starts -->
-				<div class="col-sm-4 images-block">
+				<div class="col-sm-4 images-block" >
+					<a href="/content/products/thumb/{{$product->thumb}}">
 						<img src="/content/products/250x320/{{$product->thumb}}" alt="Image" class="img-responsive thumbnail" />
+					</a>
 					<ul class="list-unstyled list-inline">
 					@foreach ($product->images as $image)
 						<li style="width:77px">
+							<a href="/content/products/thumb/{{$image->src}}">
 								<img src="/content/products/thumb/{{$image->src}}" alt="Image" class="img-responsive thumbnail" />
+							</a>
 						</li>
 					@endforeach
 					</ul>
@@ -92,7 +96,7 @@
 			<!-- Nav Tabs Starts -->
 				<ul class="nav nav-tabs">
 					<li class="active">
-						<a href="#tab-description">Descripcion</a>
+						<a href="#tab-description">Descripción</a>
 					</li>
 				</ul>
 			<!-- Nav Tabs Ends -->

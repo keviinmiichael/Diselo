@@ -1,7 +1,7 @@
 <?php
 
 Route::get('test', function () {
-    return view('front.products.show');
+    return view('front.cart.index');
 });
 
 
@@ -44,9 +44,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
 //Frontend
 Route::group(['namespace' => 'Front'], function() {
-    Route::get('/', function () {
-        return view('front.index');
-    });
+	Route::get('/', 'IndexController@index');
 
     //productos
     Route::get('productos', 'ProductsController@index');
@@ -54,7 +52,6 @@ Route::group(['namespace' => 'Front'], function() {
 
     //carrito
     Route::get('carrito', 'CartController@show');
-
     Route::post('cart/add', 'CartController@add');
     Route::post('cart/remove', 'CartController@remove');
     
