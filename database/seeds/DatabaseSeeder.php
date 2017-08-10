@@ -38,6 +38,35 @@ class DatabaseSeeder extends Seeder
             ['value' => 'XL']
         ]);
 
+        \DB::table('colors')->insert([
+            ['value' => 'Rojo'],
+            ['value' => 'Naranja'],
+            ['value' => 'Amarillo'],
+            ['value' => 'Verde'],
+            ['value' => 'Azul'],
+            ['value' => 'Violeta'],
+            ['value' => 'Blanco'],
+            ['value' => 'Negro']
+        ]);
+
+        \DB::table('stock')->insert([
+            ['product_id' => 1, 'size_id' => 1, 'color_id' => 1, 'amount' => 10],
+            ['product_id' => 1, 'size_id' => 1, 'color_id' => 3, 'amount' => 10],
+            ['product_id' => 1, 'size_id' => 1, 'color_id' => 5, 'amount' => 10],
+            ['product_id' => 1, 'size_id' => 2, 'color_id' => 1, 'amount' => 10],
+            ['product_id' => 1, 'size_id' => 3, 'color_id' => 1, 'amount' => 10],
+            ['product_id' => 2, 'size_id' => 1, 'color_id' => 5, 'amount' => 10],
+            ['product_id' => 2, 'size_id' => 4, 'color_id' => 7, 'amount' => 10],
+            ['product_id' => 2, 'size_id' => 4, 'color_id' => 8, 'amount' => 10],
+            ['product_id' => 2, 'size_id' => 5, 'color_id' => 1, 'amount' => 10],
+            ['product_id' => 3, 'size_id' => 1, 'color_id' => 2, 'amount' => 10],
+            ['product_id' => 3, 'size_id' => 2, 'color_id' => 2, 'amount' => 10],
+            ['product_id' => 3, 'size_id' => 3, 'color_id' => 2, 'amount' => 10],
+            ['product_id' => 4, 'size_id' => 5, 'color_id' => 5, 'amount' => 10],
+            ['product_id' => 4, 'size_id' => 5, 'color_id' => 6, 'amount' => 10],
+            ['product_id' => 4, 'size_id' => 5, 'color_id' => 7, 'amount' => 10]
+        ]);
+
         factory(App\Client::class, 3)->create()->each(function ($client) {
             $client->purchases()->saveMany(factory(App\Purchase::class,2)->make());
         });

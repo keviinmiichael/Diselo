@@ -48,10 +48,15 @@ Route::group(['namespace' => 'Front'], function() {
         return view('front.index');
     });
 
+    //productos
     Route::get('productos', 'ProductsController@index');
     Route::get('productos/{product}', 'ProductsController@show');
 
+    //carrito
+    Route::get('carrito', 'CartController@show');
+
     Route::post('cart/add', 'CartController@add');
+    Route::post('cart/remove', 'CartController@remove');
     
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');

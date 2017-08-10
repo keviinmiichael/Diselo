@@ -75,16 +75,10 @@
 								<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
 							</div>
 							<div class="cart-button button-group">
-								<button type="button" title="Wishlist" class="btn btn-wishlist">
-									<i class="fa fa-heart"></i>
-								</button>
-								<button type="button" title="Compare" class="btn btn-compare">
-									<i class="fa fa-bar-chart-o"></i>
-								</button>
-								<button type="button" class="btn btn-cart">
+								<a data-remodal-target="modal" class="btn btn-cart">
 									<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
-									Add to Cart
-								</button>
+									Agregar al carrito
+								</a>
 							</div>
 						</div>
 					<!-- Available Options Ends -->
@@ -119,5 +113,34 @@
 		@include('front.asides.relatedproducts')
 		</div>
 	<!-- Main Container Ends -->
+
+	<div class="remodal" data-remodal-id="modal">
+	 	<button data-remodal-action="close" class="remodal-close"></button>
+	 	div.
+	 	<div class="row">
+	 		<div class="col-md-4">
+	 			<select name="asdf" id="asfd" class="form-control">
+	 				<option value="adsf">Elegir color</option>
+	 				<option value="safd">asdf</option>
+	 				<option value="df">fasd</option>
+	 			</select>
+	 		</div>
+	 		<div class="col-md-4">
+	 			<select name="asdf" id="asfd" class="form-control">
+	 				<option value="adsf">asfd</option>
+	 				<option value="safd">asdf</option>
+	 				<option value="df">fasd</option>
+	 			</select>
+	 		</div>
+	 		<div class="col-md-4">
+	 			asdf
+	 		</div>
+	 		<div class="col-md-4">
+	 			<span class="fa fa-plus"></span>
+	 		</div>
+	 	</div>
+	 	<button data-remodal-action="cancel" class="remodal-cancel">Cancelar</button>
+	 	<button data-remodal-action="confirm" class="remodal-confirm">Agregar</button>
+	</div>
 
 @endsection

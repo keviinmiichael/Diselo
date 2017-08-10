@@ -4,19 +4,18 @@ $.ajaxSetup({
     }
 });
 
-console.log($('meta[name="csrf-token"]').attr('content'))
-
 var Cart = (function (w, $, undefined) {
 
     function init () {
-        //stepperInit();
+        stepperInit();
         listeners();
         agregarProducto();
         removerProducto();
+        actualizarTotal();
     }
 
     function listeners () {
-        $('input[name="cantidad[]"]').on('change', function () {
+        $('.amount').on('change', function () {
             actualizarTotal();
         });
         $('a[href="hacer-pedido"]').on('click', function (e) {
@@ -26,27 +25,28 @@ var Cart = (function (w, $, undefined) {
     }
 
     function stepperInit () {
-        $("input[type='number']").stepper().on('keypress', function (e) {
-            e.preventDefault();
-            return false;
-        }).on('change', function () {
-            var $this = $(this);
-            $.ajax({
-                url: '/carrito/refrescar',
-                type: 'post',
-                data: {producto_id: $this.data('id'), cantidad: $this.val()}
+        if ($('.amount').length) {
+            $('.amount').stepper().on('keypress', function (e) {
+                e.preventDefault();
+                return false;
+            }).on('change', function () {
+                var $this = $(this);
+                $.ajax({
+                    url: '/carrito/refrescar',
+                    type: 'post',
+                    data: {producto_id: $this.data('id'), cantidad: $this.val()}
+                });
             });
-        });
+        }
     }
 
     function agregarProducto () {
-        var totalItems;
         $('.cart-button .btn').on('click', function (e) {
             e.preventDefault();
             var $this = $(this);
             $this.find('i').attr('class', 'fa fa-spin fa-spinner');
             $.ajax({
-                url: '/cart/add',
+                url: '/cart/'+$this.data('action'),
                 type: 'post',
                 data: {product_id: $this.data('id')},
                 success: function (response) {
@@ -60,28 +60,24 @@ var Cart = (function (w, $, undefined) {
                         $this.find('i').attr('class', 'fa fa-shopping-cart');
                         $this.find('span').text('Agregar al carrito');
                     }
-                    
                 }
             });
         });
     }
 
     function removerProducto () {
-        var totalItems;
-        $('#datatable').on('click', 'a[href="remover-producto"]',function (e) {
+        $('.shopping-cart-table').on('click', 'a[href="remover-producto"]',function (e) {
             e.preventDefault();
             var $this = $(this);
             $this.find('i').toggleClass('fa-spin fa-spinner');
             $.ajax({
-                url: '/carrito/remover',
+                url: '/cart/remove',
                 type: 'post',
-                data: {producto_id: $this.data('id')},
+                data: {product_id: $this.data('id')},
                 success: function (response) {
-                    $this.replaceWith('<a href="agregar-producto" data-id="'+$this.data('id')+'" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i></a>');
-                    //$("#nav-pedido").effect("shake", {distance: 5, times: 2});
-                    totalItems = $("#nav-pedido .badge").text()*1;
-                    totalItems = --totalItems || '';
-                    $("#nav-pedido .badge").text(totalItems);
+                    $('#cart-total').text(response.totalItems+' item(s)');
+                    $this.parents('tr').remove();
+                    actualizarTotal();
                 }
             });
         });
@@ -89,15 +85,15 @@ var Cart = (function (w, $, undefined) {
 
     function actualizarTotal () {
         var precio, cantidad, total, totalFinal = 0;
-        $('#datatable tbody tr').each(function () {
-            precio = $(this).find('.precio').text().replace(/[^0-9]+/g, '');
-            cantidad = $(this).find('.cantidad').val();
+        $('.shopping-cart-table tbody tr').each(function () {
+            precio = $(this).find('.price').text().replace(/[^0-9]+/g, '');
+            cantidad = $(this).find('.amount').val();
             totalFinal += parseInt(precio * cantidad);
             total = parseInt(precio * cantidad).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
             $(this).find('.total').text('$ ' + total);
         });
         totalFinal = totalFinal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        $('#datatable .total-final strong').text('$ ' + totalFinal)
+        $('.shopping-cart-table .total-final').text('$ ' + totalFinal);
     }
 
     function hacerPedido () {

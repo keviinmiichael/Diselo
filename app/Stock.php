@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\CustomClasses\Unite;
 use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
+    use Unite;
+
     protected $primaryKey = ['product_id', 'size_id', 'color_id'];
     protected $table = 'stock';
     protected $fillable = ['product_id', 'size_id', 'amount'];

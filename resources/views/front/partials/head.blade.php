@@ -17,6 +17,8 @@
 <!-- CSS Files -->
 <link href="/css/front/font-awesome.min.css" rel="stylesheet">
 <link href="/js/front/plugin/stepper/jquery.fs.stepper.css" rel="stylesheet">
+<link href="/js/front/plugin/remodal/remodal.css" rel="stylesheet">
+<link href="/js/front/plugin/remodal/remodal-default-theme.css" rel="stylesheet">
 <link href="/css/front/style.css" rel="stylesheet">
 <link href="/css/front/responsive.css" rel="stylesheet">
 

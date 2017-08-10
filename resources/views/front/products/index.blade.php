@@ -27,7 +27,7 @@
                             <span class="price-new">$ {{ number_format($product->price, 0, ',', '.') }}</span>
                         </div>
                         <div class="cart-button button-group">
-                            @if(session()->has('cart') && in_array($product->id, session('cart')))
+                            @if(session()->has('cart') && session()->has('cart.'.$product->id))
                                 <button type="button" class="btn btn-cart" data-action="remove" data-id="{{$product->id}}">
                                     <i class="fa fa-trash"></i>
                                     <span>Remover</span>

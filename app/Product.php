@@ -118,4 +118,26 @@ class Product extends Model
         ;
     }
 
+    public function availableColors($size=false)
+    {
+        $query = Stock::select('colors.value as color')
+            ->unite('color')
+            ->where('product_id', $this->id)
+            ->groupBy('colors.id')
+        ;
+        if ($size) $query->where('stock.size_id', $size);
+        return $query->get();
+    }
+
+    public function availableSizes($color=false)
+    {
+        $query = Stock::select('sizes.value as color')
+            ->unite('size')
+            ->where('product_id', $this->id)
+            ->groupBy('sizes.id')
+        ;
+        if ($color) $query->where('stock.color_id', $color);
+        return $query->get();
+    }
+
 }
