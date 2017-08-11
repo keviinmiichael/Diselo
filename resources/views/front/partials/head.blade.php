@@ -22,8 +22,7 @@
 <link href="/js/front/plugin/remodal/remodal-default-theme.css" rel="stylesheet">
 <link href="/css/front/style.css" rel="stylesheet">
 <link href="/css/front/responsive.css" rel="stylesheet">
-{{-- <link rel="stylesheet" href="/css/front/owl.carousel-ultimos.min.css">
-<link rel="stylesheet" href="/css/front/owl.theme-ultimos.default.min.css"> --}}
+
 
 
 <!--[if lt IE 9]>
