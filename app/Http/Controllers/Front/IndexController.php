@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\front;
+namespace App\Http\Controllers\Front;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Product;
 use Carbon\Carbon;
 use App\Item;
-use App\Product;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+
+
 	public function index()
 	{	$start = Carbon::now()->startOfMonth()->toDateString();
 		$end = Carbon::now()->endOfMonth()->toDateString();
@@ -27,4 +29,5 @@ class IndexController extends Controller
 		$productos = Product::whereIn('id', $ids->toArray())->get();
  		return view('front.index', compact('productos'));
 	}
+
 }
