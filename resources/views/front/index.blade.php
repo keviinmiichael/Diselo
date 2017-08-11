@@ -12,12 +12,11 @@
 		<!-- Featured Products Starts -->
 			<section class="products-list">
 			<!-- Heading Starts -->
-				<h2 class="product-head">Últimos Productos</h2>
+				<h2 class="product-head">Featured Products</h2>
 			<!-- Heading Ends -->
 			<!-- Products Row Starts -->
 				<div class="row">
-				<!-- Product Starts -->
-				{{-- @foreach ($products as $product) --}}
+				<!-- Product #1 Starts -->
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
@@ -33,14 +32,13 @@
 								</div>
 								<div class="cart-button button-group">
 									<button type="button" class="btn btn-cart">
-										<i class="fa fa-shopping-cart"></i> Agregar al Carrito
+										<i class="fa fa-shopping-cart"></i> Add to Cart
 									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-				{{-- @endforeach --}}
-				<!-- Product Ends -->
+				<!-- Product #1 Ends -->
 				</div>
 			<!-- Products Row Ends -->
 			</section>
@@ -57,40 +55,35 @@
 		<!-- Featured Products Starts -->
 			<section class="products-list">
 			<!-- Heading Starts -->
-				<h2 class="product-head">Productos Más Vendidos</h2>
+				<h2 class="product-head">Featured Products</h2>
 			<!-- Heading Ends -->
 			<!-- Products Row Starts -->
 				<div class="row">
-				<!-- Product Starts -->
-				<div class="owl-carousel-ultimos owl-theme-ultimos">
+				<!-- Product #1 Starts -->
 				@foreach ($productos as $producto)
-	              <div class="item">
-  						<div class="col-md-3 col-sm-6">
-  							<div class="product-col">
-  								<div class="image">
-  									<img src="images/product-images/9.jpg" alt="product" class="img-responsive" />
-  								</div>
-  								<div class="caption">
-  									<h4><a href="product-full.html">{{$producto->name}}</a></h4>
-  									<div class="description">
-  										We are so lucky living in such a wonderful time. Our almost unlimited ...
-  									</div>
-  									<div class="price">
-  										<span class="price-new">$199.50</span>
-  									</div>
-  									<div class="cart-button button-group">
-  										<button type="button" class="btn btn-cart">
-  											<i class="fa fa-shopping-cart"></i> Agregar al Carrito
-  										</button>
-  									</div>
-  								</div>
-  							</div>
-  						</div>
-	              </div>
-			  	@endforeach
-			  </div>
-
-				<!-- Product Ends -->
+					<div class="col-md-3 col-sm-6">
+						<div class="product-col">
+							<div class="image">
+								<img src="/content/products/250x320/{{$producto->thumb}}" alt="product" class="img-responsive" />
+							</div>
+							<div class="caption">
+								<h4><a href="/productos/{{$producto->slug}}">{{$producto->name}} </a></h4>
+								<div class="description">
+									{{$producto->description}}
+								</div>
+								<div class="price">
+									<span class="price-new">{{$producto->price}}</span>
+								</div>
+								<div class="cart-button button-group">
+									<button type="button" class="btn btn-cart">
+										<i class="fa fa-shopping-cart"></i> Add to Cart
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				@endforeach
+				<!-- Product #1 Ends -->
 				</div>
 			<!-- Products Row Ends -->
 			</section>
