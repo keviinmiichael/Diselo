@@ -1,7 +1,7 @@
 <?php
 
 Route::get('test', function () {
-    return view('front.products.show');
+    return view('errors.404');
 });
 
 

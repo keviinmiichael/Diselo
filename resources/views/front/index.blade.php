@@ -12,7 +12,7 @@
 		<!-- Featured Products Starts -->
 			<section class="products-list">
 			<!-- Heading Starts -->
-				<h2 class="product-head">Featured Products</h2>
+				<h2 class="product-head">Últimos Prodúctos</h2>
 			<!-- Heading Ends -->
 			<!-- Products Row Starts -->
 				<div class="row">
@@ -55,7 +55,7 @@
 		<!-- Featured Products Starts -->
 			<section class="products-list">
 			<!-- Heading Starts -->
-				<h2 class="product-head">Featured Products</h2>
+				<h2 class="product-head">Productos más vendidos</h2>
 			<!-- Heading Ends -->
 			<!-- Products Row Starts -->
 				<div class="row">
