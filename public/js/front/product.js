@@ -83,6 +83,29 @@ var Product = (function (w, $, undefined) {
         });
     }
 
+    function agregarProducto () {
+        $('i', $this).show();
+        if ( !$('i', $this).is(':visible') ) {
+            $.ajax({
+                url: '/cart/add',
+                type: 'post',
+                data: {product_id: $this.data('id')},
+                success: function (response) {
+                    $('#cart-total').text(response.totalItems+' item(s)');
+                    if ($this.data('action') == 'add') {
+                        $this.data('action', 'remove');
+                        $this.find('i').attr('class', 'fa fa-trash');
+                        $this.find('span').text('Remover');
+                    } else {
+                        $this.data('action', 'add');
+                        $this.find('i').attr('class', 'fa fa-shopping-cart');
+                        $this.find('span').text('Agregar al carrito');
+                    }
+                }
+            });
+        }
+    }
+
     return {
         init : function () {
             init();

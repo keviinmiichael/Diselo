@@ -30,7 +30,10 @@
 </div>
 <div class="row">
     <div class="col-md-12" style="margin-top: 30px">
-        <button data-remodal-action="confirm" class="btn btn-primary">Aceptar</button>
+        <button data-remodal-action="confirm" class="btn btn-primary">
+            <span class="fa fa-spin fa-spinner" style="display: none"></span> 
+            Aceptar
+        </button>
         <button data-remodal-action="cancel" class="btn btn-danger">Cancelar</button>
     </div>
 </div>

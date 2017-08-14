@@ -1,7 +1,10 @@
 <?php
 
 Route::get('test', function () {
-    return view('front.cart.index');
+    for ($i=0, $l=count(request('product_id')); $i<$l; $i++) {
+        echo request("product_id.$i") . '<br>';
+        echo request("color_id.$i") . '<br>';
+    }
 });
 
 

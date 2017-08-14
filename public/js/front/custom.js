@@ -31,8 +31,8 @@ $(document).ready(function() {
   
 	// TABS
 	$('.nav-tabs a').click(function (e) {
-	e.preventDefault();
-	$(this).tab('show');
+	   e.preventDefault();
+	   $(this).tab('show');
 	});	
 	
 })(jQuery);

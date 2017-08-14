@@ -94,7 +94,11 @@ class Product extends Model
     //scopes
     public function scopeVisible($query)
     {
-        $query->where('is_visible', 1);
+        $query->where('is_visible', 1)
+            ->unite('stocks')
+            ->where('amount', '>' , '0')
+            ->groupBy('products.id')
+        ;
     }
     public function scopeSearch($query)
     {
