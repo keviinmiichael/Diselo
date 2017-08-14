@@ -6,6 +6,7 @@
 
 
 
+
 @section('body')
 	<!-- Main Container Starts -->
 		<div class="main-container container">
@@ -57,10 +58,9 @@
 			<!-- Heading Starts -->
 				<h2 class="product-head">Productos más vendidos</h2>
 			<!-- Heading Ends -->
-			<!-- Products Row Starts -->
-				<div class="row">
-				<!-- Product #1 Starts -->
-				@foreach ($productos as $producto)
+			<!-- Product #1 Starts -->
+			@foreach ($productos as $producto)
+				<div class="item">
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
@@ -69,7 +69,7 @@
 							<div class="caption">
 								<h4><a href="/productos/{{$producto->slug}}">{{$producto->name}} </a></h4>
 								<div class="description">
-									{{$producto->description}}
+									{{ str_limit($producto->description, $limit=50, $end = '...') }}
 								</div>
 								<div class="price">
 									<span class="price-new">{{$producto->price}}</span>
@@ -82,11 +82,9 @@
 							</div>
 						</div>
 					</div>
-				@endforeach
-				<!-- Product #1 Ends -->
 				</div>
-			<!-- Products Row Ends -->
-			</section>
+			@endforeach
+		<!-- Product #1 Ends -->
 		<!-- Featured Products Ends -->
 		<!-- 2Col Banners Starts -->
 			<div class="col2-banners">
@@ -107,4 +105,8 @@
 	<!-- Main Container Ends -->
 
 
+@endsection
+@section('scripts')
+	<script src="js/front/indexCarrousel/assets/vendors/highlight.js"></script>
+	<script src="js/front/indexCarrousel/assets/js/app.js"></script>
 @endsection
