@@ -76,8 +76,7 @@
 <script src="/js/front/plugin/remodal/remodal.min.js"></script>
 <script src="/js/front/custom.js"></script>
 @yield('scripts')
-{{-- <script src="/js/front/jquery.min.js"></script>
-<script src="/js/front/owl.carousel.js"></script> --}}
+
 
 
 </body>

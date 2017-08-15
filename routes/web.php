@@ -1,10 +1,12 @@
 <?php
 
 Route::get('test', function () {
-    for ($i=0, $l=count(request('product_id')); $i<$l; $i++) {
-        echo request("product_id.$i") . '<br>';
-        echo request("color_id.$i") . '<br>';
-    }
+    $test = [
+        3 => [
+            5 => [2,4]
+        ]
+    ];
+    dd(array_flatten($test));
 });
 
 
@@ -47,18 +49,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
 
 //Frontend
 Route::group(['namespace' => 'Front'], function() {
-	Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index');
 
-    //productos
     Route::get('productos', 'ProductsController@index');
     Route::get('productos/{product}', 'ProductsController@show');
     Route::get('productos/{product}/get-stock', 'ProductsController@getStock');
 
-    //carrito
     Route::get('carrito', 'CartController@show');
     Route::post('cart/add', 'CartController@add');
     Route::post('cart/remove', 'CartController@remove');
-    
+    Route::post('cart/refresh', 'CartController@refresh');
+
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
 });

@@ -30,11 +30,16 @@ var Cart = (function (w, $, undefined) {
                 e.preventDefault();
                 return false;
             }).on('change', function () {
-                var $this = $(this);
+                var $this = $(this), $parten = $(this).parents('tr');
                 $.ajax({
-                    url: '/carrito/refrescar',
+                    url: '/cart/refresh',
                     type: 'post',
-                    data: {producto_id: $this.data('id'), cantidad: $this.val()}
+                    data: {
+                        product_id: $this.data('product-id'),
+                        size_id: $this.data('size-id'),
+                        color_id: $this.data('color-id'),
+                        amount: $this.val()
+                    }
                 });
             });
         }
@@ -73,10 +78,23 @@ var Cart = (function (w, $, undefined) {
             $.ajax({
                 url: '/cart/remove',
                 type: 'post',
-                data: {product_id: $this.data('id')},
+                data: {
+                    product_id: $this.data('product-id'),
+                    size_id: $this.data('size-id'),
+                    color_id: $this.data('color-id'),
+                },
                 success: function (response) {
                     $('#cart-total').text(response.totalItems+' item(s)');
                     $this.parents('tr').remove();
+                    if (!$('.shopping-cart-table tbody tr').length) {
+                        $('.shopping-cart-table tbody').append('\
+                            <tr>\
+                                <td colspan="8">\
+                                    <p style="text-align: center; margin: 10px">No hay ningún producto seleccionado</p>\
+                                </td>\
+                            </tr>\
+                        ')
+                    }
                     actualizarTotal();
                 }
             });
@@ -84,16 +102,20 @@ var Cart = (function (w, $, undefined) {
     }
 
     function actualizarTotal () {
-        var precio, cantidad, total, totalFinal = 0;
-        $('.shopping-cart-table tbody tr').each(function () {
-            precio = $(this).find('.price').text().replace(/[^0-9]+/g, '');
-            cantidad = $(this).find('.amount').val();
-            totalFinal += parseInt(precio * cantidad);
-            total = parseInt(precio * cantidad).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            $(this).find('.total').text('$ ' + total);
-        });
-        totalFinal = totalFinal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        $('.shopping-cart-table .total-final').text('$ ' + totalFinal);
+        if ($('.shopping-cart-table tbody tr .price').length) {
+            var precio, cantidad, total, totalFinal = 0;
+            $('.shopping-cart-table tbody tr').each(function () {
+                precio = $(this).find('.price').text().replace(/[^0-9]+/g, '');
+                cantidad = $(this).find('.amount').val();
+                totalFinal += parseInt(precio * cantidad);
+                total = parseInt(precio * cantidad).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                $(this).find('.total').text('$ ' + total);
+            });
+            totalFinal = totalFinal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            $('.shopping-cart-table .total-final').text('$ ' + totalFinal);
+        } else {
+            $('.shopping-cart-table .total-final').text('0');
+        }
     }
 
     function hacerPedido () {

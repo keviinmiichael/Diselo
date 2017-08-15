@@ -24,6 +24,12 @@
 						Detalles
 					</td>
 					<td class="text-center">
+						Talle
+					</td>
+					<td class="text-center">
+						Color
+					</td>
+					<td class="text-center">
 						Cantidad
 					</td>
 					<td class="text-center">
@@ -40,41 +46,53 @@
 			<!-- INICIO DE PRODUCTO -->
 			<tbody>
 				@forelse ($products as $product)
-					<tr>
-						<td class="text-center">
-							<a href="product.html">
-								<img src="/content/products/dd/{{$product->thumb}}" alt="{{$product->name}}" title="{{$product->name}}" class="img-thumbnail" />
-							</a>
-						</td>
-						<td class="text-center">
-							<a href="product-full.html">{{ $product->name }}</a>
-						</td>
-						<td class="text-center">
-							<div class="input-group btn-block">
-								<input type="text" name="quantity" class="amount form-control" value="{{session('cart.'.$product->id.'.amount')}}" size="1" />
-							</div>
-						</td>
-						<td class="text-center price">
-							$ {{ $product->price }}
-						</td>
-						<td class="text-center total">
-							$ 
-						</td>
-						<td class="text-center">
-							<a href="remover-producto" title="Remover" class="btn btn-default tool-tip" data-id="{{$product->id}}">
-								<i class="fa fa-times-circle"></i>
-							</a>
-						</td>
-					</tr>
+					@foreach (session('cart.'.$product->id) as $size => $items)
+						 @foreach ($items as $item)
+							<tr>
+								<td class="text-center">
+									<a href="product.html">
+										<img src="/content/products/dd/{{$product->thumb}}" alt="{{$product->name}}" title="{{$product->name}}" class="img-thumbnail" />
+									</a>
+								</td>
+								<td class="text-center">
+									<a href="product-full.html">{{ $product->name }}</a>
+								</td>
+								<td class="text-center">
+									{{ \App\Size::find($size)->value }}
+								</td>
+								<td class="text-center">
+									{{ \App\Color::find($item[0])->value }}
+								</td>
+								<td class="text-center">
+									<div class="input-group btn-block">
+										<input type="text" name="quantity" class="amount form-control" value="{{$item[1]}}" size="1" min="1" max="{{$product->availableStock($size, $item[0])->amount}}" data-product-id="{{$product->id}}" data-size-id="{{$size}}" data-color-id="{{$item[0]}}" />
+									</div>
+								</td>
+								<td class="text-center price">
+									$ {{ $product->price }}
+								</td>
+								<td class="text-center total">
+									$ 
+								</td>
+								<td class="text-center">
+									<a href="remover-producto" title="Remover" class="btn btn-default tool-tip" data-product-id="{{$product->id}}" data-size-id="{{$size}}" data-color-id="{{$item[0]}}">
+										<i class="fa fa-times-circle"></i>
+									</a>
+								</td>
+							</tr>
+						@endforeach
+					@endforeach
 				@empty
 					<tr>
-						<td colspan="6">No hay ningún producto seleccionado</td>
+						<td colspan="8">
+							<p style="text-align: center; margin: 10px">No hay ningún producto seleccionado</p>
+						</td>
 					</tr>
 				@endforelse
 			</tbody>
 			<tfoot>
 				<tr>
-				  <td colspan="4" class="text-right">
+				  <td colspan="6" class="text-right">
 					<strong>Total :</strong>
 				  </td>
 				  <td colspan="2" class="text-left">
@@ -103,7 +121,7 @@
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputFname" placeholder="First Name">
+										<input type="text" class="form-control" id="inputFname" placeholder="Nombre">
 									</div>
 								</div>
 								<div class="form-group">

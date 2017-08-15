@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Stock;
 use App\Color;
 use App\Product;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
 
     public function index()
 	{
@@ -18,10 +20,11 @@ class ProductsController extends Controller
 
     public function show($product)
 	{
-        $product = \App\Product::where('slug', $product)->firstOrFail();
-        $availableSizes = $product->availableSizes();
+        //dd(session('cart'));
+		$product = \App\Product::where('slug', $product)->firstOrFail();
+		$availableSizes = $product->availableSizes();
         $availableColors = $product->availableColors($availableSizes->first()->id);
-		$availableStock = $product->availableStock($availableSizes->first()->id, $availableColors->first()->id);
+        $availableStock = $product->availableStock($availableSizes->first()->id, $availableColors->first()->id);
         return view('front.products.show', compact('product', 'availableSizes', 'availableColors', 'availableStock'));
 	}
 
