@@ -117,90 +117,92 @@
 						</div>
 						<div class="panel-body">
 						<!-- Form Starts -->
-							<form class="form-horizontal" role="form">
+							<form action="cart/buy" class="form-horizontal" role="form">
+								{{ csrf_field() }}
+						        {{ method_field('post') }}
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
 									<div class="col-sm-9">
-										<input type="text" name="name" class="form-control" id="inputFname" placeholder="Nombre">
+										<input type="text" value="{{ old('name') }}" name="name" class="form-control" id="inputFname" placeholder="Nombre">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
 									<div class="col-sm-9">
-										<input type="text" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
+										<input type="text" value="{{ old('lastname') }}" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Razón Social :</label>
 									<div class="col-sm-9">
-										<input type="text" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
+										<input type="text" value="{{ old('business_name') }}" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputPhone" class="col-sm-3 control-label">Telefono :</label>
 									<div class="col-sm-9">
-										<input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
+										<input type="text" value="{{ old('phone') }}" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
 									<div class="col-sm-9">
-										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+										<input type="email" value="{{ old('email') }}" name="email" class="form-control" id="inputEmail" placeholder="Email">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
 									<div class="col-sm-9">
-										<input type="text" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
+										<input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
 									<div class="col-sm-9">
-										<input type="text" name="number" class="form-control" id="inputAddress1" placeholder="Número">
+										<input type="text" value="{{ old('number') }}" name="number" class="form-control" id="inputAddress1" placeholder="Número">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
 									<div class="col-sm-9">
-										<input type="text" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
+										<input type="text" value="{{ old('floor') }}" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
 									<div class="col-sm-9">
-										<input type="text" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
+										<input type="text" value="{{ old('apartment') }}" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
 									<div class="col-sm-9">
-										<input type="text" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
+										<input type="text" value="{{ old('neighborhood') }}" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputPostCode" class="col-sm-3 control-label">Postal Code :</label>
+									<label for="inputPostCode" class="col-sm-3 control-label">Código Postal :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputPostCode" placeholder="Postal Code">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputCountry" class="col-sm-3 control-label">Localidad :</label>
-									<div class="col-sm-9">
-										<select class="form-control" id="inputCountry1">
-											<option>- All Countries -</option>
-											<option>India</option>
-											<option>USA</option>
-											<option>UK</option>
-											<option>China</option>
-										</select>
+										<input type="text" value="{{ old('zip_code') }}" name="zip_code" class="form-control" id="inputPostCode" placeholder="Código Postal">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputRegion" class="col-sm-3 control-label">Provincia :</label>
 									<div class="col-sm-9">
-										<select class="form-control" id="inputRegion1">
+										<select class="form-control" name="provincia_id" id="inputRegion1">
 											<option>- All Regions -</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputCountry" class="col-sm-3 control-label">Localidad :</label>
+									<div class="col-sm-9">
+										<select class="form-control" value="{{ old('localidad_id') }}" name="localidad_id" id="inputCountry1">
+											<option>- All Countries -</option>
+											<option>India</option>
+											<option>USA</option>
+											<option>UK</option>
+											<option>China</option>
 										</select>
 									</div>
 								</div>

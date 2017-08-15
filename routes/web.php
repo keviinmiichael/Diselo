@@ -52,6 +52,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('/', 'IndexController@index');
 
     Route::get('productos', 'ProductsController@index');
+	Route::get('productos/search', 'ProductsController@search');
     Route::get('productos/{product}', 'ProductsController@show');
     Route::get('productos/{product}/get-stock', 'ProductsController@getStock');
 
@@ -59,6 +60,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('cart/add', 'CartController@add');
     Route::post('cart/remove', 'CartController@remove');
     Route::post('cart/refresh', 'CartController@refresh');
+    Route::post('cart/buy', 'CartController@buy');
 
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
