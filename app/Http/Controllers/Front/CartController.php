@@ -57,8 +57,10 @@ class CartController extends Controller
         return ['success' => true];
     }
 
-    public function buy()
+    public function buy(ClientRequest $request)
     {
+
+
         $client = Client::create(request()->all());
         $item = new Item;
         foreach (session('cart') as $product_id => $sizes) {
@@ -71,7 +73,7 @@ class CartController extends Controller
                 }
             }
         }
-        
+
     }
 
 }

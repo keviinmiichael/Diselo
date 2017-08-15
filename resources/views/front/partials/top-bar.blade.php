@@ -5,16 +5,19 @@
         <div class="row">
             <!-- Search Starts -->
             <div class="col-md-3 col-md-offset-7 col-sm-6 col-xs-12">
+				<form class="search" action="productos/search" method="get">
+					{{ csrf_field() }}
                 <div id="search">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Buscar">
+                      <input type="text" name="search" class="form-control" placeholder="Buscar">
                       <span class="input-group-btn">
-                        <button class="btn" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
+							  <button class="btn" type="submit">
+								  <i class="fa fa-search"></i>
+							  </button>
                       </span>
                     </div>
                 </div>
+			</form>
             </div>
             <!-- Search Ends -->
             <!-- Shopping Cart Starts -->

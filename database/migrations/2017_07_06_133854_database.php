@@ -108,6 +108,7 @@ class Database extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',127);
+            $table->string('lastname',127);
             $table->string('business_name',127);
             $table->string('shipping',127);
             $table->string('email',127);
@@ -116,6 +117,7 @@ class Database extends Migration
             $table->string('number',10);
             $table->string('floor',20);
             $table->string('apartment',20);
+            $table->string('neighborhood',30);
             $table->string('zip_code',20);
             $table->smallInteger('localidad_id')->unsigned()->index(); //<<relación>> con localidades
             $table->smallInteger('provincia_id')->unsigned()->index(); //<<relación>> con provincias
