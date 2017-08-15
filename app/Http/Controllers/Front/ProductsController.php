@@ -52,14 +52,14 @@ class ProductsController extends Controller
 
 	public function search()
 	{
-        $products = Product::where('products.name', 'like', '%'.request('search.').'%')
+        $products = Product::select('products.*')
+            ->where('products.name', 'like', '%'.request('search').'%')
 			->unite('category')
 			->unite('subcategory', true)
 			->orWhere('categories.name', 'like', '%'.request('search').'%')
 			->orWhere('subcategories.name', 'like', '%'.request('search').'%')
 			->visible()
-			->paginate(9);
-
+            ->paginate();
 		return view('front.products.search', compact('products'));
 	}
 
