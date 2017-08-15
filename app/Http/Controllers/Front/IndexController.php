@@ -21,13 +21,14 @@ class IndexController extends Controller
 		->where('products.is_visible', 1)
 		->groupBy('product_id')
 		->orderBy('total', 'desc')
-		->take(4);
+		->take(20);
 
 		$products = $query->whereBetween('purchases.created_at', [$start, $end])->get();
 		if (!$products->count()) $products = $query->get();
 		$ids = $products->map(function ($item, $key) {return $item->product_id;});
-		$productos = Product::whereIn('id', $ids->toArray())->get();
- 		return view('front.index', compact('productos'));
+		$masvendidos = Product::whereIn('id', $ids->toArray())->get();
+		$nuevos = Product::orderBy('id', 'desc')->take(20)->get();
+		return view('front.index', compact('masvendidos','nuevos'));
 	}
 
 }
