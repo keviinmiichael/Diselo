@@ -26,8 +26,8 @@ class IndexController extends Controller
 		$products = $query->whereBetween('purchases.created_at', [$start, $end])->get();
 		if (!$products->count()) $products = $query->get();
 		$ids = $products->map(function ($item, $key) {return $item->product_id;});
-		$masvendidos = Product::whereIn('id', $ids->toArray())->get();
-		$nuevos = Product::orderBy('id', 'desc')->take(20)->get();
+		$masvendidos = Product::whereIn('id', $ids->toArray())->visible()->get();
+		$nuevos = Product::orderBy('id', 'desc')->visible()->take(20)->get();
 		return view('front.index', compact('masvendidos','nuevos'));
 	}
 

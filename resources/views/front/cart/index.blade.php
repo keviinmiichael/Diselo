@@ -72,7 +72,7 @@
 									$ {{ $product->price }}
 								</td>
 								<td class="text-center total">
-									$ 
+									$
 								</td>
 								<td class="text-center">
 									<a href="remover-producto" title="Remover" class="btn btn-default tool-tip" data-product-id="{{$product->id}}" data-size-id="{{$size}}" data-color-id="{{$item[0]}}">
@@ -121,55 +121,61 @@
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputFname" placeholder="Nombre">
+										<input type="text" name="name" class="form-control" id="inputFname" placeholder="Nombre">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputFname" placeholder="First Name">
+										<input type="text" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputFname" class="col-sm-3 control-label">Razón Social :</label>
+									<div class="col-sm-9">
+										<input type="text" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputPhone" class="col-sm-3 control-label">Telefono :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+										<input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
 									<div class="col-sm-9">
-										<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+										<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+										<input type="text" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+										<input type="text" name="number" class="form-control" id="inputAddress1" placeholder="Número">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+										<input type="text" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
+										<input type="text" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="inputCity" placeholder="City">
+										<input type="text" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
 									</div>
 								</div>
 								<div class="form-group">
