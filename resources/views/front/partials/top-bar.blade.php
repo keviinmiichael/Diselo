@@ -5,7 +5,7 @@
         <div class="row">
             <!-- Search Starts -->
             <div class="col-md-3 col-md-offset-7 col-sm-6 col-xs-12">
-				<form class="search" action="productos/search" method="get">
+				<form class="search" action="/productos/search" method="get">
 					{{ csrf_field() }}
                 <div id="search">
                     <div class="input-group">
