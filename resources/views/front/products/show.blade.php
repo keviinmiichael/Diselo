@@ -17,17 +17,17 @@
 
 			<!-- Left Starts -->
 			<div class="col-sm-4 images-block" >
-				<a href="/content/products/thumb/{{$product->thumb}}">
-					<img src="/content/products/250x320/{{$product->thumb}}" alt="Image" class="img-responsive thumbnail" />
+				<a href="/content/products/big/{{$product->thumb}}">
+					<img src="/content/products/250x320/{{$product->thumb}}" alt="{{$product->name}}" class="img-responsive thumbnail" />
 				</a>
 				<ul class="list-unstyled list-inline">
-				@foreach ($product->images as $image)
-					<li style="width:77px">
-						<a href="/content/products/thumb/{{$image->src}}">
-							<img src="/content/products/thumb/{{$image->src}}" alt="Image" class="img-responsive thumbnail" />
-						</a>
-					</li>
-				@endforeach
+    				@foreach ($product->images as $image)
+    					<li style="width:77px">
+    						<a href="/content/products/big/{{$image->src}}">
+    							<img src="/content/products/thumb/{{$image->src}}" alt="{{$product->name}}" class="img-responsive thumbnail" />
+    						</a>
+    					</li>
+    				@endforeach
 				</ul>
 			</div>
 			<!-- Left Ends -->

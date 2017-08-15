@@ -88,7 +88,7 @@ class Product extends Model
         $products = $query->whereBetween('purchases.created_at', [$start, $end])->get();
         if (!$products->count()) $products = $query->get();
         $ids = $products->map(function ($item, $key) {return $item->product_id;});
-        return Product::whereIn('id', $ids->toArray())->get();
+        return Product::whereIn('id', $ids->toArray())->visible()->get();
     }
 
     //scopes

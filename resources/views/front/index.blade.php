@@ -9,7 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="/css/front/slick/slick-theme.css"/>
 @endsection
 
-
 @section('body')
 	<!-- Main Container Starts -->
 		<div class="main-container container">
@@ -21,31 +20,7 @@
 
 			<!-- Products Row Starts -->
 			<div class="news">
-				<!-- Product #1 Starts -->
-				@foreach ($nuevos as $producto)
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="/content/products/250x320/{{$producto->thumb}}" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4><a href="/productos/{{$producto->slug}}">{{$producto->name}} </a></h4>
-								<div class="description">
-									{{ str_limit($producto->description, $limit=30, $end = '...') }}
-								</div>
-								<div class="price">
-									<span class="price-new">{{$producto->price}}</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-cart">
-										<i class="fa fa-shopping-cart"></i> Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				@endforeach
-				<!-- Product #1 Ends -->
+				@each('front.products._box', $nuevos, 'product')
 			</div>
 		<!-- Featured Products Ends -->
 			<!-- Products Row Ends -->
@@ -67,31 +42,7 @@
 			<!-- Heading Ends -->
 
 			<div class="sellers">
-				<!-- Product #1 Starts -->
-				@foreach ($masvendidos as $producto)
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="/content/products/250x320/{{$producto->thumb}}" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4><a href="/productos/{{$producto->slug}}">{{$producto->name}} </a></h4>
-								<div class="description">
-									{{ str_limit($producto->description, $limit=30, $end = '...') }}
-								</div>
-								<div class="price">
-									<span class="price-new">{{$producto->price}}</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-cart">
-										<i class="fa fa-shopping-cart"></i> Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				@endforeach
-				<!-- Product #1 Ends -->
+				@each('front.products._box', $masvendidos, 'product')
 			</div>
 		<!-- Featured Products Ends -->
 		<!-- 2Col Banners Starts -->
