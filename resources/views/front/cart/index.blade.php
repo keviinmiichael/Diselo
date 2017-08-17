@@ -5,13 +5,11 @@
 
 
 @section('body')
-	<!-- Main Container Starts -->
-	<div class="main-container container">
-	<!-- Main Heading Starts -->
-	<h2 class="main-heading text-center">
-		Carrito
-	</h2>
-	<!-- Main Heading Ends -->
+<!-- Main Container Starts -->
+<div class="main-container container">
+	
+	<h2 class="main-heading text-center">Carrito</h2>
+	
 	<!-- Shopping Cart Table Starts -->
 	<div class="table-responsive shopping-cart-table">
 		<table class="table table-bordered">
@@ -103,149 +101,154 @@
 		</table>
 	</div>
 	<!-- Shopping Cart Table Ends -->
-	<!-- Shipping Section Starts -->
-		<section class="registration-area">
-			<div class="row">
-			<!-- Shipping & Shipment Block Starts -->
-				<div class="col-sm-6">
-				<!-- Shipment Information Block Starts -->
-					<div class="panel panel-smart">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								Información de Envío
-							</h3>
-						</div>
-						<div class="panel-body">
-						<!-- Form Starts -->
-							<form action="cart/buy" class="form-horizontal" role="form">
-								{{ csrf_field() }}
-						        {{ method_field('post') }}
-								<div class="form-group">
-									<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('name') }}" name="name" class="form-control" id="inputFname" placeholder="Nombre">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('lastname') }}" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputFname" class="col-sm-3 control-label">Razón Social :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('business_name') }}" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputPhone" class="col-sm-3 control-label">Telefono :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('phone') }}" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
-									<div class="col-sm-9">
-										<input type="email" value="{{ old('email') }}" name="email" class="form-control" id="inputEmail" placeholder="Email">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('number') }}" name="number" class="form-control" id="inputAddress1" placeholder="Número">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('floor') }}" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('apartment') }}" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('neighborhood') }}" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputPostCode" class="col-sm-3 control-label">Código Postal :</label>
-									<div class="col-sm-9">
-										<input type="text" value="{{ old('zip_code') }}" name="zip_code" class="form-control" id="inputPostCode" placeholder="Código Postal">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputRegion" class="col-sm-3 control-label">Provincia :</label>
-									<div class="col-sm-9">
-										<select class="form-control" name="provincia_id" id="inputRegion1">
-											<option>- All Regions -</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputCountry" class="col-sm-3 control-label">Localidad :</label>
-									<div class="col-sm-9">
-										<select class="form-control" value="{{ old('localidad_id') }}" name="localidad_id" id="inputCountry1">
-											<option>- All Countries -</option>
-											<option>India</option>
-											<option>USA</option>
-											<option>UK</option>
-											<option>China</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="checkbox col-sm-offset-2">
-											<label><input type="checkbox" value="">Aceptar términos y condiciones</label>
-									</div>
-									<br>
-									<div class="col-sm-offset-3 col-sm-9">
-										<button type="button" id="myBtn" class="btn btn-black">
-											Finalizar Compra
-										</button>
-									</div>
-									<div id="myModal" class="modal">
-									  <!-- Modal content -->
-									  <div class="modal-content">
-									    <div class="modal-header">
-									      <h2>Gracias por comprar!</h2>
-									    </div>
-									    <div class="modal-body">
-									      <p>Te falta realizar la transferencia para recibir tu compra!</p>
-									      <p>Te enviamos un mail con los datos,solo tienes que avisarnos cuando este la transferencia realizada y nosotros nos encargamos del resto ! </p>
-									    </div>
-									    <div class="modal-footer">
-									    <span class="close"><a href="#" class="round-button">OK</a></span>
-									      <h3>Modal Footer</h3>
-									    </div>
-									  </div>
-									</div>
-								</div>
-							</form>
-						<!-- Form Ends -->
-						</div>
-					</div>
-				<!-- Shipment Information Block Ends -->
-				</div>
-			<!-- Shipping & Shipment Block Ends -->
-			</div>
-		</section>
-	<!-- Shipping Section Ends -->
-	</div>
-	<!-- Main Container Ends -->
 
+	<!-- Shipping Section Starts -->
+	<section class="registration-area">
+		<div class="row">
+			<!-- Shipping & Shipment Block Starts -->
+			<div class="col-sm-6">
+				<!-- Shipment Information Block Starts -->
+				<div class="panel panel-smart">
+					<div class="panel-heading">
+						<h3 class="panel-title">Información de Envío</h3>
+					</div>
+					<div class="panel-body">
+						<!-- Form Starts -->
+						<form action="cart/buy" action="post" class="form-horizontal" role="form" id="form-cliente">
+							<div class="form-group">
+								<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('name') }}" name="name" class="form-control" id="inputFname" placeholder="Nombre">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('lastname') }}" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputFname" class="col-sm-3 control-label">Razón Social :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('business_name') }}" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPhone" class="col-sm-3 control-label">Teléfono :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('phone') }}" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
+								<div class="col-sm-9">
+									<input type="email" value="{{ old('email') }}" name="email" class="form-control" id="inputEmail" placeholder="Email">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('number') }}" name="number" class="form-control" id="inputAddress1" placeholder="Número">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('floor') }}" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('apartment') }}" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('neighborhood') }}" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPostCode" class="col-sm-3 control-label">Código Postal :</label>
+								<div class="col-sm-9">
+									<input type="text" value="{{ old('zip_code') }}" name="zip_code" class="form-control" id="inputPostCode" placeholder="Código Postal">
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="provincia" class="col-sm-3 control-label">Provincia :</label>
+								<div class="col-sm-9">
+									{!! \App\Provincia::toSelect() !!}
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="localidad" class="col-sm-3 control-label">
+									<span style="display: none" class="fa fa-spin fa-spinner"></span> Localidad :
+								</label>
+								<div class="col-sm-9">
+									<select class="form-control" value="{{ old('localidad_id') }}" name="localidad_id" id="localidad">
+										<option>Seleccionar</option>
+									</select>
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox col-sm-offset-2">
+									<label><input type="checkbox" value="">Aceptar términos y condiciones</label>
+								</div>
+								<br>
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="button" id="comprar" class="btn btn-black">
+										Finalizar Compra
+									</button>
+								</div>
+							</div>
+						</form>
+						<!-- Form Ends -->
+					</div>
+				</div>
+				<!-- Shipment Information Block Ends -->
+			</div>
+			<!-- Shipping & Shipment Block Ends -->
+		</div>
+	</section>
+	<!-- Shipping Section Ends -->
+</div>
+<!-- Main Container Ends -->
+
+<div id="myModal" class="modal">
+	<!-- Modal content -->
+  	<div class="modal-content">
+    	<div class="modal-header">
+      		<h2>Estamos procesando tu compra</h2>
+    	</div>
+	    <div class="modal-body">
+	      	<p>Por favor aguarda un momento.</p>
+	    </div>
+	    <div class="modal-footer">
+	    <span class="close"><a href="#" class="round-button">OK</a></span>
+	      	<h3>Modal Footer</h3>
+	    </div>
+  	</div>
+</div>
 
 @endsection
 

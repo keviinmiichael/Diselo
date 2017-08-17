@@ -62,7 +62,7 @@ class Database extends Migration
             $table->float('cost',8,2)->unsigned();
             $table->boolean('paid')->default(0);
             $table->smallInteger('client_id')->unsigned()->index(); //<<relación>> con clients
-            $table->smallInteger('state_id')->unsigned()->index(); //<<relación>> con purchases_states
+            $table->smallInteger('state_id')->default(1)->unsigned()->index(); //<<relación>> con purchases_states
             $table->timestamps();
         });
 
@@ -115,9 +115,9 @@ class Database extends Migration
             $table->string('phone',50);
             $table->string('street',127);
             $table->string('number',10);
-            $table->string('floor',20);
-            $table->string('apartment',20);
-            $table->string('neighborhood',30);
+            $table->string('floor',20)->nullable();
+            $table->string('apartment',20)->nullable();
+            $table->string('neighborhood',30)->nullable();
             $table->string('zip_code',20);
             $table->smallInteger('localidad_id')->unsigned()->index(); //<<relación>> con localidades
             $table->smallInteger('provincia_id')->unsigned()->index(); //<<relación>> con provincias

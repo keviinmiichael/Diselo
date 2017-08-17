@@ -13,12 +13,24 @@ class Client extends Model
 
     protected $fillable = ['name','email','street','number','floor','aparment','zip_code','localidad_id','provincia_id'];
 
+    //relationships
+    public function provincia()
+    {
+        return $this->belongsTo('App\Provincia');
+    }
+
+    public function localidad()
+    {
+        return $this->belongsTo('App\Localidad');
+    }
+    
     public function purchases()
     {
         return $this->hasMany('App\Purchase');
     }
+    //----------
 
-	 //scopes
+	//scopes
     public function scopeSearch($query)
     {
         if (request('search.value')) {
@@ -37,6 +49,7 @@ class Client extends Model
             ->skip(request('start'))
         ;
     }
+    //----------
 
 
 

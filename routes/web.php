@@ -62,6 +62,8 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('cart/refresh', 'CartController@refresh');
     Route::post('cart/buy', 'CartController@buy');
 
+    Route::get('localidades/byProvincia', 'LocalidadController@byProvincia');
+
     Route::get('{category}', 'ProductsController@byCategory');
     Route::get('{category}/{subcategoria}', 'ProductsController@bySubcategory');
 });

@@ -7,6 +7,7 @@ $.ajaxSetup({
 var Cart = (function (w, $, undefined) {
 
     function init () {
+        modalInit();
         stepperInit();
         listeners();
         agregarProducto();
@@ -18,10 +19,27 @@ var Cart = (function (w, $, undefined) {
         $('.amount').on('change', function () {
             actualizarTotal();
         });
-        $('a[href="hacer-pedido"]').on('click', function (e) {
-            e.preventDefault();
-            hacerPedido();
-        })
+        $('#comprar').on('click', function () {
+            comprar();
+        });
+    }
+
+    function modalInit () {
+        $('#comprar').on('click', function () {
+            $('#myModal').show();
+        });
+        $('#myModal .close').on('click', function () {
+            $('#myModal').hide();
+        });
+        $('#myModal').on('click', function (e) {
+            if(e.target.className == 'modal') $('#myModal').hide();
+        });
+        $('input, select').on('focus', function () {
+            removeError($(this));
+        });
+        $('#provincia').on('change', function() {
+            localidadesByProvincia();
+        });
     }
 
     function stepperInit () {
@@ -118,26 +136,48 @@ var Cart = (function (w, $, undefined) {
         }
     }
 
-    function hacerPedido () {
-        $('a[href="hacer-pedido"]').attr('disabled', true);
-        $('a[href="hacer-pedido"] span.fa').show();
-        $('a[href="hacer-pedido"] span.text').text('Espere...');
-        if (!$('a[href="hacer-pedido"]').is(':disabled')) {
-            var data = [], producto_id, cantidad;
-            $('#datatable tbody tr').each(function () {
-                producto_id = $(this).find('.cantidad').data('id');
-                cantidad = $(this).find('.cantidad').val();
-                data.push('producto_id[]='+producto_id+'&cantidad[]='+cantidad);
-            });
-            $.ajax({
-                url: '/carrito/comprar',
-                type: 'post',
-                data: data.join('&'),
-                success: function () {
-                    location.href = '/clientes/pedido/exito'
+    function comprar () {
+        $.ajax({
+            url: '/cart/buy',
+            type: 'post',
+            data: $('#form-cliente').serialize(),
+            success: function (response) {
+                $('#myModal').hide();
+                //location.href = '/clientes/pedido/exito'
+            },
+            error: function (error) {
+                $('#myModal').hide();
+                for (var a in error.responseJSON) {
+                    addError(a, error.responseJSON[a][0]);
                 }
-            });
-        }
+            }
+        });
+    }
+
+    function localidadesByProvincia () {
+        $('label[for="localidad"] span').show();
+        $('#localidad').attr('disabled', true);
+        $.ajax({
+            url: '/localidades/byProvincia',
+            type: 'get',
+            data: {'provincia_id': $('#provincia').val()},
+            success: function (response) {
+                $('label[for="localidad"] span').hide();
+                $('#localidad').replaceWith(response);
+            }
+        });
+    }
+
+    function addError (name, error) {
+        $formGroup = $('[name="'+name+'"]').parents('.form-group');
+        $formGroup.addClass('has-error');
+        $('.help-block', $formGroup).text(error);
+    }
+
+    function removeError($el) {
+        $formGroup = $el.parents('.form-group');
+        $formGroup.removeClass('has-error');
+        $('.help-block', $formGroup).text('');
     }
 
     return {
@@ -150,29 +190,5 @@ var Cart = (function (w, $, undefined) {
 
 $(document).ready(function () {
     Cart.init();
-	// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+	
 });

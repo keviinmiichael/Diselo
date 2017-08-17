@@ -47,7 +47,7 @@ INSERT INTO `provincia` (`id`, `value`) VALUES
 
 CREATE TABLE IF NOT EXISTS `localidad` (
   `id` SMALLINT(5) NOT NULL AUTO_INCREMENT,
-  `id_provincia` TINYINT(3) NOT NULL,
+  `provincia_id` TINYINT(3) NOT NULL,
   `value` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
 ) COLLATE='utf8_unicode_ci' ENGINE=InnoDB;
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `localidad` (
 -- Volcar la base de datos para la tabla `localidad`
 --
 
-INSERT INTO `localidad` (`id`, `id_provincia`, `value`) VALUES
+INSERT INTO `localidad` (`id`, `provincia_id`, `value`) VALUES
 (1, 1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
 (3, 1, 'A. Alsina'),
@@ -2130,7 +2130,7 @@ INSERT INTO `localidad` (`id`, `id_provincia`, `value`) VALUES
 (2071, 22, 'Palacios'),
 (2072, 22, 'Pavón'),
 (2073, 22, 'Pavón Arriba');
-INSERT INTO `localidad` (`id`, `id_provincia`, `value`) VALUES
+INSERT INTO `localidad` (`id`, `provincia_id`, `value`) VALUES
 (2074, 22, 'Pedro Gómez Cello'),
 (2075, 22, 'Pérez'),
 (2076, 22, 'Peyrano'),

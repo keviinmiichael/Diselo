@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Client;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientRequest;
 use App\Item;
 use App\Product;
+use App\Purchase;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -59,20 +61,39 @@ class CartController extends Controller
 
     public function buy(ClientRequest $request)
     {
+        if (!session()->has('cart')) return ['success' => false];
 
+        $products = Product::whereIn('id', array_keys(session('cart')))->get();
+        $itemsCollection = collect();
 
-        $client = Client::create(request()->all());
-        $item = new Item;
-        foreach (session('cart') as $product_id => $sizes) {
-            $product = Product::find($product_id);
-            foreach ($sizes as $size => $cartItems) {
+        $total = 0;
+        $cost = 0;
+        
+        foreach ($products as $product) {
+            foreach (session('cart.'.$product->id) as $size => $cartItems) {
                 foreach ($cartItems as $cartItem) {
-                    $item->name = $product->price;
-                    $item->cost = $product->cost;
-                    $item->amount = $cartItems[1];
+                    $item = new Item;
+                    $item->name = $product->name;
+                    $total += $item->price = $product->price;
+                    $cost += $item->cost = $product->cost;
+                    $item->amount = $cartItem[1];
+                    $item->product_id = $product->id;
+                    $itemsCollection->push($item);
                 }
             }
         }
+
+        $client = Client::create(request()->all());
+
+        $purchase = Purchase::create([
+            'total' => $total,
+            'cost' => $cost,
+            'client_id' => $client->id
+        ]);
+
+        $purchase->items()->saveMany($itemsCollection);
+
+        return ['success' => true];
 
     }
 
