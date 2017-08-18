@@ -68,3 +68,11 @@ $factory->define(App\Purchase::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(\App\Stock::class, function (Faker\Generator $faker) {
+    return [
+        'product_id' => rand(1,10),
+        'size_id' => rand(1,5),
+        'color_id' => rand(1,5),
+        'amount' => rand(10,50),
+    ];
+});

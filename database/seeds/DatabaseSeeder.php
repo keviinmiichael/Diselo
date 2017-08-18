@@ -38,6 +38,15 @@ class DatabaseSeeder extends Seeder
             ['value' => 'XL']
         ]);
 
+        \DB::table('colors')->insert([
+            ['value' => 'Negro'],
+            ['value' => 'Blanco'],
+            ['value' => 'Gris'],
+            ['value' => 'Verde'],
+            ['value' => 'Rojo'],
+            ['value' => 'Azul']
+        ]);
+
         factory(App\Client::class, 3)->create()->each(function ($client) {
             $client->purchases()->saveMany(factory(App\Purchase::class,2)->make());
         });
@@ -62,6 +71,10 @@ class DatabaseSeeder extends Seeder
             'email' => env('ADMIN_EMAIL'),
             'password' => bcrypt(env('ADMIN_PASS'))
         ]);
-    }
 
+
+	factory(\App\Stock::class, 50)->create()->each(function ($stock) {
+	        $stock->save(factory(App\Stock::class)->create());
+	    });
+	}
 }
