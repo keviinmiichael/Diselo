@@ -12,21 +12,10 @@ var Stock = (function (w, $, undefined) {
         restrictTypes();
     }
 
+
     function save () {
-        var response = {items: new Array()};
-        $('#formStock').submit(function (event) {
-            $('#stock tr').each(function (i) {
-                if (i) {
-                    response.items.push({
-                        product_id: $(this).find('input[name="product_id"]').val(),
-                        amount: $(this).find('input[name="amount"]').val(),
-                        size_id: $(this).find('select[name="size_id"]').val(),
-                        cost: $(this).find('input[name="cost"]').val()
-                    });
-                }
-            });
-            $('#formStock').append('<input type="hidden" name="items" value="'+JSON.stringify(response).replace(/"/g, "'")+'" />');
-            return true;
+        $('#guardar').on('click', function () {
+            $('#formStock').submit();
         });
     }
 
@@ -39,12 +28,18 @@ var Stock = (function (w, $, undefined) {
 
     function addRow () {
         $('#stock tbody').on('keydown', 'input', function (e) {
-            if (e.keyCode==13 || (e.keyCode==9 && $(this).attr('name') == 'amount')) {
+            if (e.keyCode==13 || (e.keyCode==9 && $(this).attr('name') == 'amount[]')) {
                 e.preventDefault();
                 addItem();
             }
-            if(e.keyCode == 46) removeItem($(this));
+            if(e.keyCode == 46) removeRow($(this));
         });
+    }
+
+    function removeRow (self) {
+        if ($('#stock tbody tr').length > 1) {
+            $(self).parents('tr').remove();
+        }
     }
 
     function restrictTypes () {
@@ -63,38 +58,37 @@ var Stock = (function (w, $, undefined) {
 
     //Autocompletes (esto necesita un refactor urgente)
     function autocomplete ($tr) {
-        console.log(namesAutocomplete)
-        $tr.find('input[name="name"]').autocomplete({
+        $tr.find('input[name="name[]"]').autocomplete({
             source:namesAutocomplete,
             response: function (event, ui) {
                 if (ui.content.length) {
-                    $(event.target).parents('tr').find('input[name="code"]').val(ui.content[0].code);
-                    $(event.target).parents('tr').find('input[name="cost"]').val(ui.content[0].cost);
+                    $(event.target).parents('tr').find('input[name="code[]"]').val(ui.content[0].code);
+                    $(event.target).parents('tr').find('input[name="cost[]"]').val(ui.content[0].cost);
                     $(this).data({currentItem:ui.content[0]})
                 }
             },
             focus: function (event, ui) {
                 event.target.value = ui.item.label;
-                $(event.target).parents('tr').find('input[name="code"]').val(ui.item.code);
-                $(event.target).parents('tr').find('input[name="cost"]').val(ui.item.cost);
+                $(event.target).parents('tr').find('input[name="code[]"]').val(ui.item.code);
+                $(event.target).parents('tr').find('input[name="cost[]"]').val(ui.item.cost);
                 return false;
             },
             select: function (event, ui) {
                 var $tr = $(event.target).parents('tr');
                 event.target.value = ui.item.label;
-                $tr.find('input[name="code"]').val(ui.item.code);
-                $tr.find('input[name="product_id"]').val(ui.item.id);
-                $tr.find('input[name="cost"]').val(ui.item.cost);
+                $tr.find('input[name="code[]"]').val(ui.item.code);
+                $tr.find('input[name="product_id[]"]').val(ui.item.id);
+                $tr.find('input[name="cost[]"]').val(ui.item.cost);
                 return false;
             },
             change: function (event, ui) {
                 if (ui.item == null) {
                     var $tr = $(event.target).parents('tr'), item = $(this).data('currentItem');
                     event.target.value = item.label;
-                    $tr.find('input[name="name"]').val(item.name)
-                    $tr.find('input[name="code"]').val(item.code);
-                    $tr.find('input[name="product_id"]').val(item.id);
-                    $tr.find('input[name="cost"]').val(item.cost);
+                    $tr.find('input[name="name[]"]').val(item.name)
+                    $tr.find('input[name="code[]"]').val(item.code);
+                    $tr.find('input[name="product_id[]"]').val(item.id);
+                    $tr.find('input[name="cost[]"]').val(item.cost);
                 }
             },
             _renderItem: function( ul, item ) {
@@ -104,38 +98,40 @@ var Stock = (function (w, $, undefined) {
             }
         });
         
-        $tr.find('input[name="code"]').autocomplete({
+        $tr.find('input[name="code[]"]').autocomplete({
             source:codesAutocomplete,
             response: function (event, ui) {
                 if (ui.content.length) {
-                    $(event.target).parents('tr').find('input[name="name"]').val(ui.content[0].name);
-                    $(event.target).parents('tr').find('input[name="cost"]').val(ui.content[0].cost);
+                    $(event.target).parents('tr').find('input[name="name[]"]').val(ui.content[0].name);
+                    $(event.target).parents('tr').find('input[name="cost[]"]').val(ui.content[0].cost);
                     $(this).data({currentItem:ui.content[0]})
                 }
             },
             focus: function (event, ui) {
                 event.target.value = ui.item.label;
-                $(event.target).parents('tr').find('input[name="name"]').val(ui.item.name);
-                $(event.target).parents('tr').find('input[name="cost"]').val(ui.item.cost);
+                $(event.target).parents('tr').find('input[name="name[]"]').val(ui.item.name);
+                $(event.target).parents('tr').find('input[name="cost[]"]').val(ui.item.cost);
                 return false;
             },
             select: function (event, ui) {
                 var $tr = $(event.target).parents('tr');
                 event.target.value = ui.item.label;
-                $tr.find('input[name="name"]').val(ui.item.name)
-                $tr.find('input[name="code"]').val(ui.item.code);
-                $tr.find('input[name="product_id"]').val(ui.item.id);
-                $tr.find('input[name="cost"]').val(ui.item.cost);
+                $tr.find('input[name="name[]"]').val(ui.item.name)
+                $tr.find('input[name="code[]"]').val(ui.item.code);
+                $tr.find('input[name="product_id[]"]').val(ui.item.id);
+                $tr.find('input[name="cost[]"]').val(ui.item.cost);
                 return false;
             },
             change: function (event, ui) {
                 if (ui.item == null) {
                     var $tr = $(event.target).parents('tr'), item = $(this).data('currentItem');
-                    event.target.value = item.label;
-                    $tr.find('input[name="name"]').val(item.name)
-                    $tr.find('input[name="code"]').val(item.code);
-                    $tr.find('input[name="product_id"]').val(item.id);
-                    $tr.find('input[name="cost"]').val(item.cost);
+                    if (item) {
+                        event.target.value = item.label;
+                        $tr.find('input[name="name[]"]').val(item.name)
+                        $tr.find('input[name="code[]"]').val(item.code);
+                        $tr.find('input[name="product_id[]"]').val(item.id);
+                        $tr.find('input[name="cost[]"]').val(item.cost);
+                    }
                 }
             },
             _renderItem: function( ul, item ) {
@@ -149,6 +145,9 @@ var Stock = (function (w, $, undefined) {
     return {
         init : function () {
             init();
+        },
+        removeRow: function (self) {
+            removeRow(self);
         }
     }
 })(window, jQuery, undefined);

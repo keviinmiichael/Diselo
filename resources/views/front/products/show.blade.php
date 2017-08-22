@@ -53,7 +53,7 @@
 					<!-- Available Options Starts -->
 					<div class="options" style="margin-top: 10px">
 						<div class="cart-button button-group">
-							<a data-remodal-target="modal" class="btn btn-cart">
+							<a data-remodal-target="modal-{{$product->id}}" class="btn btn-cart">
 								<i class="fa fa-shopping-cart hidden-sm hidden-xs"></i>
 								Agregar al carrito
 							</a>
@@ -69,12 +69,7 @@
 	</div>
 	<!-- Main Container Ends -->
 
-	<div class="remodal" data-remodal-id="modal">
-	 	@include('front.products.modal')
-	</div>
-
-	<textarea style="display: none" id="modal-template">@include('front.products.modal')</textarea>
-	<textarea style="display: none" id="modal-row-template">@include('front.products._modal-row')</textarea>
+	@include('front.products.modal')
 
 @endsection
 

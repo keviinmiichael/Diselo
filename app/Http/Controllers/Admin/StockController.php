@@ -17,13 +17,19 @@ class StockController extends Controller
 
     public function store()
     {
-        $items = json_decode(str_replace("'", '"', stripslashes( request('items') )) );
-        foreach ($items->items as $item) {
-            if (!$item->product_id) continue;
-            $stock = Stock::firstOrNew(['product_id' => $item->product_id, 'size_id' => $item->size_id]);
-            $stock->amount += $item->amount;
-            $stock->save();
-            Product::where('id', $item->product_id)->update(['cost' => $item->cost]);
+        foreach (request('product_id') as $key => $product_id) {
+            if (!$product_id) continue;
+            for ($i=1; $i<=5; $i++) {
+                if (!request("size_id_$i.$key")) continue;
+                $stock = Stock::firstOrNew([
+                    'product_id' => $product_id,
+                    'size_id' => request("size_id_$i.$key"),
+                    'color_id' => request("color_id.$key")
+                ]);
+                $stock->amount += request("amount.$key");
+                $stock->save();
+            }
+            Product::where('id', $product_id)->update(['cost' => request("cost.$key")]);
         }
         return redirect('admin/products#stock');
     }

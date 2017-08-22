@@ -73,8 +73,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-	factory(\App\Stock::class, 50)->create()->each(function ($stock) {
-	        $stock->save(factory(App\Stock::class)->create());
-	    });
+	   \DB::table('stock')->insert([
+            ['product_id' => 1, 'size_id' => 1, 'color_id' => 1, 'amount' => 5],
+            ['product_id' => 1, 'size_id' => 2, 'color_id' => 3, 'amount' => 5],
+            ['product_id' => 1, 'size_id' => 3, 'color_id' => 5, 'amount' => 5],
+            ['product_id' => 2, 'size_id' => 4, 'color_id' => 2, 'amount' => 5],
+            ['product_id' => 2, 'size_id' => 5, 'color_id' => 4, 'amount' => 5],
+            ['product_id' => 2, 'size_id' => 1, 'color_id' => 6, 'amount' => 5],
+            ['product_id' => 3, 'size_id' => 2, 'color_id' => 1, 'amount' => 5],
+            ['product_id' => 3, 'size_id' => 3, 'color_id' => 1, 'amount' => 5],
+            ['product_id' => 3, 'size_id' => 4, 'color_id' => 2, 'amount' => 5],
+            ['product_id' => 4, 'size_id' => 5, 'color_id' => 2, 'amount' => 5],
+            ['product_id' => 4, 'size_id' => 1, 'color_id' => 3, 'amount' => 5],
+            ['product_id' => 4, 'size_id' => 2, 'color_id' => 3, 'amount' => 5],
+            ['product_id' => 5, 'size_id' => 3, 'color_id' => 4, 'amount' => 5],
+            ['product_id' => 5, 'size_id' => 4, 'color_id' => 4, 'amount' => 5],
+            ['product_id' => 5, 'size_id' => 5, 'color_id' => 5, 'amount' => 5],
+            ['product_id' => 6, 'size_id' => 1, 'color_id' => 5, 'amount' => 5],
+            ['product_id' => 6, 'size_id' => 2, 'color_id' => 6, 'amount' => 5],
+            ['product_id' => 6, 'size_id' => 3, 'color_id' => 6, 'amount' => 5]
+        ]);
 	}
 }

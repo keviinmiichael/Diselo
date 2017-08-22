@@ -160,7 +160,7 @@ class Database extends Migration
         Schema::create('related_products', function (Blueprint $table) {
             $table->smallInteger('product1')->unsigned();
             $table->smallInteger('product2')->unsigned();
-            $table->smallInteger('times')->unsigned();
+            $table->smallInteger('times')->unsigned()->default(0);
 
             //índices
             $table->primary(['product1', 'product2']);

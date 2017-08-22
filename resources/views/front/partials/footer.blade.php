@@ -74,10 +74,9 @@
 <script src="/js/front/owl.carousel.min.js"></script>
 <script src="/js/front/plugin/stepper/jquery.fs.stepper.js"></script>
 <script src="/js/front/plugin/remodal/remodal.min.js"></script>
+<script src="/js/front/plugin/lobibox/notifications.min.js"></script>
 <script src="/js/front/custom.js"></script>
 @yield('scripts')
-
-
 
 </body>
 </html>

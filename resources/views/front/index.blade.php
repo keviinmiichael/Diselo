@@ -104,4 +104,5 @@
 			});
 		});
 	</script>
+    <script src="/js/front/product.js"></script>
 @endsection

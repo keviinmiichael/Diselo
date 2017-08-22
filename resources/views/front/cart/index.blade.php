@@ -48,12 +48,12 @@
 						 @foreach ($items as $item)
 							<tr>
 								<td class="text-center">
-									<a href="product.html">
-										<img src="/content/products/dd/{{$product->thumb}}" alt="{{$product->name}}" title="{{$product->name}}" class="img-thumbnail" />
+									<a href="/productos/{{$product->slug}}">
+										<img style="width: 50px" src="/content/products/thumb/{{$product->thumb}}" alt="{{$product->name}}" title="{{$product->name}}" class="img-thumbnail" />
 									</a>
 								</td>
 								<td class="text-center">
-									<a href="product-full.html">{{ $product->name }}</a>
+									<a href="/productos/{{$product->slug}}">{{ $product->name }}</a>
 								</td>
 								<td class="text-center">
 									{{ \App\Size::find($size)->value }}
@@ -238,10 +238,12 @@
 	<!-- Modal content -->
   	<div class="modal-content">
     	<div class="modal-header">
-      		<h2>Estamos procesando tu compra</h2>
+      		<h2 class="default">Estamos procesando tu compra</h2>
+      		<h2 class="error" style="display: none">Error</h2>
     	</div>
 	    <div class="modal-body">
-	      	<p>Por favor aguarda un momento.</p>
+	      	<p class="default">Por favor aguarda un momento.</p>
+	      	<p class="error" style="display: none"></p>
 	    </div>
 	    <div class="modal-footer">
 	    <span class="close"><a href="#" class="round-button">OK</a></span>
