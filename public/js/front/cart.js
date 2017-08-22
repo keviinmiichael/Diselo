@@ -26,6 +26,8 @@ var Cart = (function (w, $, undefined) {
 
     function modalInit () {
         $('#comprar').on('click', function () {
+            $('#myModal .error').hide();
+            $('#myModal .default').show();
             $('#myModal').show();
         });
         $('#myModal .close').on('click', function () {
@@ -143,12 +145,18 @@ var Cart = (function (w, $, undefined) {
             data: $('#form-cliente').serialize(),
             success: function (response) {
                 $('#myModal').hide();
-                //location.href = '/clientes/pedido/exito'
+                location.href = '/pedido-exitosa'
             },
             error: function (error) {
-                $('#myModal').hide();
-                for (var a in error.responseJSON) {
-                    addError(a, error.responseJSON[a][0]);
+                if (error.responseJSON.message) {
+                    $('#myModal .error').show();
+                    $('#myModal .default').hide();
+                    $('#myModal .modal-body .error').html(error.responseJSON.message)
+                } else {
+                    $('#myModal').hide();
+                    for (var a in error.responseJSON) {
+                        addError(a, error.responseJSON[a][0]);
+                    }
                 }
             }
         });

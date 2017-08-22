@@ -6,7 +6,7 @@ $.ajaxSetup({
 
 var Product = (function (w, $, undefined) {
 
-    var modalRowTpl = $('#modal-row-template').val();
+    var modalRowTpl;
 
     function init () {
         listener();
@@ -20,16 +20,16 @@ var Product = (function (w, $, undefined) {
             agregarRow();
         });
         //remover items
-        $('#selected-items').on('click', 'a[href="remover"]', function(e) {
+        $('.selected-items').on('click', 'a[href="remover"]', function(e) {
             e.preventDefault();
             removerRow($(this));
         });
         //actualizar stock
-        $('#selected-items').on('change', 'select[name="size[]"], select[name="color[]"]', function(e) {
+        $('.selected-items').on('change', 'select[name="size[]"], select[name="color[]"]', function(e) {
             actualizarStock($(this));
         });
         //agregar productos al pedido
-        $('#agregar').on('click', function () {
+        $('.agregar-producto').on('click', function () {
             agregarProducto();
         });
     }
@@ -45,9 +45,9 @@ var Product = (function (w, $, undefined) {
     }
 
     function agregarRow () {
-        var tpl = modalRowTpl.replace(/\$\{time\}/g, (new Date()).getTime() );
+        var tpl = $('.remodal-is-opened .modal-row-template').val().replace(/\$\{time\}/g, (new Date()).getTime());
         var $item = $(tpl);
-        $('#selected-items').append($item);
+        $('.remodal-is-opened .selected-items').append($item);
         stepperInit($item);
     }
 
@@ -56,6 +56,7 @@ var Product = (function (w, $, undefined) {
     }
 
     function actualizarStock ($this) {
+        var $form = $this.parents('.selected-items');
         var $parent = $this.parents('.row'), html = '', color, data;
         if ($this.attr('name') == 'size[]') {
             $('select[name="color[]"]', $parent).html('<option>Espere...</option>');
@@ -68,7 +69,7 @@ var Product = (function (w, $, undefined) {
         }
         $.ajax({
             type: 'get',
-            url : '/productos/1/get-stock',
+            url : '/productos/'+$('input[name="product_id"]', $form).val()+'/get-stock',
             data: data,
             success: function (response) {
                 //stepper
@@ -94,11 +95,18 @@ var Product = (function (w, $, undefined) {
             $.ajax({
                 url: '/cart/add',
                 type: 'post',
-                data: $('#selected-items').serialize(),
+                data: $('.remodal-is-opened .selected-items').serialize(),
                 success: function (response) {
                     $('#cart-total').text(response.totalItems+' item(s)');
-                    $('.btn-cart').data('waiting', false).attr('disabled', true).find('i').removeClass('fa-spin fa-spinner').addClass('fa-check');
-
+                    $('.btn-cart').data('waiting', false).find('i').removeClass('fa-spin fa-spinner').addClass('fa-shopping-cart');
+                    Lobibox.notify('success', {
+                        sound: false,
+                        title: 'Producto Agregado',
+                        msg: 'El producto se agregó al carrito de compras',
+                        delayIndicator: false,
+                        delay: 2700,
+                        position: 'top right'
+                    });
                 }
             });
         }

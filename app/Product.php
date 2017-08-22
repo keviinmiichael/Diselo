@@ -156,4 +156,19 @@ class Product extends Model
         ;
     }
 
+    //productos relacionados
+    public function addRelated($product_id)
+    {
+        RelatedProducts::addRalation($this->id, $product_id);
+    }
+
+    public function getRelateds($limit=8)
+    {
+        return self::whereRaw('id in (select CASE WHEN product1 = '.$this->id.' THEN product2 ELSE product1 END from related_products where (product1 = '.$this->id.' or product2 = '.$this->id.') order by times desc )')
+            ->where('id', '<>', $this->id)
+            ->limit($limit)
+            ->get()
+        ;
+    }
+
 }

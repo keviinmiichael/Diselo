@@ -20,11 +20,8 @@ class ProductsController extends Controller
 
     public function show($product)
 	{
-        //dd(session('cart'));
 		$product = \App\Product::where('slug', $product)->firstOrFail();
-		$availableSizes = $product->availableSizes();
-        $availableColors = $product->availableColors($availableSizes->first()->id);
-        $availableStock = $product->availableStock($availableSizes->first()->id, $availableColors->first()->id);
+        $this->addRelation($product);
         return view('front.products.show', compact('product', 'availableSizes', 'availableColors', 'availableStock'));
 	}
 
@@ -60,7 +57,17 @@ class ProductsController extends Controller
 			->orWhere('subcategories.name', 'like', '%'.request('search').'%')
 			->visible()
             ->paginate();
-		return view('front.products.search', compact('products'));
+		return view('front.products.index', compact('products'));
 	}
+
+    public function addRelation($product)
+    {
+        if (session()->has('relation.origin') && session('relation.origin') != $product->id) {
+            $product->addRelated(session('relation.origin'));
+        }
+        if (!session()->has('relation.origin') || session('relation.origin') != $product->id) {
+            session()->put('relation.origin', $product->id);
+        }
+    }
 
 }

@@ -57,6 +57,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('productos/{product}/get-stock', 'ProductsController@getStock');
 
     Route::get('carrito', 'CartController@show');
+    Route::get('pedido-exitoso', 'CartController@success');
     Route::post('cart/add', 'CartController@add');
     Route::post('cart/remove', 'CartController@remove');
     Route::post('cart/refresh', 'CartController@refresh');

@@ -71,55 +71,69 @@
 
                             <!-- widget content -->
                             <div class="widget-body">
-                                <table id="stock" class="table table-striped table-bordered table-hover smart-form" width="100%" style="margin-bottom: 20px">
-                                    <thead>
-                                        <tr>
-                                            <th>Código</th>
-                                            <th>Nombre</th>
-                                            <th>Costo</th>
-                                            <th>Talle</th>
-                                            <th>Cantidad</th>
-                                            <th><i class="fa fa-times"></i></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <label class="input"><input name="code" type="text" value="" /></label>
-                                            </td>
-                                            <td>
-                                                <label class="input"><input name="name" type="text" value="" /></label>
-                                            </td>
-                                            <td>
-                                                <label class="input"><input class="cost" name="cost" type="text" value="" data-type="float" /></label>
-                                            </td>
-                                            <td>
-                                                <label class="select">
-                                                    <select name="size_id" style="padding: 5px 20px">
-                                                        <option value="1">XS</option>
-                                                        <option value="2">S</option>
-                                                        <option value="3">M</option>
-                                                        <option value="4">L</option>
-                                                        <option value="5">XL</option>
-                                                    </select>
-                                                    <i></i>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <label class="input"><input class="stock" name="amount" type="text" value="" data-type="int" /></label>
-                                                <input type="hidden" name="product_id" value="" />
-                                            </td>
-                                            <td><a class="btn btn-danger" style="padding: 5px 10px" onclick="removeItem(this)"><i class="fa fa-trash-o"></i></a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <footer style="text-align: right;">
-                                    <form id="formStock" action="/admin/stock" method="post" style="display: inline-block;">
+                                <form id="formStock" action="/admin/stock" method="post" style="display: inline-block;">
                                         {{ csrf_field() }}
-                                        <button tabindex="-1" type="submit" class="btn btn-primary">
-                                            <i class="fa fa-save"></i> Guardar
-                                        </button>
-                                    </form>
+                                    <table id="stock" class="table table-striped table-bordered table-hover smart-form" width="100%" style="margin-bottom: 20px">
+                                        <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nombre</th>
+                                                <th>Costo</th>
+                                                <th>XS</th>
+                                                <th>S</th>
+                                                <th>M</th>
+                                                <th>L</th>
+                                                <th>XL</th>
+                                                <th>Color</th>
+                                                <th>Cantidad</th>
+                                                <th><i class="fa fa-times"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label class="input"><input name="code[]" type="text" value="" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="name[]" type="text" value="" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="cost[]" type="text" value="" class="cost" data-type="float" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_1[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_2[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_3[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_4[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_5[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="select">
+                                                        {!! \App\Color::toSelect() !!}
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input class="stock" name="amount[]" type="text" value="" data-type="int" /></label>
+                                                    <input type="hidden" name="product_id[]" value="" />
+                                                </td>
+                                                <td><a class="btn btn-danger" style="padding: 5px 10px" onclick="Stock.removeRow(this)"><i class="fa fa-trash-o"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <footer style="text-align: right;">
+                                    <a id="guardar" class="btn btn-primary">
+                                        <i class="fa fa-save"></i> Guardar
+                                    </a>
                                     <a class="btn btn-success addItem">
                                         <i class="fa fa-plus"></i> Agregar
                                     </a>

@@ -8,10 +8,13 @@ use App\Http\Requests\ClientRequest;
 use App\Item;
 use App\Product;
 use App\Purchase;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    private $min_purchase = 1500;
 
     public function show()
     {
@@ -61,7 +64,7 @@ class CartController extends Controller
 
     public function buy(ClientRequest $request)
     {
-        if (!session()->has('cart')) return ['success' => false];
+        if (!session()->has('cart') || !count(session('cart'))) return new JsonResponse(['message' => 'No hay proudctos en el carrito'], 422);
 
         $products = Product::whereIn('id', array_keys(session('cart')))->get();
         $itemsCollection = collect();
@@ -85,6 +88,8 @@ class CartController extends Controller
 
         $client = Client::create(request()->all());
 
+        if ($total < $this->min_purchase) return new JsonResponse(['message' => 'La compra mínima es de '.$this->min_purchase], 422);
+
         $purchase = Purchase::create([
             'total' => $total,
             'cost' => $cost,
@@ -95,6 +100,12 @@ class CartController extends Controller
 
         return ['success' => true];
 
+    }
+
+    public function success()
+    {
+        $products = Product::whereIn('id', array_keys(session('cart')))->with('stocks')->get();
+        return view('front.cart.success', compact('products'));
     }
 
 }

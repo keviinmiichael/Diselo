@@ -11,7 +11,7 @@ body{
 
 /* Stepper */
 .stepper {width: 60px}
-#selected-items .stepper {width: 100%}
+.selected-items .stepper {width: 100%}
 /* End Stepper*/
 
 /* Standard Styles Starts */
