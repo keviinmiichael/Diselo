@@ -14,7 +14,6 @@
 	<div class="main-container inner container">
 	<!-- Product Info Starts -->
 		<div class="row product-info full">
-
 			<!-- Left Starts -->
 			<div class="col-sm-4 images-block" >
 				<a href="/content/products/big/{{$product->thumb}}">
