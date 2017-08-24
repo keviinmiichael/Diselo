@@ -54,7 +54,7 @@
 .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before
-{
+{	color: black;
     opacity: 1;
 }
 .slick-prev.slick-disabled:before,
@@ -71,7 +71,7 @@
     line-height: 1;
 
     opacity: .75;
-    color: red;
+    color: rgba(102, 102, 102, 0.73);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
