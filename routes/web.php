@@ -23,6 +23,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('subcategories/json', 'SubcategoriesController@json');
     Route::resource('categories.subcategories', 'SubcategoriesController');
 
+    //categorias
+    Route::get('colors/json', 'ColorsController@json');
+    Route::resource('colors', 'ColorsController');
+
     //productos
     Route::get('products/json', 'ProductsController@json');
     Route::resource('products', 'ProductsController');

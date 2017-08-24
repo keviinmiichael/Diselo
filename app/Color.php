@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Color extends Model
 {
 	protected $fillable = ['value'];
+    public $timestamps = false;
 
 	public function product()
     {
         return $this->belongsTo('App\Product');
+    }
+
+    public function stocks()
+    {
+      return $this->hasMany('App\Stock');
     }
 
     public static function toSelect()
@@ -23,6 +29,20 @@ class Color extends Model
         $html .= '</select>';
         return $html;
     }
+
+    //scopes
+    public function scopeSearch($query)
+    {
+        if (request('search.value')) {
+            $query->where('name', 'like', request('search.value').'%');
+        }
+    }
+
+    public function scopeDt($query)
+    {
+        $query->take(request('length'))->skip(request('start'));
+    }
+    //------
 
 
 }
