@@ -9,7 +9,9 @@
 	@include('front.partials.main-menu')
 
 	<div class="logo-wrap container">
-		<h1><span>{{ config('app.name') }}</span></h1>
+		<a href="/">
+			<h1><span>{{ config('app.name') }}</span></h1>
+		</a>
 	</div>
 
 </header>

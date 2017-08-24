@@ -328,10 +328,10 @@ hr{
 		#main-menu .navbar-nav > li > a:focus,
 		#main-menu .navbar-nav > li.open a{
 			background:none;
-			color:#cb3737;
+			color:#000000;
 		}
 			#main-menu .dropdown-menu{
-				background:#cb3737;
+				background:#000000;
 				border:none;
 				padding:0;
 				-webkit-border-radius:0;
@@ -350,7 +350,7 @@ hr{
 				}
 				#main-menu .dropdown-menu li:hover a{
 					border-radius: 10px;
-					background:#a32a2a;
+					background: rgba(102, 102, 102, 0.73);
 					text-decoration:none;
 				}
 					#main-menu .dropdown-inner {
@@ -986,7 +986,7 @@ hr{
 				.product-info .product-details .btn-wishlist:hover,
 				.product-info .product-details .btn-compare:hover,
 				.product-info .product-details .btn-cart{
-					background:#cb3737;
+					background: rgba(102, 102, 102, 0.73);
 				}
 				.product-info .product-details .btn-cart{
 					font-size:14px;
@@ -1010,15 +1010,8 @@ hr{
 		.product-info-box .heading{
 			padding:13px 20px;
 			font-size:18px;
-			color:#cb3737;
-			background:#fff;
-			border-top:1px solid #dedede;
-			border-right:1px solid #dedede;
-			border-bottom:4px solid #cb3737;
-			border-left:1px solid #dedede;
-			-webkit-border-radius:3px;
-			   -moz-border-radius:3px;
-					border-radius:3px;
+			color:#000000;
+			border-bottom:4px solid #f4f4f4;
 		}
 		.product-info-box .content{
 			color:#212121;
@@ -1191,15 +1184,12 @@ hr{
 		padding:12px 20px 10px;
 		margin:0 0 20px;
 		font-size:20px;
-		color:#fff;
-		background:#cb3737;
+		color:#000000;
 		text-transform:uppercase;
 		-webkit-border-radius:5px;
 		   -moz-border-radius:5px;
 				border-radius:5px;
-		-webkit-box-shadow:0 4px rgba(203, 55, 55, 0.75);
-		   -moz-box-shadow:0 4px rgba(203, 55, 55, 0.75);
-				box-shadow:0 4px rgba(203, 55, 55, 0.75);
+		-webkit-box-shadow:0 4px #f4f4f4;
 	}
 	.list-group,
 	.list-group-item:first-child,
