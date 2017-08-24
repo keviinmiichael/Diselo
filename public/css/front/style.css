@@ -172,7 +172,7 @@ hr{
 	#search .input-group .btn{
 		margin-left: 0;
 		height: 34px;
-		color:#cb3737;
+		color:#fff;
 	}
 	#search .input-group .form-control,
 	#search .input-group .btn {
@@ -208,7 +208,7 @@ hr{
 	}
 		#cart .btn .fa-shopping-cart{
 			font-size: 20px;
-			color:#cb3737;
+			color:#fff;
 			line-height:none;
 		}
 		#cart .btn span{
