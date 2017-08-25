@@ -95,7 +95,7 @@ hr{
 .btn-black:active,
 .btn-black.active,
 .btn-main {
-	background-color: #cb3737;
+	background-color: rgba(102, 102, 102, 0.73);
 }
 .btn-main:hover,
 .btn-main:focus,
@@ -1227,7 +1227,7 @@ hr{
 	.list-group-item .fa{
 		padding-left:5px;
 		padding-right:7px;
-		color:#cb3737;
+		color:#000000;
 		font-weight:bold;
 	}
 	.filter-group{
