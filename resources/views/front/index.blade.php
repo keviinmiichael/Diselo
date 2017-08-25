@@ -28,7 +28,7 @@
 		<!-- Featured Products Ends -->
 		<!-- Big Banner Starts -->
 			<div class="full-banner">
-				<img src="images/banners/big-banner.jpg" alt="Banner" class="img-responsive" />
+				<img src="images/front/banners/big-banner.jpg" alt="Banner" class="img-responsive" />
 			</div>
 		<!-- Big Banner Ends -->
 		</div>
@@ -49,13 +49,13 @@
 			<div class="col2-banners">
 				<div class="row">
 					<div class="col-sm-5 col-xs-12">
-						<img src="images/banners/banner-img1.png" alt="Banner Image" class="img-responsive" />
+						<img src="images/front/banners/banner-img1.png" alt="Banner Image" class="img-responsive" />
 					</div>
 					<div class="col-xs-12 hidden-lg hidden-md hidden-sm">
 						<br>
 					</div>
 					<div class="col-sm-7 col-xs-12">
-						<img src="images/banners/banner-img2.png" alt="Banner Image" class="img-responsive" />
+						<img src="images/front/banners/banner-img2.png" alt="Banner Image" class="img-responsive" />
 					</div>
 				</div>
 			</div>
@@ -72,7 +72,7 @@
 			  dots: true,
 			  infinite: true,
 			  slidesToShow: 4,
-			  slidesToScroll: 1,
+			  slidesToScroll: 2,
 			  responsive: [
 			    {
 			      breakpoint: 1045,
@@ -86,6 +86,7 @@
 			    {
 			      breakpoint: 600,
 			      settings: {
+					arrows: false,
 			        slidesToShow: 2,
 			        slidesToScroll: 2
 			      }
@@ -93,6 +94,7 @@
 			    {
 			      breakpoint: 480,
 			      settings: {
+					arrows: false,
 			        slidesToShow: 1,
 			        slidesToScroll: 1
 			      }
