@@ -4,6 +4,24 @@
     <div class="container">
         <!-- Nav Header Starts -->
         <div class="navbar-header">
+          <div class="hidden-sm hidden-md hidden-lg">
+
+            <form class="search" action="/productos/search" method="get">
+                  <div id="search">
+                      <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Buscar">
+                        <span class="input-group-btn">
+  							  <button class="btn" type="submit">
+  								  <i class="fa fa-search"></i>
+  							  </button>
+                        </span>
+                      </div>
+                  </div>
+              </form>
+
+            </div>
+
+
             <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-cat-collapse">
                 <span class="sr-only">Toggle Navigation</span>
                 <i class="fa fa-bars"></i>
