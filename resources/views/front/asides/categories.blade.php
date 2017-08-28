@@ -7,56 +7,38 @@
     @endforeach
 </div>
 <!-- Filters Options Starts -->
-	<h3 class="side-heading">Shopping Options</h3>
-	<div class="list-group">
-		<div class="list-group-item">
-			Talles
-		</div>
-		<div class="list-group-item">
-			<div class="filter-group">
-				<label class="checkbox">
-					<input name="filter1" type="checkbox" value="br1" checked="checked" />
-					XS
-				</label>
-				<label class="checkbox">
-					<input name="filter2" type="checkbox" value="br2" />
-					S
-				</label>
-				<label class="checkbox">
-					<input name="filter2" type="checkbox" value="br2" />
-					M
-				</label>
-				<label class="checkbox">
-					<input name="filter2" type="checkbox" value="br2" />
-					L
-				</label>
-				<label class="checkbox">
-					<input name="filter2" type="checkbox" value="br2" />
-					XL
-				</label>
-			</div>
-		</div>
-		<div class="list-group-item">
-			Manufacturer
-		</div>
-		<div class="list-group-item">
-			<div class="filter-group">
-				<label class="radio">
-					<input name="filter-manuf" type="radio" value="mr1" checked="checked" />
-					Manufacturer Name 1
-				</label>
-				<label class="radio">
-					<input name="filter-manuf" type="radio" value="mr2" />
-					Manufacturer Name 2
-				</label>
-				<label class="radio">
-					<input name="filter-manuf" type="radio" value="mr3" />
-					Manufacturer Name 3
-				</label>
-			</div>
-		</div>
-		<div class="list-group-item">
-			<button type="button" class="btn btn-main">Filter</button>
+<h3 class="side-heading">Filtros</h3>
+<form class="list-group" accept-charset="utf-8">
+	<div class="list-group-item">
+		Talles
+	</div>
+	<div class="list-group-item">
+		<div class="filter-group">
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="1" @if (request()->has('sizes') && in_array(1, request('sizes'))) checked @endif />
+				XS
+			</label>
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="2" @if (request()->has('sizes') && in_array(2, request('sizes'))) checked @endif />
+				S
+			</label>
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="3" @if (request()->has('sizes') && in_array(3, request('sizes'))) checked @endif) />
+				M
+			</label>
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="4" @if (request()->has('sizes') && in_array(4, request('sizes'))) checked @endif />
+				L
+			</label>
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="5" @if (request()->has('sizes') && in_array(5, request('sizes'))) checked @endif />
+				XL
+			</label>
+			@if (isset($_GET['page'])) <input type="hidden" name="page" value="{{$_GET['page']}}"> @endif
 		</div>
 	</div>
+	<div class="list-group-item">
+		<button type="submit" class="btn btn-main">Filtrar</button>
+	</div>
+</form>
 <!-- Filters Options Ends -->

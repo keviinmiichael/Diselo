@@ -5,6 +5,9 @@
 
 @section('breadcrumb')
 	@parent
+	<li><a href="/productos">Productos</a></li>
+	<li><a href="/{{$product->category->slug}}">{{$product->category->name}}</a></li>
+	@if($product->subcategory_id) <li><a href="/{{$product->category->slug}}/{{$product->subcategory->slug}}">{{$product->subcategory->name}}</a></li> @endif
 	<li class="active">{{$product->name}}</li>
 @endsection
 

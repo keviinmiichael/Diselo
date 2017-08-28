@@ -47,4 +47,3 @@
     </div>
     <textarea style="display: none" class="modal-row-template"><?php echo $__env->make('front.products._modal-row', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></textarea>
 </div>
-

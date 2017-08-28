@@ -5,19 +5,32 @@
 
 @section('breadcrumb')
 	@parent
-	<li class="active">Productos</li>
+	@if (isset($category))
+        <li><a href="/productos">Productos</a></li>
+        <li class="active">{{ $category->name }}</li>
+    @elseif(isset($subcategory))
+        <li><a href="/productos">Productos</a></li>
+        <li><a href="/{{$subcategory->category->slug}}">{{$subcategory->category->name}}</a></li>
+        <li class="active">{{ $subcategory->name }}</li>
+    @else
+        <li class="active">Productos</li>
+    @endif
 @endsection
 
 
 @section('body')
 	@parent
 	@section('content')
-        @forelse ($products as $product)
-            @include('front.products._box')
-        @empty
-            @include('front.products._empty')
-        @endforelse
-        {{ $products->links() }}
+        <div class="row">
+            @forelse ($products as $product)
+                @include('front.products._box')
+            @empty
+                @include('front.products._empty')
+            @endforelse
+        </div>
+        <div class="text-center">
+            {{ $products->appends($_GET)->links() }}
+        </div>
 	@endsection
 @endsection
 

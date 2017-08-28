@@ -6,6 +6,7 @@ use App\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClientRequest;
 use App\Item;
+use App\Mail\BuyMail;
 use App\Product;
 use App\Purchase;
 use Illuminate\Http\JsonResponse;
@@ -97,6 +98,8 @@ class CartController extends Controller
         ]);
 
         $purchase->items()->saveMany($itemsCollection);
+
+        \Mail::to($client->email)->queue(new BuyMail);
 
         return ['success' => true];
 

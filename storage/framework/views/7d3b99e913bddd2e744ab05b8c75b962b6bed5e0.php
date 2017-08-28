@@ -3,6 +3,9 @@
 
 <?php $__env->startSection('breadcrumb'); ?>
 	##parent-placeholder-6e5ce570b4af9c70279294e1a958333ab1037c86##
+	<li><a href="/productos">Productos</a></li>
+	<li><a href="/<?php echo e($product->category->slug); ?>"><?php echo e($product->category->name); ?></a></li>
+	<?php if($product->subcategory_id): ?> <li><a href="/<?php echo e($product->category->slug); ?>/<?php echo e($product->subcategory->slug); ?>"><?php echo e($product->subcategory->name); ?></a></li> <?php endif; ?>
 	<li class="active"><?php echo e($product->name); ?></li>
 <?php $__env->stopSection(); ?>
 

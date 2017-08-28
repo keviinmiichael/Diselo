@@ -47,4 +47,3 @@
     </div>
     <textarea style="display: none" class="modal-row-template">@include('front.products._modal-row')</textarea>
 </div>
-

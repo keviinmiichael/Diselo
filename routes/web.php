@@ -1,12 +1,10 @@
 <?php
 
+use App\Mail\BuyMail;
+
 Route::get('test', function () {
-    $test = [
-        3 => [
-            5 => [2,4]
-        ]
-    ];
-    dd(array_flatten($test));
+    \Mail::to('maxiyanez84@gmail.com')->send(new BuyMail);
+    return 'Test';
 });
 
 
@@ -66,6 +64,9 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('cart/remove', 'CartController@remove');
     Route::post('cart/refresh', 'CartController@refresh');
     Route::post('cart/buy', 'CartController@buy');
+
+    Route::get('contacto', 'ContactController@index');
+    Route::post('contact/send', 'ContactController@send');
 
     Route::get('localidades/byProvincia', 'LocalidadController@byProvincia');
 

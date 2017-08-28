@@ -18,7 +18,7 @@ trait Unite {
         } else {
             $query->uniteSimple($relation, $left);
         }
-        if ($this->id) $query->where($this->getTable().'.'.$this->primaryKey, $this->id);
+        //if ($this->id) $query->where($this->getTable().'.'.$this->primaryKey, $this->id);
     }
 
     public function scopeUniteSimple($query, $relation, $left)

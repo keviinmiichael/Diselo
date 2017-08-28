@@ -96,6 +96,7 @@ class Product extends Model
     {
         $query->where('is_visible', 1)
             ->unite('stocks')
+            //->where('products.id', $this->id)
             ->where('amount', '>' , '0')
             ->groupBy('products.id')
         ;
@@ -105,6 +106,12 @@ class Product extends Model
         if (request('search.value')) {
             $query->where('products.name', 'like', request('search.value').'%')
                 ->orWhere('products.code', 'like', request('search.value').'%');
+        }
+    }
+    public function scopeFilter($query)
+    {
+        if (request()->has('sizes')) {
+            $query->whereIn('size_id', request('sizes'))->groupBy('size_id');
         }
     }
 
@@ -166,6 +173,7 @@ class Product extends Model
     {
         return self::whereRaw('id in (select CASE WHEN product1 = '.$this->id.' THEN product2 ELSE product1 END from related_products where (product1 = '.$this->id.' or product2 = '.$this->id.') order by times desc )')
             ->where('id', '<>', $this->id)
+            ->visible()
             ->limit($limit)
             ->get()
         ;

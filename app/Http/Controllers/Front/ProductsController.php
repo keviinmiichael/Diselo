@@ -14,7 +14,7 @@ class ProductsController extends Controller
 
     public function index()
 	{
-        $products = Product::visible()->paginate(6);
+        $products = Product::visible()->filter()->paginate(6);
         return view('front.products.index', compact('products'));
 	}
 
@@ -28,15 +28,15 @@ class ProductsController extends Controller
     public function byCategory($category)
     {
         $category = \App\Category::where('slug', $category)->firstOrFail();
-        $products = Product::visible()->where('category_id', $category->id)->paginate(6);
-        return view('front.products.index', compact('products'));
+        $products = Product::visible()->filter()->where('category_id', $category->id)->paginate(6);
+        return view('front.products.index', compact('products', 'category'));
     }
 
     public function bySubcategory($category, $subcategory)
     {
         $subcategory = \App\Subcategory::where('slug', $subcategory)->firstOrFail();
-        $products = Product::visible()->where('subcategory_id', $subcategory->id)->paginate(6);
-        return view('front.products.index', compact('products'));
+        $products = Product::visible()->filter()->where('subcategory_id', $subcategory->id)->paginate(6);
+        return view('front.products.index', compact('products', 'subcategory'));
     }
 
     public function getStock(Product $product)
@@ -60,7 +60,7 @@ class ProductsController extends Controller
 		return view('front.products.index', compact('products'));
 	}
 
-    public function addRelation($product)
+    private function addRelation($product)
     {
         if (session()->has('relation.origin') && session('relation.origin') != $product->id) {
             $product->addRelated(session('relation.origin'));
