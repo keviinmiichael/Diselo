@@ -113,6 +113,28 @@ class Product extends Model
         if (request()->has('sizes')) {
             $query->whereIn('size_id', request('sizes'))->groupBy('size_id');
         }
+
+		if (request()->has('sort')) {
+			switch (request('sort')) {
+				case 'NAZ':
+				$query->orderBy('name', 'asc')->get();
+					break;
+				case 'NAZ':
+				$query->orderBy('name', 'desc')->get();
+					break;
+				case 'PHL':
+				$query->orderBy('price', 'asc')->get();
+					break;
+				case 'PLH':
+				$query->orderBy('price', 'desc')->get();
+					break;
+
+				default:
+					$query->get();
+					break;
+			}
+        }
+
     }
 
     public function scopeDt($query)
