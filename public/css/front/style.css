@@ -27,16 +27,16 @@ a:focus{
 }
 #main-menu,
 .logo-wrap h1 {
-	font-family: 'Just Another Hand', cursive;
+	font-family: 'Dosis', sans-serif;
 }
 .logo-wrap h2 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 .product-col .price {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 h1, h2, h3, h4, h5, h6{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	color: #252a2f;
 }
 h1{
@@ -138,6 +138,16 @@ hr{
 		color: #fff;
 		font-size: 12px;
 	}
+	.logo-diselo{
+		margin: 0;
+		padding: 0;
+	}
+	.logo-diselo img{
+		width: 100px;
+		padding: 0;
+		margin: 0;
+	}
+
 	.top-bar ul {
 		margin-top: 6px;
 		margin-bottom: 0;

@@ -3,8 +3,13 @@
     <div class="container">
         <!-- Nested Row Starts -->
         <div class="row">
+			<div class="col-md-3  col-sm-6 col-xs-12">
+				<a href="/" class="logo-diselo">
+					<img src="/images/front/logo-diselo.svg" alt="Diselo" >
+				</a>
+			</div>
             <!-- Search Starts -->
-            <div class="col-md-3 col-md-offset-7 col-sm-6 col-xs-12">
+            <div class="col-md-3 col-md-offset-4  col-sm-6 col-xs-12">
 				<form class="search" action="/productos/search" method="get">
                     <div id="search">
                         <div class="input-group">

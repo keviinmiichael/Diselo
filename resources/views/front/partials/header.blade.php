@@ -8,10 +8,10 @@
 
 	@include('front.partials.main-menu')
 
-	<div class="logo-wrap container">
+	{{-- <div class="logo-wrap container">
 		<a href="/">
 			<h1><span>{{ config('app.name') }}</span></h1>
 		</a>
-	</div>
+	</div> --}}
 
 </header>

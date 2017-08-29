@@ -115,24 +115,6 @@ class Product extends Model
         }
 
 		if (request()->has('sort')) {
-			// switch (c) {
-			// 	case 'NAZ':
-			// 	$query->orderBy('name', 'asc')->get();
-			// 		break;
-			// 	case 'NAZ':
-			// 	$query->orderBy('name', 'desc')->get();
-			// 		break;
-			// 	case 'PHL':
-			// 	$query->orderBy('price', 'asc')->get();
-			// 		break;
-			// 	case 'PLH':
-			// 	$query->orderBy('price', 'desc')->get();
-			// 		break;
-			//
-			// 	default:
-			// 		$query->get();
-			// 		break;
-			// }
 			if (request('sort') == 'NAZ') {
 				$query->orderBy('name', 'asc')->get();
 			}elseif (request('sort') == 'NZA') {

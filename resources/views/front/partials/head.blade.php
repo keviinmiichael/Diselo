@@ -44,3 +44,15 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/front/fav-72.png">
 <link rel="apple-touch-icon-precomposed" href="/images/front/fav-57.png">
 <link rel="shortcut icon" href="/images/front/fav.png">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/favicon.ico">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,500" rel="stylesheet”>
