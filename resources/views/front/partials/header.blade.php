@@ -6,7 +6,7 @@
 
 	@include('front.partials.top-bar')
 
-	@include('front.partials.main-menu')
+	{{-- @include('front.partials.main-menu') --}}
 
 	{{-- <div class="logo-wrap container">
 		<a href="/">

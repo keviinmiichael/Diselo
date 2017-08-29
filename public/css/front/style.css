@@ -125,14 +125,33 @@ hr{
 /* Top Bar Styles Starts */
 
 .top-bar {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 100%;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
 	background: rgba(15, 15, 15, 0.5);
 	z-index:10;
 }
+
+.top-bar .search {
+	float: right;
+	margin: 0;
+}
+
+.top-bar .cart {
+	float: right;
+	margin: 0 auto 0;
+	width: 12%;
+}
+
+
+.cart i {
+	margin-left: 5px;
+}
+
+
+
+
 	.top-bar,
 	.top-bar a {
 		color: #fff;
@@ -149,9 +168,44 @@ hr{
 	}
 
 	.top-bar ul {
-		margin-top: 6px;
+		margin-top: 0;
 		margin-bottom: 0;
 	}
+
+	.top-bar .navbar {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.top-bar .navbar ul{
+		background-color: inherit;
+	}
+
+	.top-bar .navbar a{
+		display: block;
+		color: #FFF;
+		font-size: 1.4em;
+		text-align: center;
+		padding: 10px 12px;
+		margin-top: 6px;
+		position: relative;
+	}
+	.top-bar .navbar a:hover{
+		text-decoration: none;
+		border-bottom: 2px solid white;
+	}
+
+	.top-bar .navbar a:hover::before{
+		content: "";
+		border-width: 8px;
+		border-style: solid;
+		border-color: transparent transparent white transparent;
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		margin-left: -8px;
+	}
+
 
 /* Currency & Languages Drop Down Styles Starts */
 
@@ -229,7 +283,7 @@ hr{
 		}
 		#cart .btn .fa-shopping-cart,
 		#cart .btn span{
-			float: left;
+			float: right;
 		}
 		#cart .btn i.fa-caret-down{
 			color:#cb3737;
@@ -330,8 +384,9 @@ hr{
 			color:#fff;
 		}
 		#main-menu .navbar-nav > li a{
+			/*padding: 3px 15px;*/
 			color:#fff;
-			font-size:36px;
+			font-size:24px;
 		}
 		#main-menu .navbar-nav > li.active a,
 		#main-menu .navbar-nav > li > a:hover,
@@ -352,8 +407,9 @@ hr{
 				     box-shadow:none;
 			}
 				#main-menu .navbar-nav > li > .dropdown-menu li a{
+					text-align: center;
 					color:#fff;
-					font-size:24px;
+					font-size:18px;
 					padding-top:8px;
 					padding-bottom:8px;
 					font-weight:normal;

@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
-    
+
     private static $categories;
 
     /**
@@ -40,7 +40,7 @@ class ViewComposerServiceProvider extends ServiceProvider
 
     private function nav ()
     {
-        view()->composer('front/partials/main-menu', function ($view)
+        view()->composer('front/partials/top-bar', function ($view)
         {
             $categories = self::getCategories();
             $view->with('categories', $categories);
