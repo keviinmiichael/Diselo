@@ -187,15 +187,14 @@ hr{
 		font-size: 1.4em;
 		text-align: center;
 		padding: 10px 12px;
-		margin-top: 6px;
+		margin-top: 8px;
 		position: relative;
 	}
-	.top-bar .navbar a:hover{
+	.top-bar .navbar > li:hover > a{
 		text-decoration: none;
-		border-bottom: 2px solid white;
 	}
 
-	.top-bar .navbar a:hover::before{
+	.top-bar .navbar > li:hover > a::before{
 		content: "";
 		border-width: 8px;
 		border-style: solid;
@@ -205,7 +204,23 @@ hr{
 		bottom: 0;
 		margin-left: -8px;
 	}
+	.top-bar .navbar li .dropdown-menu{
+		margin-top: -1px;
+		left: 50%;
+		background-color: #fff;
+		transform: translateX(-50%);
+	}
 
+	.top-bar .navbar li .dropdown-menu a{
+		color: black;
+		padding: 5px;
+		font-size: 1em;
+		margin-top: -3px;
+
+	}
+	.top-bar .navbar li .dropdown-menu a:hover{
+		#f4f4f4;
+	}
 
 /* Currency & Languages Drop Down Styles Starts */
 
