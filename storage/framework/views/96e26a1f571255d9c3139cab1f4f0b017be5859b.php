@@ -10,6 +10,24 @@
 <!-- Filters Options Starts -->
 <h3 class="side-heading">Filtros</h3>
 <form class="list-group" accept-charset="utf-8">
+	<!-- Product Sort by Starts -->
+	<div class="product-filter">
+		<div class="row">
+			<div class="col-md-4 text-right">
+				<label class="control-label">Ordenar </label>
+			</div>
+			<div class="col-md-8 text-right">
+				<select name="sort" class="form-control">
+					<option value="">Sin orden</option>
+					<option value="name-asc" <?php if(request()->has('sort') && request('sort') == 'name-asc' ): ?> selected <?php endif; ?>>Nombre (A - Z)</option>
+					<option value="name-desc" <?php if(request()->has('sort') && request('sort') == 'name-desc' ): ?> selected <?php endif; ?>>Nombre (Z - A)</option>
+					<option value="price-desc" <?php if(request()->has('sort') && request('sort') == 'price-asc' ): ?> selected <?php endif; ?>>Precio (Alto - Bajo)</option>
+					<option value="price-asc" <?php if(request()->has('sort') && request('sort') == 'price-desc' ): ?> selected <?php endif; ?>>Precio (Bajo - Alto)</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<!-- Product Sort by Ends -->
 	<div class="list-group-item">
 		Talles
 	</div>

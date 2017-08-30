@@ -32,20 +32,24 @@ class ProductsController extends Controller
 
     public function store()
     {
-        Product::create(request()->all());
+        $request = request()->all();
+        if (empty($request['price'])) $request['price'] = ceil($request['cost'] * $request['profit_margin'] / 100 + $request['cost']);
+        Product::create($request);
         return redirect('admin/products#new');
     }
 
     public function edit(Product $product)
     {
         $categories = ['null' => 'Elegir'] + \App\Category::pluck('name', 'id')->toArray();
-        $subcategories = ['null' => 'Elegir'] + \App\Subcategory::where('category_id', $product->category_id)->pluck('name', 'id')->toArray();
+        $subcategories = ['null' => 'Elegir'] + \App\Subcategory::where('category_id', $product->category_id)->pluck('name', 'id')->toArray();  
         return view('admin.products.form', compact('product', 'categories', 'subcategories'));
     }
 
     public function update(Product $product)
     {
-        $product->update(request()->all());
+        $request = request()->all();
+        if (empty($request['price'])) $request['price'] = ceil($request['cost'] * $request['profit_margin'] / 100 + $request['cost']);
+        $product->update($request);
         $this->addImages($product);
         if (request()->ajax()) return $product->toArray();
         return redirect('admin/products#edit');
