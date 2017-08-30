@@ -3,6 +3,16 @@
 @section('title', 'Listado de proudctos')
 @section('description', 'Indumentaria - Remeras, vestidos, pantalones')
 
+@section('head')
+    @if (isset($category))
+        <link rel="canonical" href="{{ env('APP_URL') }}/{{ $category->slug }}" />
+    @elseif(isset($subcategory))
+        <link rel="canonical" href="{{ env('APP_URL') }}/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}" />
+    @else
+        <link rel="canonical" href="{{ env('APP_URL') }}/productos" />
+    @endif
+@endsection
+
 @section('breadcrumb')
 	@parent
 	@if (isset($category))
