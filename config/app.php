@@ -180,6 +180,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class,
     ],
 
     /*
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image  ' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
 
     ],
 

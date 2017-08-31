@@ -113,17 +113,9 @@ class Product extends Model
         if (request()->has('sizes')) {
             $query->whereIn('size_id', request('sizes'))->groupBy('size_id');
         }
-
 		if (request()->has('sort')) {
-			if (request('sort') == 'NAZ') {
-				$query->orderBy('name', 'asc')->get();
-			}elseif (request('sort') == 'NZA') {
-				$query->orderBy('name', 'desc')->get();
-			}elseif (request('sort') == 'PHL') {
-				$query->orderBy('cost', 'desc')->get();
-			}elseif (request('sort') == 'PLH') {
-				$query->orderBy('cost', 'asc')->get();
-			}
+            list($column, $direction) = explode('-', request('sort'));
+            if (in_array($column, ['name', 'price'])) $query->orderBy($column, $direction);
         }
 
     }

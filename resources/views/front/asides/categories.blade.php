@@ -17,11 +17,11 @@
 			</div>
 			<div class="col-md-8 text-right">
 				<select name="sort" class="form-control">
-					<option value="default" selected="selected">Sin orden</option>
-					<option value="NAZ">Nombre (A - Z)</option>
-					<option value="NZA">Nombre (Z - A)</option>
-					<option value="PHL">Precio (Alto - Bajo)</option>
-					<option value="PLH">Precio (Bajo - Alto)</option>
+					<option value="">Sin orden</option>
+					<option value="name-asc" @if (request()->has('sort') && request('sort') == 'name-asc' ) selected @endif>Nombre (A - Z)</option>
+					<option value="name-desc" @if (request()->has('sort') && request('sort') == 'name-desc' ) selected @endif>Nombre (Z - A)</option>
+					<option value="price-desc" @if (request()->has('sort') && request('sort') == 'price-asc' ) selected @endif>Precio (Alto - Bajo)</option>
+					<option value="price-asc" @if (request()->has('sort') && request('sort') == 'price-desc' ) selected @endif>Precio (Bajo - Alto)</option>
 				</select>
 			</div>
 		</div>

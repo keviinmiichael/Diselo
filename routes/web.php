@@ -7,9 +7,22 @@ Route::get('test', function () {
     return 'Test';
 });
 
+Auth::routes();
+
+// Authentication
+
+Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function()
+{
+    Route::get('login', 'LoginController@showLoginForm');
+    Route::post('login', 'LoginController@login');
+    Route::get('logout', 'LoginController@logout');
+});
+
+//----------
+
 
 //Admin
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/', 'DashboardController@index');
 
