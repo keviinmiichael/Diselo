@@ -14,7 +14,10 @@ body{
 .selected-items .stepper {width: 100%}
 /* End Stepper*/
 
-
+em{
+	font-style: normal;
+	font-family: 'Dosis', sans-serif;
+}
 
 /* Standard Styles Starts */
 

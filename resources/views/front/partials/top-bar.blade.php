@@ -19,7 +19,7 @@
 	                @foreach ($categories as $category)
 	                    @if ($category->subcategories->count())
 	                        <li class="dropdown">
-	                            <a href="/{{$category->slug}}" class="dropdown-toggle" data-hover="dropdown" data-delay="10">{{$category->name}}</a>
+	                            <a href="/{{$category->slug}}" id="drop" class="dropdown-toggle"  data-hover="dropdown" data-delay="10">{{$category->name}}</a>
 	                            <ul class="dropdown-menu" role="menu">
 	                                @foreach ($category->subcategories as $subcategory)
 	                                    <li><a tabindex="-1" href="/{{$category->slug}}/{{$subcategory->slug}}">{{$subcategory->name}}</a></li>

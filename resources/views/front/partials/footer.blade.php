@@ -76,6 +76,13 @@
 <script src="/js/front/plugin/remodal/remodal.min.js"></script>
 <script src="/js/front/plugin/lobibox/notifications.min.js"></script>
 <script src="/js/front/custom.js"></script>
+<script>
+	if ($( window ).width() <= 900) {
+		$( "#drop" ).attr( "data-toggle", "dropdown" );
+	}else {
+		$( "#drop" ).removeAttr( "data-toggle" )
+	}
+</script>
 @yield('scripts')
 
 </body>
