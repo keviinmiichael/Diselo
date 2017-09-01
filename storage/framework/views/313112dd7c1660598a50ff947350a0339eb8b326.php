@@ -20,7 +20,7 @@
 	                    <?php if($category->subcategories->count()): ?>
 	                        <li class="dropdown">
 	                            <a href="/<?php echo e($category->slug); ?>"  class="dropdown-toggle cambio"  data-hover="dropdown" data-delay="10"><?php echo e($category->name); ?></a>
-	                            <ul class="dropdown-menu" role="menu">
+	                            <ul class="dropdown-menu submenu" role="menu">
 	                                <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                                    <li><a tabindex="-1" href="/<?php echo e($category->slug); ?>/<?php echo e($subcategory->slug); ?>"><?php echo e($subcategory->name); ?></a></li>
 	                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
