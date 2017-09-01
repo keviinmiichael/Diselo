@@ -179,13 +179,14 @@ hr{
 .hamburguesa{
 	position: fixed;
 	z-index: 100;
-	background: #f00;
+	background: rgba(15, 15, 15, 0.5);
 	display: inline-block;
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 	right: 10px;
 	bottom: 10px;
+	color: white;
 }
 
 .navbar-collapse{
