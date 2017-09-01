@@ -78,9 +78,9 @@
 <script src="/js/front/custom.js"></script>
 <script>
 	if ($( window ).width() <= 900) {
-		$( "#drop" ).attr( "data-toggle", "dropdown" );
+		$( ".cambio" ).attr( "data-toggle", "dropdown" );
 	}else {
-		$( "#drop" ).removeAttr( "data-toggle" )
+		$( ".cambio" ).removeAttr( "data-toggle" )
 	}
 </script>
 @yield('scripts')

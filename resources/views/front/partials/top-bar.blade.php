@@ -7,7 +7,7 @@
     <div class="container">
         <!-- Nested Row Starts -->
         <div class="row">
-			<div class="col-md-2  col-sm-6 col-xs-3">
+			<div class="col-md-2  col-sm-3 col-xs-3">
 				<a href="/" class="logo-diselo">
 					<img src="/images/front/logo-diselo.svg" alt="Diselo" class="img-responsive" >
 				</a>
@@ -19,7 +19,7 @@
 	                @foreach ($categories as $category)
 	                    @if ($category->subcategories->count())
 	                        <li class="dropdown">
-	                            <a href="/{{$category->slug}}" id="drop" class="dropdown-toggle"  data-hover="dropdown" data-delay="10">{{$category->name}}</a>
+	                            <a href="/{{$category->slug}}"  class="dropdown-toggle cambio"  data-hover="dropdown" data-delay="10">{{$category->name}}</a>
 	                            <ul class="dropdown-menu" role="menu">
 	                                @foreach ($category->subcategories as $subcategory)
 	                                    <li><a tabindex="-1" href="/{{$category->slug}}/{{$subcategory->slug}}">{{$subcategory->name}}</a></li>
@@ -35,7 +35,7 @@
 	        </div>
             <!-- Shopping Cart Starts -->
             @php $items = (session()->has('cart')) ? count(session('cart')) : 0;  @endphp
-            <div class="col-md-2 col-sm-6 col-xs-3 cart">
+            <div class="col-md-2 col-sm-3 col-xs-3 cart">
                 {{-- <div id="cart" class="btn-group btn-block"> --}}
                 <div id="cart" class="">
                     <a href="/carrito" class="btn btn-block btn-lg text-uppercase">

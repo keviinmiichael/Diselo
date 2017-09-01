@@ -136,6 +136,7 @@ hr{
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: 60px;
 	padding-top: 10px;
 	background: rgba(15, 15, 15, 0.5);
 	z-index:10;
@@ -143,6 +144,11 @@ hr{
 .logo-diselo{
 	margin: 0;
 }
+.logo-diselo > img{
+    min-width: 80px !important;
+}
+
+
 .top-bar .search {
 	float: left;
 	margin: 0;
@@ -185,9 +191,10 @@ hr{
 .navbar-collapse{
 	position: fixed;
 	left: 0;
-	top: 44px;
+	top: 0px;
 	width: 100%;
 	background: rgba(15, 15, 15, 0.5);
+	margin-top: 60px;
 }
 .my-nav{
 	padding: 0;
@@ -1378,7 +1385,22 @@ hr{
 			transition: all 0.3s ease-out;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 750px) {
+	.top-bar .search{
+		margin: 3px 0 0 0;
+	}
+	.logo-diselo img{
+		width: 120px;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+@media (min-width: 990px) {
+
+	.hamburguesa{
+		display: none;
+	}
 
 	.top-bar {
 		position: fixed;
@@ -1483,6 +1505,8 @@ hr{
 			position: static;
 			width: auto;
 			background-color: transparent;
+			margin: 0;
+			display: block !important;
 		}
 
 
