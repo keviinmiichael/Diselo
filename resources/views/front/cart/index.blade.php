@@ -7,9 +7,9 @@
 @section('body')
 <!-- Main Container Starts -->
 <div class="main-container container">
-	
+
 	<h2 class="main-heading text-center">Carrito</h2>
-	
+
 	<!-- Shopping Cart Table Starts -->
 	<div class="table-responsive shopping-cart-table">
 		<table class="table table-bordered">
@@ -211,8 +211,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="checkbox col-sm-offset-2">
-									<label><input type="checkbox" value="">Aceptar términos y condiciones</label>
+								<div class="checkbox col-sm-offset-2 terminos">
+									<label>
+										<input type="checkbox" value="">Aceptar términos y condiciones
+									</label>
 								</div>
 								<br>
 								<div class="col-sm-offset-3 col-sm-9">

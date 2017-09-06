@@ -146,6 +146,7 @@ hr{
 }
 .logo-diselo > img{
     min-width: 80px !important;
+	margin-top: 10px;
 }
 
 
@@ -153,6 +154,7 @@ hr{
 	float: left;
 	margin: 0;
 	font-size: 0.5em;
+	margin-right: -45px;
 }
 
 .top-bar .cart {
@@ -217,6 +219,10 @@ hr{
 	text-transform: capitalize;
 }
 
+.terminos{
+	margin-left: 20px;
+}
+
 /* Search Styles Starts */
 
 #search{
@@ -245,6 +251,23 @@ hr{
 	}
 	#search .input-group .btn .fa{
 		font-size:18px;
+	}
+
+	.selected-items .row{
+		padding-top: 15px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		position: relative;
+		border: solid 1px rgba(15, 15, 15, 0.5);
+	}
+
+	.selected-items .row:nth-of-type(even){
+		padding-top: 15px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		position: relative;
+		border: solid 1px rgba(15, 15, 15, 0.5);
+		background-color: rgba(15, 15, 15, 0.2)
 	}
 
 /* Cart Styles Starts */
