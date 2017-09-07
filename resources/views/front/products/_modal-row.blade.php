@@ -16,7 +16,7 @@
     <div class="col-md-4">
         <input type="text" name="amount[]" class="amount form-control" value="1" size="1" min="1" max="{{$availableStock->amount}}" />
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-1 tachito">
         <p>
             <a href="remover" class="btn btn-default"><span class="fa fa-trash"></span></a>
         </p>
