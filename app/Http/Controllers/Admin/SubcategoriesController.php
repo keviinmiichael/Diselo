@@ -27,7 +27,6 @@ class SubcategoriesController extends Controller
 		return view('admin.subcategories.form', compact('subcategory', 'category'));
 	}
 
-
     public function store()
     {
 		Subcategory::create(request()->all());
@@ -47,8 +46,13 @@ class SubcategoriesController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(\App\Category $category, Subcategory $subcategory)
     {
-        //
+        $response = ['success' => false, 'error' => 'No se pueden borrar subcategorías que tienen productos asignados'];
+        if (!$subcategory->products()->count()) {
+            $subcategory->delete();
+            $response = ['success' => true];
+        }
+        return $response;
     }
 }

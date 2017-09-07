@@ -11,7 +11,7 @@ class Client extends Model
 
     use SoftDeletes, Unite;
 
-    protected $fillable = ['name','email','street','number','floor','aparment','zip_code','localidad_id','provincia_id'];
+    protected $fillable = ['name','lastname','business_name','phone','email','street','number','floor','aparment','neighborhood','zip_code','localidad_id','provincia_id'];
 
     //relationships
     public function provincia()

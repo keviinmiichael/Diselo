@@ -27,8 +27,8 @@ class Purchase extends Model
         return $this->hasMany('App\Item');
     }
 
-	 //scopes
-	 public function scopeSearch($query)
+	//scopes
+	public function scopeSearch($query)
     {
         if (request('search.value')) {
             $query->where('purchases.client', 'like', request('search.value').'%')
@@ -49,6 +49,7 @@ class Purchase extends Model
             ->unite('items') //la relación es items, agregué una "s"
             //->unite('price') está mal, ver observaciones en App\Client.php
             ->groupBy('purchases.id') //cuando hay varios inner join (unite) puede ser que haga falta un groupby
+            ->orderBy(request('order.0.column'), request('order.0.dir'))
             ->take(request('length'))
             ->skip(request('start'));
     }

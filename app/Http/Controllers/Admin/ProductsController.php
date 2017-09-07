@@ -55,9 +55,10 @@ class ProductsController extends Controller
         return redirect('admin/products#edit');
     }
 
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return ['success' => true];
     }
 
     private function addImages($product)

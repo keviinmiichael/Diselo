@@ -76,10 +76,13 @@ class CartController extends Controller
         foreach ($products as $product) {
             foreach (session('cart.'.$product->id) as $size => $cartItems) {
                 foreach ($cartItems as $cartItem) {
+                    $total += $product->price * $cartItem[1];
+                    $cost += $product->cost * $cartItem[1];
+
                     $item = new Item;
                     $item->name = $product->name;
-                    $total += $item->price = $product->price;
-                    $cost += $item->cost = $product->cost;
+                    $item->price = $product->price;
+                    $item->cost = $product->cost;
                     $item->amount = $cartItem[1];
                     $item->product_id = $product->id;
                     $itemsCollection->push($item);

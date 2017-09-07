@@ -74,12 +74,13 @@
                                 <table id="datatable" class="table table-striped table-hover" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>Total</th>
+                                            <th>Fecha</th>
+											<th>Cliente</th>
+                                            <th>Estado</th>
                                             <th>Costo</th>
+                                            <th>Total</th>
                                             <th>Pago</th>
-														  <th>Cliente</th>
-                                            <th>Stado</th>
-														  <th>Acciones</th>
+											<th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>

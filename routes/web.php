@@ -46,12 +46,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('stock/create', 'StockController@create');
     Route::post('stock', 'StockController@store');
 
+    //prices
+    Route::get('precios', 'PricesController@create');
+    Route::post('prices', 'PricesController@store');
+
 	 //clientes
     Route::get('clients/json', 'ClientsController@json');
     Route::resource('clients', 'ClientsController');
 
 	 //compras
     Route::get('purchases/json', 'PurchasesController@json');
+    Route::get('items/json', 'PurchasesController@itemsToJson');
     Route::resource('purchases', 'PurchasesController');
 
     //manejo de imagenes

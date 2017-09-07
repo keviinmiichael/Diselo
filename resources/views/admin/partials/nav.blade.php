@@ -29,9 +29,11 @@
             <li data-nav="prices">
                 <a href="/admin/precios"><i class="fa fa-lg fa-fw fa-dollar"></i> <span class="menu-item-parent">Precios</span></a>
             </li>
+            <!--
             <li data-nav="clients">
                 <a href="/admin/clients"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Clientes</span></a>
             </li>
+            -->
         </ul>
     </nav>
 

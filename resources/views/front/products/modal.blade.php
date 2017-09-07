@@ -6,10 +6,20 @@
 
 <div class="remodal" data-remodal-id="modal-{{$product->id}}">
     <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="select-zise-{{$product->id}}">Talle</label>
+        </div>
+        <div class="col-sm-4">
+            <label for="select-color-{{$product->id}}">Color</label>
+        </div>
+        <div class="col-sm-4">
+            <label>Cantidad</label>
+        </div>
+    </div>
     <form class="selected-items">
         <div class="row">
             <div class="col-sm-3">
-                <label for="select-zise-{{$product->id}}">Talle</label>
                 <select name="size[]" id="select-zise-{{$product->id}}" class="form-control">
                     @foreach ($availableSizes as $size)
                         <option value="{{ $size->id }}">{{ $size->value }}</option>
@@ -17,7 +27,6 @@
                 </select>
             </div>
             <div class="col-sm-4">
-                <label for="select-color-{{$product->id}}">Color</label>
                 <select name="color[]" id="select-color-{{$product->id}}" class="form-control">
                     @foreach ($availableColors as $color)
                         <option value="{{ $color->id }}">{{ $color->value }}</option>
@@ -25,7 +34,6 @@
                 </select>
             </div>
             <div class="col-sm-4">
-                <label>Cantidad</label>
                 <input type="text" name="amount[]" class="amount form-control" value="1" size="1" min="1" max="{{$availableStock->amount}}" />
             </div>
         </div>

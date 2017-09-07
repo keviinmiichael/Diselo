@@ -53,11 +53,11 @@ var DT = (function (w, $, undefined) {
                 $('.datatable_filter input').focus();
                 responsiveHelper_dt_basic.respond();
                 settings.fnDrawCallback(oSettings);
-                if (settings.columns.join().indexOf('stateSwitcher') != -1) stateSwitcher.onChange();
+                //if (settings.columns.join().indexOf('stateSwitcher') != -1) stateSwitcher.onChange();
                 if (settings.columns.join().indexOf('actions') != -1) actions.onDelete();
             },
             columnDefs: generateColumns(),
-            order: [[ 1, "desc" ]]
+            order: settings.order || [[ 1, "desc" ]]
         });
     }
 
@@ -94,6 +94,7 @@ var DT = (function (w, $, undefined) {
             }
             result.push(item);
         }
+
         return result;
     }
 
@@ -107,7 +108,8 @@ var DT = (function (w, $, undefined) {
 
     var filters = {
         image: function (row, prop, parameters) {
-            return image.render(row[prop]);
+            var path = (parameters.indexOf(':') != -1) ? parameters.split(':')[1] : false;
+            return image.render(row[prop], path);
         },
         limit: function (row, prop, parameters) {
             var length = (parameters.indexOf(':') != -1) ? parameters.split(':')[1] : 34;
@@ -115,12 +117,13 @@ var DT = (function (w, $, undefined) {
             return (text.length > length)?'<a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title=\''+text+'\' data-html="false">'+text.substring(0, length)+'...'+'</a>':text;
         },
         stateSwitcher: function (row, prop, parameters) {
-            var index = parameters.indexOf(':');
+            var index = parameters.indexOf(':'), instace = new StateSwitcher(prop);
             if (index != -1) {
                 var states = JSON.parse(parameters.slice(index+1));
-                stateSwitcher.setState(states);
+                instace.setState(states);
             }
-            return stateSwitcher.render(row[prop], row);
+            instace.onChange(row);
+            return instace.render(row[prop], row);
         },
         actions:  function(row, prop, parameters) {
             var buttons = actions.render(row);
@@ -130,17 +133,26 @@ var DT = (function (w, $, undefined) {
                 buttons = actions.extraButtons(row, prop, options);
             }
             return buttons.replace(/\$\{[a-zA-Z0-9\._-]+\}/g, '');
+        },
+        callback: function (row, prop, parameters) {
+            var index = parameters.indexOf(':');
+            var callback = parameters.slice(index+1);
+            return eval(callback);
+        },
+        moment: function (row, prop, parameters) {
+            var format = parameters.split(':')[1];
+            return moment(row[prop]).format(format)
         }
     }
 
     //IMAGEN
     var image = {
         defaultImage: 'imagen-no-disponible.jpg',
-        render: function (imagen) {
+        render: function (imagen, path) {
             var time = (new Date).getTime(), path;
             imagen = imagen || this.defaultImage;
             imagen += '?'+time;
-            path = '/content/' + settings.resource + '/thumb/' + imagen;
+            path = (path) ? path + imagen : '/content/' + settings.resource + '/thumb/' + imagen;
             return '\
                 <a href="javascript:void(0);" rel="tooltip" data-placement="top" data-original-title="<img width=\'150\' src=\''+path+'\' class=\'online\'>" data-html="true">\
                      <img style="width:30px; border: solid 1px #ccc" src="'+path+'"\
@@ -151,25 +163,26 @@ var DT = (function (w, $, undefined) {
     //FIN IMAGEN
 
     //ESTADO
-    var stateSwitcher = {
-        states: {
+    function StateSwitcher (prop) {
+        this.addEvent = false;
+        this.prop = prop;
+        this.states = {
             0:{label:'danger', value:'Oculto'},
             1:{label:'success', value:'Visible'}
-        },
-        setState: function (states) {
+        }
+        this.setState = function (states) {
             this.states = states;
-        },
-        render: function (index, row) {
+        }
+        this.render = function (index, row) {
             var currentState = this.states[index];
-            return '<span data-id="'+row.id+'" data-estado="'+index+'" class="estado switch-state label label-'+currentState.label+'">'+currentState.value+'</span>'
-        },
-        onChange: function() {
-            var $this, estado_id, state, waiting = false, data = {};
-            var prop = settings.columns.join('|');
-            prop = /\|([^\|]+)\|stateSwitcher/.exec(prop)[1];
-            $('#datatable').on('click', '.estado', function () {
+            var instace = this;
+            return '<span id="'+this.prop+row.id+'" data-id="'+row.id+'" data-estado="'+index+'" class="'+this.prop+' switch-state label label-'+currentState.label+'">'+currentState.value+'</span>'
+        }
+        this.onChange = function(row) {
+            var $this, estado_id, state, waiting = false, data = {}, instace = this;
+            $('#datatable').off('click', '#'+this.prop+row.id).on('click', '#'+this.prop+row.id, function () {
                 $this = $(this);
-                estado_id = nextState($this.data('estado'));
+                estado_id = instace.nextState($this.data('estado'));
                 data[prop] = estado_id;
                 data['id'] = $this.data('id');
                 if (!waiting) {
@@ -179,12 +192,21 @@ var DT = (function (w, $, undefined) {
                         url:settings.resource+'/'+$this.data('id'),
                         data:data,
                         success: function (object) {
-                            $this.replaceWith(stateSwitcher.render(estado_id, object));
+                            $this.replaceWith(instace.render(estado_id, object));
                             waiting = false;
                         }
                     });
                 }
             });
+        }
+        this.nextState = function (index) {
+            var indexes = [], i = 0, currentIndex, state;
+            for (var key in this.states) {
+                indexes.push(key);
+                if (key == index) currentIndex = i;
+                i++;
+            }
+            return (++currentIndex >= i)?indexes[0]:indexes[currentIndex];
         }
     }
     function nextState(index) {

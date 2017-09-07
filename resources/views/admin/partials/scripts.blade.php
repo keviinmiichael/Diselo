@@ -45,6 +45,9 @@
     });
 </script>
 
+<!-- MOMENT -->
+<script src="/js/admin/plugin/moment/moment.min.js"></script>
+
 <!-- DATA TABLES -->
 <script src="/js/admin/plugin/datatables/jquery.dataTables.min.js"></script>
 <script src="/js/admin/plugin/datatables/dataTables.colVis.min.js"></script>

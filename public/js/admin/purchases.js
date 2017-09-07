@@ -16,18 +16,24 @@ var Purchases = (function (w, $, undefined) {
         1:{label:'success', value:'Saldada'}
     }
 
+    var extraButtons = [
+        {'title': 'Detalle', 'class': 'btn-info', 'href': '/admin/purchases/${row.id}', 'icon': 'fa-eye'}
+    ]
+
     //Data Table
     function dtInit() {
         window.DT.create('#datatable', {
             resource: 'purchases',
             columns: [
-                'total',
-                'cost',
-                'paid',
+                'created_at|moment:DD-MM-YYYY',
                 'client',
                 'state_id|stateSwitcher:'+JSON.stringify(states),
-                'id|actions'
-            ]
+                'cost',
+                'total',
+                'paid|stateSwitcher:'+JSON.stringify(paid),
+                'id|actions:'+JSON.stringify(extraButtons)
+            ],
+            order: [[ 0, "desc" ]]
         });
     }
     //fin Data Table
