@@ -28,16 +28,17 @@
 	</div>
 	<!-- Product Sort by Ends -->
 	
-
-	<div class="list-group-item">
-		Subcategorías
-	</div>
-	<div class="list-group-item">
-		<div class="filter-group">
-		@php $checkeds_id = (request()->has('subcategories')) ? request('subcategories') : []; @endphp
-			{!! \App\Subcategory::toCheckbox($category->id, $checkeds_id) !!}
+	@if (isset($category))
+		<div class="list-group-item">
+			Subcategorías
 		</div>
-	</div>
+		<div class="list-group-item">
+			<div class="filter-group">
+			@php $checkeds_id = (request()->has('subcategories')) ? request('subcategories') : []; @endphp
+				{!! \App\Subcategory::toCheckbox($category->id, $checkeds_id) !!}
+			</div>
+		</div>
+	@endif
 
 
 	<div class="list-group-item">
