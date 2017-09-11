@@ -113,6 +113,10 @@ class Product extends Model
         if (request()->has('sizes')) {
             $query->whereIn('size_id', request('sizes'))->groupBy('size_id');
         }
+        if (request()->has('subcategories')) {
+            //dd(request('subcategories'));
+            $query->whereIn('subcategory_id', request('subcategories'))->groupBy('subcategory_id');
+        }
 		if (request()->has('sort')) {
             list($column, $direction) = explode('-', request('sort'));
             if (in_array($column, ['name', 'price'])) $query->orderBy($column, $direction);

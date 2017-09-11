@@ -34,9 +34,10 @@ class ProductsController extends Controller
 
     public function bySubcategory($category, $subcategory)
     {
+        $category = \App\Category::where('slug', $category)->firstOrFail();
         $subcategory = \App\Subcategory::where('slug', $subcategory)->firstOrFail();
         $products = Product::visible()->filter()->where('subcategory_id', $subcategory->id)->paginate(6);
-        return view('front.products.index', compact('products', 'subcategory'));
+        return view('front.products.index', compact('products', 'category', 'subcategory'));
     }
 
     public function getStock(Product $product)

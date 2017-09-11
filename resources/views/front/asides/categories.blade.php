@@ -1,8 +1,8 @@
 <h3 class="side-heading">Categorías</h3>
 <div class="list-group categories">
-    @foreach ($categories as $category)
-        <a href="/{{$category->slug}}" class="list-group-item">
-            <i class="fa fa-angle-right"></i> {{ $category->name }}
+    @foreach ($categories as $c)
+        <a href="/{{$c->slug}}" class="list-group-item">
+            <i class="fa fa-angle-right"></i> {{ $c->name }}
         </a>
     @endforeach
 </div>
@@ -27,6 +27,19 @@
 		</div>
 	</div>
 	<!-- Product Sort by Ends -->
+	
+
+	<div class="list-group-item">
+		Subcategorías
+	</div>
+	<div class="list-group-item">
+		<div class="filter-group">
+		@php $checkeds_id = (request()->has('subcategories')) ? request('subcategories') : []; @endphp
+			{!! \App\Subcategory::toCheckbox($category->id, $checkeds_id) !!}
+		</div>
+	</div>
+
+
 	<div class="list-group-item">
 		Talles
 	</div>
