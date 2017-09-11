@@ -15,13 +15,13 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'lastname' => 'required',
+            'name' => 'required|string',
+            'lastname' => 'required|string',
             'business_name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|numeric',
             'email' => 'required|email',
             'street' => 'required',
-            'number' => 'required',
+            'number' => 'required|numeric',
             'zip_code' => 'required',
             'provincia_id' => 'required',
             'localidad_id' => 'required',
@@ -43,5 +43,5 @@ class ClientRequest extends FormRequest
             'localidad_id.required'  => 'Por favor selecciona una localidad',
         ];
     }
-    
+
 }
