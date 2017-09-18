@@ -1,10 +1,10 @@
 <?php
 
-use App\Mail\BuyMail;
+use Spatie\Analytics\Period;
+
 
 Route::get('test', function () {
-    \Mail::to('maxiyanez84@gmail.com')->send(new BuyMail);
-    return 'Test';
+    dd( \Analytics::fetchTotalVisitorsAndPageViews(Period::days(7)) );
 });
 
 Auth::routes();

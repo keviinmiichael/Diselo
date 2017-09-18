@@ -11,6 +11,9 @@
 
     <nav>
         <ul>
+            <li data-nav="dashboard">
+                <a href="/admin/"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+            </li>
             <li data-nav="categories">
                 <a href="/admin/categories"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">Categorías</span></a>
             </li>

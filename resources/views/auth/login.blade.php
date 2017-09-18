@@ -11,7 +11,7 @@
     <header id="header">
         <div id="logo-group">
             <!-- PLACE YOUR LOGO HERE -->
-            <span id="logo"> <img src="{{url('img/admin/logo-polka.svg')}}" alt="Pol-ka"> </span>
+            <span id="logo"> <img src="{{url('images/admin/logo.png')}}" alt="{{config('app.name')}}"> </span>
             <!-- END LOGO PLACEHOLDER -->
         </div>
     </header>
