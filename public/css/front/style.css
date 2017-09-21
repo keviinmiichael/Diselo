@@ -147,15 +147,22 @@ hr{
 .toptop li{
 	display: inline-block;
 	list-style: none;
-	line-height: 30px;	
+	line-height: 30px;
 }
 
 .toptop li a{
 	display: block;
 	text-decoration: none;
-	color: red;
+	color: #f4f4f4;
 	text-transform: uppercase;
+	margin-right: 15px;
 }
+
+.toptop li a img{
+	height: 20px;
+	margin-bottom: 6px;
+}
+
 
 
 .top-bar {

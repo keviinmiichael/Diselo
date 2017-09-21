@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="subject" class="col-sm-2 control-label">
-                                    Asunto 
+                                    Asunto
                                 </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">
@@ -74,6 +74,8 @@
         </div>
         <!-- Ends -->
     </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.1083855205557!2d-58.479530150517185!3d-34.62670121654996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc99317541a87%3A0xb253864cf4629455!2zRMOtc2Vsbw!5e0!3m2!1ses!2sar!4v1506024952832" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+
 </div>
 <!-- Main Container Ends -->
 
@@ -82,4 +84,3 @@
 @section('scripts')
     <script src="/js/front/contact.js"></script>
 @endsection
-
