@@ -1,3 +1,9 @@
+<div class="toptop">
+	<ul>
+		<li><a href="#">Registrarse</a></li>
+		<li><a href="#">Iniciar Sesión</a></li>
+	</ul>
+</div>
 <div class="top-bar">
 
 	<button type="button" class="hamburguesa navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">

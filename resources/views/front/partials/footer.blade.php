@@ -82,6 +82,18 @@
 	}else {
 		$( ".cambio" ).removeAttr( "data-toggle" )
 	}
+
+
+	var topPointer = $('.toptop').offset().top;
+	var bottomPointer = topPointer + 15;
+	$(window).scroll(function () {
+		var scrollTop = $(window).scrollTop();
+		if (scrollTop > bottomPointer) {
+			$('.top-bar').css('top', '0');
+		} else {
+			$('.top-bar').css('top', '30px');
+		}
+	});
 </script>
 @yield('scripts')
 
