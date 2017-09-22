@@ -11,17 +11,17 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
      </button>
     <!-- Nested Container Starts -->
-    <div class="container">
+    <div class="container-fluid">
         <!-- Nested Row Starts -->
         <div class="row">
-			<div class="col-xl-2 col-md-2  col-sm-3 col-xs-3">
+			<div class="col-lg-2 col-md-2  col-sm-2 col-xs-3">
 				<a href="/" class="logo-diselo">
 					<img src="/images/front/logo-diselo.svg" alt="Diselo" class="img-responsive" >
 				</a>
 			</div>
 			<!-- Navbar Cat collapse Starts -->
 			<!-- Search Starts -->
-			<div class="col-xl-6 col-md-5 col-sm-6 col-xs-6 search">
+			<div class="col-lg-6 col-md-5 col-sm-8 col-xs-6 search">
 				<form class="search" action="/productos/search" method="get">
 					<div id="search">
 						<div class="input-group">
@@ -36,7 +36,7 @@
 				</form>
 			</div>
 			<!-- Search Ends -->
-	        <div class="col-xl-3 col-md-4 collapse navbar-collapse navbar-cat-collapse" id="navbar">
+	        <div class="col-lg-3 col-md-4 collapse navbar-collapse navbar-cat-collapse" id="navbar">
 	            <ul class="navbar navbar-nav my-nav" >
 
 					<li><a href="/">HOME</a></li>
@@ -62,7 +62,7 @@
 	        </div>
             <!-- Shopping Cart Starts -->
             @php $items = (session()->has('cart')) ? count(session('cart')) : 0;  @endphp
-            <div class="col-md-1 col-sm-3 col-xs-3 cart">
+            <div class="col-md-1 col-sm-2 col-xs-3 cart">
                 {{-- <div id="cart" class="btn-group btn-block"> --}}
                 <div id="cart" class="">
                     <a href="/carrito" class="btn btn-block btn-lg text-uppercase">

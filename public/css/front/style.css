@@ -181,15 +181,13 @@ hr{
 }
 .logo-diselo > img{
     min-width: 80px !important;
-	margin-top: 10px;
 }
 
 
 .top-bar .search {
 	float: left;
 	margin: 0;
-	font-size: 0.5em;
-	margin-right: -45px;
+	font-size: 0.5;
 }
 
 .top-bar .cart {
@@ -308,7 +306,10 @@ hr{
 
 
 /* Cart Styles Starts */
-
+	#cart {
+		overflow: hidden;
+		margin-top: 7px;
+	}
 	#cart .btn{
 		margin-top: 6px;
 		padding: 0;
@@ -331,13 +332,15 @@ hr{
 		}
 		#cart .btn span{
 			margin-top: 2px;
-			margin-left:15px;
 			font-size:12px;
 			color: #fff;
 		}
 		#cart .btn .fa-shopping-cart,
 		#cart .btn span{
 			float: right;
+		}
+		#cart .btn .fa-shopping-cart{
+			margin-right: 20px;
 		}
 		#cart .btn i.fa-caret-down{
 			color:#cb3737;
@@ -1455,9 +1458,6 @@ hr{
 }
 
 @media (min-width: 750px) {
-	.top-bar .search{
-		margin: 3px 0 0 0;
-	}
 	.logo-diselo img{
 		width: 120px;
 		padding: 0;
@@ -1466,6 +1466,9 @@ hr{
 }
 
 @media (min-width: 990px) {
+	#navbar{
+		margin-left: 5%;
+	}
 
 	.hamburguesa{
 		display: none;
@@ -1567,4 +1570,13 @@ hr{
 		}
 
 
+}
+
+@media (min-width: 1200px) {
+	#navbar{
+		margin-left: 0;
+	}
+	#cart{
+		margin-right: 20px;
+	}
 }
