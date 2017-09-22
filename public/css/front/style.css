@@ -232,7 +232,7 @@ hr{
 	top: 0px;
 	width: 100%;
 	background: rgba(15, 15, 15, 0.5);
-	margin-top: 60px;
+	margin-top: 90px;
 }
 
 
@@ -1480,18 +1480,6 @@ hr{
 		z-index:10;
 	}
 
-	.top-bar .search {
-		float: right;
-		margin: 0;
-	}
-
-	.top-bar .cart {
-		float: right;
-		margin: 0 auto 0;
-		width: 12%;
-	}
-
-
 	.cart i {
 		margin-left: 5px;
 	}
@@ -1506,7 +1494,7 @@ hr{
 			padding: 0;
 		}
 		.logo-diselo img{
-			width: 100px;
+			width: 110px;
 			padding: 0;
 			margin: 0;
 		}
@@ -1532,7 +1520,7 @@ hr{
 			font-size: 1.4em;
 			text-align: center;
 			padding: 10px 12px;
-			margin-top: 8px;
+			margin-top: 0;
 			position: relative;
 		}
 		.top-bar .navbar > li:hover > a{
@@ -1546,7 +1534,7 @@ hr{
 			border-color: transparent transparent white transparent;
 			position: absolute;
 			left: 50%;
-			bottom: 0;
+			bottom: -8px;
 			margin-left: -8px;
 		}
 		.top-bar .navbar li:hover .dropdown-menu{
