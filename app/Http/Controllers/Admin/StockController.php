@@ -19,7 +19,7 @@ class StockController extends Controller
     {
         foreach (request('product_id') as $key => $product_id) {
             if (!$product_id) continue;
-            for ($i=1; $i<=5; $i++) {
+            for ($i=1; $i<=6; $i++) {
                 if (!request("size_id_$i.$key")) continue;
                 $stock = Stock::firstOrNew([
                     'product_id' => $product_id,

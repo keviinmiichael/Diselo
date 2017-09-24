@@ -100,6 +100,10 @@
 				<input name="sizes[]" type="checkbox" value="5" @if (request()->has('sizes') && in_array(5, request('sizes'))) checked @endif />
 				XL
 			</label>
+			<label class="checkbox">
+				<input name="sizes[]" type="checkbox" value="6" @if (request()->has('sizes') && in_array(6, request('sizes'))) checked @endif />
+				Único
+			</label>
 			@if (isset($_GET['page'])) <input type="hidden" name="page" value="{{$_GET['page']}}"> @endif
 		</div>
 	</div>
