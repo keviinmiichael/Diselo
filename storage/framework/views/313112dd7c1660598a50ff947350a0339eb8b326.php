@@ -38,13 +38,9 @@
 			<!-- Search Ends -->
 	        <div class="col-lg-3 col-md-4 collapse navbar-collapse navbar-cat-collapse" id="navbar">
 	            <ul class="navbar navbar-nav my-nav" >
-
 					<li><a href="/">HOME</a></li>
 					<li><a href="/productos">TIENDA</a></li>
 					<li><a href="/contacto">CONTACTO</a></li>
-
-	                
-
 	            </ul>
 	        </div>
             <!-- Shopping Cart Starts -->

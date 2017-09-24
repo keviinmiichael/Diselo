@@ -38,26 +38,9 @@
 			<!-- Search Ends -->
 	        <div class="col-lg-3 col-md-4 collapse navbar-collapse navbar-cat-collapse" id="navbar">
 	            <ul class="navbar navbar-nav my-nav" >
-
 					<li><a href="/">HOME</a></li>
 					<li><a href="/productos">TIENDA</a></li>
 					<li><a href="/contacto">CONTACTO</a></li>
-
-	                {{-- @foreach ($categories as $category)
-	                    @if ($category->subcategories->count())
-	                        <li class="dropdown">
-	                            <a href="/{{$category->slug}}"  class="dropdown-toggle cambio"  data-hover="dropdown" data-delay="10">{{$category->name}}</a>
-	                            <ul class="dropdown-menu submenu" role="menu">
-	                                @foreach ($category->subcategories as $subcategory)
-	                                    <li><a tabindex="-1" href="/{{$category->slug}}?subcategories[]={{$subcategory->id}}">{{$subcategory->name}}</a></li>
-	                                @endforeach
-	                            </ul>
-	                        </li>
-	                    @else
-	                        <li><a href="/{{$category->slug}}">{{$category->name}}</a></li>
-	                    @endif
-	                @endforeach --}}
-
 	            </ul>
 	        </div>
             <!-- Shopping Cart Starts -->

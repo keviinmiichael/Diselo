@@ -83,6 +83,12 @@
 		$( ".cambio" ).removeAttr( "data-toggle" )
 	}
 
+	if ($( window ).width() <= 900) {
+		$( ".cambio" ).attr( "data-toggle", "dropdown" );
+	}else {
+		$( ".cambio" ).removeAttr( "data-toggle" )
+	}
+
 
 	var topPointer = $('.toptop').offset().top;
 	var bottomPointer = topPointer + 15;
@@ -90,8 +96,14 @@
 		var scrollTop = $(window).scrollTop();
 		if (scrollTop > bottomPointer) {
 			$('.top-bar').css('top', '0');
+			if ($( window ).width() <= 991) {
+				$('.navbar-collapse').css('margin-top', '60px');
+			}
 		} else {
 			$('.top-bar').css('top', '30px');
+			if ($( window ).width() <= 991) {
+				$('.navbar-collapse').css('margin-top', '90px');
+			}
 		}
 	});
 </script>
