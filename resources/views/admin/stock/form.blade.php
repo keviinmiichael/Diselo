@@ -84,6 +84,7 @@
                                                 <th>M</th>
                                                 <th>L</th>
                                                 <th>XL</th>
+                                                <th>Único</th>
                                                 <th>Color</th>
                                                 <th>Cantidad</th>
                                                 <th><i class="fa fa-times"></i></th>
@@ -114,6 +115,9 @@
                                                 </td>
                                                 <td>
                                                     <label class="input"><input name="size_id_5[]" type="text" value="" data-type="int" /></label>
+                                                </td>
+                                                <td>
+                                                    <label class="input"><input name="size_id_6[]" type="text" value="" data-type="int" /></label>
                                                 </td>
                                                 <td>
                                                     <label class="select">
