@@ -48,7 +48,7 @@ class ProductsController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         if (request()->ajax()) {
-            $product->is_visible = request->is_visible;
+            $product->is_visible = request()->is_visible;
             $product->save();
             return $product->toArray();
         }
