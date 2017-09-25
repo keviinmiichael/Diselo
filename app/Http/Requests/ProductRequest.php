@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
                 'code' => ['required', Rule::unique('products')->ignore($id)],
                 'cost' => 'required',
                 'category_id' => 'numeric',
-            ]
+            ];
         }
         return $rules;
     }

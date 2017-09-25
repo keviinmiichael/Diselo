@@ -45,7 +45,7 @@ class ProductsController extends Controller
         return view('admin.products.form', compact('product', 'categories', 'subcategories'));
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(Product $product, ProductRequest $request)
     {
         if (request()->ajax()) {
             $product->is_visible = request()->is_visible;
