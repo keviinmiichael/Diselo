@@ -47,7 +47,7 @@ class ProductsController extends Controller
 
     public function update(ProductRequest $request, Product $product)
     {
-        if (empty($request->price)) $request->price = ceil($request->cost * $request->profit_margin / 100 + $request->cost);
+        if (empty($request->price) && !request()->ajax()) $request->price = ceil($request->cost * $request->profit_margin / 100 + $request->cost);
         $product->update($request->all());
         $this->addImages($product);
         if (request()->ajax()) return $product->toArray();

@@ -16,12 +16,16 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $id = (isset($this->product->id)) ? $this->product->id : 0;
-        return [
-            'name' => 'required',
-            'code' => ['required', Rule::unique('products')->ignore($id)],
-            'cost' => 'required',
-            'category_id' => 'numeric',
-        ];
+        $rules = [];
+        if (!$this->ajax()) {
+            $rules = [
+                'name' => 'required',
+                'code' => ['required', Rule::unique('products')->ignore($id)],
+                'cost' => 'required',
+                'category_id' => 'numeric',
+            ]
+        }
+        return $rules;
     }
 
     public function messages()
