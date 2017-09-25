@@ -38,6 +38,8 @@
             
         </div>
         <!-- end row -->
+
+        @include('admin.partials.errors')
         
         <!--
             The ID "widget-grid" will start to initialize all widgets below 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -30,11 +31,10 @@ class ProductsController extends Controller
         return view('admin.products.form', compact('product', 'categories', 'subcategories'));
     }
 
-    public function store()
+    public function store(ProductRequest $request)
     {
-        $request = request()->all();
-        if (empty($request['price'])) $request['price'] = ceil($request['cost'] * $request['profit_margin'] / 100 + $request['cost']);
-        Product::create($request);
+        if (empty($request->price)) $request->price = ceil($request->cost * $request->profit_margin / 100 + $request->cost);
+        Product::create($request->all());
         return redirect('admin/products#new');
     }
 
@@ -45,11 +45,10 @@ class ProductsController extends Controller
         return view('admin.products.form', compact('product', 'categories', 'subcategories'));
     }
 
-    public function update(Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        $request = request()->all();
-        if (empty($request['price'])) $request['price'] = ceil($request['cost'] * $request['profit_margin'] / 100 + $request['cost']);
-        $product->update($request);
+        if (empty($request->price)) $request->price = ceil($request->cost * $request->profit_margin / 100 + $request->cost);
+        $product->update($request->all());
         $this->addImages($product);
         if (request()->ajax()) return $product->toArray();
         return redirect('admin/products#edit');
