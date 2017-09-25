@@ -19,6 +19,6 @@
                 </a>
             </div>
         </div>
-        {{--@include('front.products.modal')--}}
+        @include('front.products.modal')
     </div>
 </div>
