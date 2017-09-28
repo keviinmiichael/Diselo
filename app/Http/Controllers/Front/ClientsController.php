@@ -57,7 +57,7 @@ class ClientsController extends Controller
             return redirect('/');
         } else {
             request()->session()->flash('error', 'El usuario o la contraseña son incorrectos.');
-            return redirect('login');
+            return redirect('clients/login');
         }
     }
 

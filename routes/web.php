@@ -80,9 +80,9 @@ Route::group(['namespace' => 'Front'], function() {
 
     //clientes
     Route::resource('clients', 'ClientsController');
-    Route::get('login', 'ClientsController@getLogin');
-    Route::post('login', 'ClientsController@postLogin');
-    Route::get('logout', 'ClientsController@logout');
+    Route::get('clients/login', 'ClientsController@getLogin');
+    Route::post('clients/login', 'ClientsController@postLogin');
+    Route::get('clients/logout', 'ClientsController@logout');
 
     Route::get('contacto', 'ContactController@index');
     Route::post('contact/send', 'ContactController@send');
