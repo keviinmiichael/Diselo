@@ -13,6 +13,7 @@ var Cart = (function (w, $, undefined) {
         agregarProducto();
         removerProducto();
         actualizarTotal();
+        localidadesByProvincia();
     }
 
     function listeners () {
@@ -140,12 +141,12 @@ var Cart = (function (w, $, undefined) {
 
     function comprar () {
         $.ajax({
-            url: '/cart/buy',
-            type: 'post',
-            data: $('#form-cliente').serialize(),
+            url: $('#form').attr('action'),
+            type: $('#form').attr('method'),
+            data: $('#form').serialize(),
             success: function (response) {
                 $('#myModal').hide();
-                location.href = '/pedido-exitosa'
+                location.href = response.redirect;
             },
             error: function (error) {
                 if (error.responseJSON.message) {
@@ -163,17 +164,22 @@ var Cart = (function (w, $, undefined) {
     }
 
     function localidadesByProvincia () {
-        $('label[for="localidad"] span').show();
-        $('#localidad').attr('disabled', true);
-        $.ajax({
-            url: '/localidades/byProvincia',
-            type: 'get',
-            data: {'provincia_id': $('#provincia').val()},
-            success: function (response) {
-                $('label[for="localidad"] span').hide();
-                $('#localidad').replaceWith(response);
-            }
-        });
+        if (!$('#provincia').val()) {
+            $('#localidad').html('<option>Seleccionar</option>');
+        } else {
+            $('label[for="localidad"] span').show();
+            $('#localidad').attr('disabled', true);
+            $.ajax({
+                url: '/localidades/byProvincia',
+                type: 'get',
+                data: {'provincia_id': $('#provincia').val()},
+                success: function (response) {
+                    $('label[for="localidad"] span').hide();
+                    $('#localidad').replaceWith(response);
+                    $('#localidad option[value="'+$('input[name="localidad_id"]').val()+'"]').attr('selected', true);
+                }
+            });
+        }
     }
 
     function addError (name, error) {

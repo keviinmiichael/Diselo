@@ -13,30 +13,29 @@
 								 {{ $c->name }}
 							</a>
 		        		</h4>
-      			</div>
-	      	<div id="collapse{{$collapse}}" class="panel-collapse collapse subcat">
-	        	<ul class="list-group">
-					@foreach ($c->subcategories as $subcategory)
-						<li>
-							<a tabindex="-1" href="/{{$c->slug}}?subcategories[]={{$subcategory->id}}">
-								{{$subcategory->name}}
-							</a>
-						</li>
-						@php
-							$collapse++
-						@endphp
-					@endforeach
-	        	</ul>
-	      	</div>
+				      	<div id="collapse{{$collapse}}" class="panel-collapse collapse subcat">
+				        	<ul class="list-group">
+								@foreach ($c->subcategories as $subcategory)
+									<li>
+										<a tabindex="-1" href="/{{$c->slug}}?subcategories[]={{$subcategory->id}}">
+											{{$subcategory->name}}
+										</a>
+									</li>
+									@php
+										$collapse++
+									@endphp
+								@endforeach
+				        	</ul>
+				      	</div>
 					@else
 						<h4 class="panel-title">
-		          			<a data-toggle="collapse" href="#collapse1">
-								<i class="fa fa-angle-right"></i> {{ $c->name }}
+		          			<a href="/{{$c->slug}}">
+								{{ $c->name }}
 							</a>
 		        		</h4>
 					@endif
-				</ul>
-				@endforeach
+				</div>
+			@endforeach
     	</div>
   </div>
 </div>
@@ -62,7 +61,7 @@
 	</div>
 	<!-- Product Sort by Ends -->
 
-	@if (isset($category))
+	@if (isset($category) && $category->subcategories->count())
 		<div class="list-group-item">
 			Subcategorías
 		</div>

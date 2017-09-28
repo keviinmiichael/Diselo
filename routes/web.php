@@ -1,23 +1,18 @@
 <?php
 
-use Spatie\Analytics\Period;
-
-
-Route::get('test', function () {
-    dd( \Analytics::fetchTotalVisitorsAndPageViews(Period::days(7)) );
-});
-
 Auth::routes();
 
-// Authentication
+Route::get('test', function() {
+    return bcrypt('123456');
+});
 
+// Authentication
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function()
 {
     Route::get('login', 'LoginController@showLoginForm');
     Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout');
 });
-
 //----------
 
 
@@ -83,7 +78,14 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('cart/refresh', 'CartController@refresh');
     Route::post('cart/buy', 'CartController@buy');
 
+    //clientes
+    Route::resource('clients', 'ClientsController');
+    Route::get('login', 'ClientsController@getLogin');
+    Route::post('login', 'ClientsController@postLogin');
+    Route::get('logout', 'ClientsController@logout');
+
     Route::get('contacto', 'ContactController@index');
+    Route::post('contact/send', 'ContactController@send');
     Route::post('contact/send', 'ContactController@send');
 
     Route::get('localidades/byProvincia', 'LocalidadController@byProvincia');

@@ -114,116 +114,12 @@
 					</div>
 					<div class="panel-body">
 						<!-- Form Starts -->
-						<form action="cart/buy" action="post" class="form-horizontal" role="form" id="form-cliente">
-							<div class="form-group">
-								<label for="inputFname" class="col-sm-3 control-label">Nombre :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('name') }}" name="name" class="form-control" id="inputFname" placeholder="Nombre">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputFname" class="col-sm-3 control-label">Apellido :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('lastname') }}" name="lastname" class="form-control" id="inputFname" placeholder="Apellido">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputFname" class="col-sm-3 control-label">Razón Social :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('business_name') }}" name="business_name" class="form-control" id="inputFname" placeholder="Razón Social">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPhone" class="col-sm-3 control-label">Teléfono :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('phone') }}" name="phone" class="form-control" id="inputPhone" placeholder="Telefono">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
-								<div class="col-sm-9">
-									<input type="email" value="{{ old('email') }}" name="email" class="form-control" id="inputEmail" placeholder="Email">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress1" class="col-sm-3 control-label">Calle :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress1" placeholder="Calle">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress1" class="col-sm-3 control-label">Número :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('number') }}" name="number" class="form-control" id="inputAddress1" placeholder="Número">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress1" class="col-sm-3 control-label">Piso :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('floor') }}" name="floor" class="form-control" id="inputAddress1" placeholder="Piso">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress1" class="col-sm-3 control-label">Depto :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('apartment') }}" name="apartment" class="form-control" id="inputAddress1" placeholder="Depto">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputCity" class="col-sm-3 control-label">Barrio :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('neighborhood') }}" name="neighborhood" class="form-control" id="inputCity" placeholder="Barrio">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPostCode" class="col-sm-3 control-label">Código Postal :</label>
-								<div class="col-sm-9">
-									<input type="text" value="{{ old('zip_code') }}" name="zip_code" class="form-control" id="inputPostCode" placeholder="Código Postal">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="provincia" class="col-sm-3 control-label">Provincia :</label>
-								<div class="col-sm-9">
-									{!! \App\Provincia::toSelect() !!}
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="localidad" class="col-sm-3 control-label">
-									<span style="display: none" class="fa fa-spin fa-spinner"></span> Localidad :
-								</label>
-								<div class="col-sm-9">
-									<select class="form-control" value="{{ old('localidad_id') }}" name="localidad_id" id="localidad">
-										<option>Seleccionar</option>
-									</select>
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="checkbox col-sm-offset-2 terminos">
-									<label>
-										<input type="checkbox" value="">Aceptar términos y condiciones
-									</label>
-								</div>
-								<br>
-								<div class="col-sm-offset-3 col-sm-9">
-									<button type="button" id="comprar" class="btn btn-black">
-										Finalizar Compra
-									</button>
-								</div>
-							</div>
-						</form>
+						@php 
+							$formOptions = ['url' => '/cart/buy', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'form'];
+							$btn_txt = 'Finaliar Compra';
+							$client = (\Auth::guard('clients')->check()) ? Auth::guard('clients')->user() : new \App\Client;
+						@endphp
+						@include('front.clients._form', compact('formOptions', 'client', 'btn_txt'))
 						<!-- Form Ends -->
 					</div>
 				</div>

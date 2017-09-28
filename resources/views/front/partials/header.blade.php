@@ -1,6 +1,6 @@
 <header class="header-wrap inner">
     <div id="main-carousel">
-        <img src="/images/front/banners/main-banner-img1.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
+        <img src="/images/front/main-banner.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
     </div>
 
 

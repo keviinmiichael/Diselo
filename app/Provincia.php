@@ -15,13 +15,15 @@ class Provincia extends Model
     }
     //----------
 
-    public static function toSelect()
+    public static function toSelect($object = false)
     {
+        $provincia_id = ($object) ? $object->provincia_id : 0;
         $provincias = self::all();
         $html = '<select class="form-control" name="provincia_id" id="provincia">';
         $html .= '<option value="">Seleccionar</option>';
         foreach ($provincias as $provincia) {
-            $html .= '<option value="'.$provincia->id.'">'.$provincia->value.'</option>';
+            $selected = ($provincia->id == $provincia_id) ? 'selected' : '';
+            $html .= '<option value="'.$provincia->id.'" '.$selected.'>'.$provincia->value.'</option>';
         }
         $html .= '</select>';
         return $html;

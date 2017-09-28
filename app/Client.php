@@ -4,9 +4,10 @@ namespace App;
 
 use App\CustomClasses\Unite;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Client extends Model
+class Client extends Authenticatable
 {
 
     use SoftDeletes, Unite;
