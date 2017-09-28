@@ -79,10 +79,10 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('cart/buy', 'CartController@buy');
 
     //clientes
-    Route::resource('clients', 'ClientsController');
     Route::get('clients/login', 'ClientsController@getLogin');
     Route::post('clients/login', 'ClientsController@postLogin');
     Route::get('clients/logout', 'ClientsController@logout');
+    Route::resource('clients', 'ClientsController');
 
     Route::get('contacto', 'ContactController@index');
     Route::post('contact/send', 'ContactController@send');
