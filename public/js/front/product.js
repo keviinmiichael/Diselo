@@ -97,7 +97,7 @@ var Product = (function (w, $, undefined) {
                 type: 'post',
                 data: $('.remodal-is-opened .selected-items').serialize(),
                 success: function (response) {
-                    $('#cart-total').text(response.totalItems+' item(s)');
+                    $('#cart-total').text(response.totalItems);
                     $('.btn-cart').data('waiting', false).find('i').removeClass('fa-spin fa-spinner').addClass('fa-shopping-cart');
                     Lobibox.notify('success', {
                         sound: false,

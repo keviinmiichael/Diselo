@@ -104,7 +104,7 @@
             <span class="help-block"></span>
         </div>
     </div>
-    {!! Form::hidden('localidad_id') !!}
+    <input type="hidden" name="localidad_id_hidden" value="{{ ($client->id) ? $client->localidad_id : '' }}">
     <div class="form-group">
         <div class="checkbox col-sm-offset-2 terminos">
             <label>

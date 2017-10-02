@@ -105,6 +105,18 @@
 			  ]
 			});
 		});
+		if (location.hash == '#new') {
+			Lobibox.notify('success', {
+                sound: false,
+                title: 'Registro exitoso',
+                msg: 'Muchas gracais por elegirnos',
+                delayIndicator: false,
+                delay: 2700,
+                position: 'top right'
+            });
+            location.hash = '';
+		}
 	</script>
+
     <script src="/js/front/product.js"></script>
 @endsection

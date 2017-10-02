@@ -23,10 +23,10 @@ class StockController extends Controller
                 if (!request("size_id_$i.$key")) continue;
                 $stock = Stock::firstOrNew([
                     'product_id' => $product_id,
-                    'size_id' => request("size_id_$i.$key"),
+                    'size_id' => $i,
                     'color_id' => request("color_id.$key")
                 ]);
-                $stock->amount += request("amount.$key");
+                $stock->amount += request("size_id_$i.$key");
                 $stock->save();
             }
             Product::where('id', $product_id)->update(['cost' => request("cost.$key")]);

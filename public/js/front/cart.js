@@ -176,7 +176,7 @@ var Cart = (function (w, $, undefined) {
                 success: function (response) {
                     $('label[for="localidad"] span').hide();
                     $('#localidad').replaceWith(response);
-                    $('#localidad option[value="'+$('input[name="localidad_id"]').val()+'"]').attr('selected', true);
+                    $('#localidad option[value="'+$('input[name="localidad_id_hidden"]').val()+'"]').attr('selected', true);
                 }
             });
         }

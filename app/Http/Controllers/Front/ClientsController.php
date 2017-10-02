@@ -22,6 +22,7 @@ class ClientsController extends Controller
         $client = new Client(request()->all());
         $client->password = bcrypt(request()->password);
         $client->save();
+        \Auth::guard('clients')->login($client);
         return ['success' => true, 'redirect' => '/#new'];
     }
 
