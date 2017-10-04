@@ -11,7 +11,7 @@ class Stock extends Model
 
     protected $primaryKey = ['product_id', 'size_id', 'color_id'];
     protected $table = 'stock';
-    protected $fillable = ['product_id', 'size_id', 'amount'];
+    protected $fillable = ['product_id', 'size_id', 'color_id', 'amount'];
     public $incrementing = false;
     public $timestamps = false;
 

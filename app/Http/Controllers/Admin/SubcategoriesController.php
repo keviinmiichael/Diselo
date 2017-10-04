@@ -55,4 +55,9 @@ class SubcategoriesController extends Controller
         }
         return $response;
     }
+
+    public function byCategory()
+    {
+        return Subcategory::toSelect(request('category_id'));
+    }
 }

@@ -31,6 +31,18 @@ class Subcategory extends Model
         ];
     }
 
+    public static function toSelect($category_id)
+    {
+        $subcategories = Category::find($category_id)->subcategories;
+        $html = '<select class="form-control" name="subcategory_id" id="subcategory">';
+        $html .= '<option value="">Seleccionar</option>';
+        foreach ($subcategories as $subcategory) {
+            $html .= '<option value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
 	 //scopes
     public function scopeSearch($query)
     {

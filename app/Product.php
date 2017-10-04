@@ -53,6 +53,11 @@ class Product extends Model
         return $price;
     }
 
+    public function getPriceFormatAttribute($price)
+    {
+        return (!$this->profit_margin && $this->id)?2:1;
+    }
+
     public function getThumbAttribute()
     {
         if (!$image = $this->images()->first()) {

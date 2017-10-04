@@ -21,10 +21,11 @@ class StockController extends Controller
             if (!$product_id) continue;
             for ($i=1; $i<=6; $i++) {
                 if (!request("size_id_$i.$key")) continue;
+                //dd(request("color_id.$key"));
                 $stock = Stock::firstOrNew([
                     'product_id' => $product_id,
                     'size_id' => $i,
-                    'color_id' => request("color_id.$key")
+                    'color_id' => request("color_id.$key"),
                 ]);
                 $stock->amount += request("size_id_$i.$key");
                 $stock->save();

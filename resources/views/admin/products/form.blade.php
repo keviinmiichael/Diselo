@@ -99,17 +99,14 @@
                                         <section class="col col-md-3 col-sm-12 col-xs-12">
                                             <label class="label">Valor de venta:</label>
                                             <label class="select">
-                                               <select class="form-control" name="tipo_precio" id="tipo-precio">
-                                                    <option value="1">Margen (en función del costo)</option>
-                                                    <option value="2">Precio fijo</option>
-                                                </select>
+                                                {!! Form::select('price_format', [1=>'Margen (en función del costo)', 2=>'Precio fijo']) !!}
                                                 <i></i>
                                             </label>
                                         </section>
                                         <section class="col col-md-3 col-sm-12 col-xs-12">
                                             <label class="label">Margen:</label>
                                             <label class="input">
-                                                {!! Form::text('profit_margin', null, ['data-type'=>'float']) !!}
+                                                {!! Form::text('profit_margin', null, ['data-type'=>'float', 'data-realvalue' => $product->profit_margin]) !!}
                                             </label>
                                         </section>
                                         <section class="col col-md-3 col-sm-12 col-xs-12">
@@ -187,5 +184,5 @@
 
 @section('scripts')
     <script src="/js/admin/plugin/jquery-form/jquery-form.min.js"></script>
-    <script src="/js/admin/products.js"></script>
+    <script src="/js/admin/product.js"></script>
 @endsection

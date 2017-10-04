@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //subcategorias
     Route::get('subcategories/json', 'SubcategoriesController@json');
     Route::resource('categories.subcategories', 'SubcategoriesController');
+    Route::get('subcategories/byCategory', 'SubcategoriesController@byCategory');
 
     //categorias
     Route::get('colors/json', 'ColorsController@json');
