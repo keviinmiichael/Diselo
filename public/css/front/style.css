@@ -1428,6 +1428,12 @@ hr{
 		padding:25px 0 40px;
 		background-color: #f4f4f4;
 	}
+		.footer-links a:hover{
+			color: #e6a9bb;
+		}
+		.footer-links a{
+			color: #000000;
+		}
 		.footer-links h5{
 			color:#000000;
 			margin-bottom:20px;

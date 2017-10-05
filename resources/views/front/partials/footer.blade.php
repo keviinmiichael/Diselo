@@ -6,43 +6,35 @@
             <div class="container">
                 <!-- Information Links Starts -->
                     <div class="col-md-2 col-sm-6">
-                        <h5>Information</h5>
+                        <h5>Dirección</h5>
                         <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li>Dr. juan felipe Aranguren 3377</li>
+                            <li>CABA</li>
+                            <li>Buenos Aires, Argentina</li>
                         </ul>
                     </div>
                 <!-- Information Links Ends -->
 
                 <!-- Customer Service Links Starts -->
                     <div class="col-md-2 col-sm-6">
-                        <h5>Service</h5>
+                        <h5>Horarios</h5>
                         <ul>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Specials</a></li>
+                            <li>Lunes a viernes de 7:30 a 17:30</li>
+                            <li>Sabados de 8:30 a 13:00</li>
                         </ul>
                     </div>
                 <!-- Customer Service Links Ends -->
 
                 <!-- Contact Us Starts -->
                     <div class="col-md-4 col-sm-12 last">
-                        <h5>Contact Us</h5>
+                        <h5><a href="/contacto">Contacto</a></h5>
                         <ul>
-                            <li>My Company</li>
                             <li>
-                                1247 LB Nagar Road, Hyderabad, Telangana - 35
-                            </li>
-                            <li>
-                                Email: <a href="#">info@demolink.com</a>
+                                Email: <a href="mailto:diseloindumentaria@gmail.com">diseloindumentaria@gmail.com</a>
                             </li>
                         </ul>
                         <h4 class="lead">
-                            Tel: <span>1(234) 567-9842</span>
+                            Tel: <span>(011) 4092-4375</span>
                         </h4>
                     </div>
                 <!-- Contact Us Ends -->
@@ -56,7 +48,7 @@
             <div class="container">
             <!-- Starts -->
                 <p class="pull-left">
-                    &copy; 2017 Díselo
+                    &copy; Copyright - 2017 Díselo - By <i>CoffeeCode</i>
                 </p>
             <!-- Ends -->
             </div>
