@@ -1,7 +1,11 @@
 <div class="toptop">
 	<ul>
-		<li><a href="#">Registrarse</a></li>
-		<li><a href="#">Iniciar Sesión</a></li>
+        <?php if(!\Auth::guard('clients')->check()): ?>
+            <li><a href="/clients/create">Registrarse</a></li>
+            <li><a href="/clients/login">Iniciar Sesión</a></li>
+        <?php else: ?>
+            <li><a href="/clients/logout">Cerrar Sesión</a></li>
+        <?php endif; ?>
 		<li><a target="_blank" href="https://www.facebook.com/diseloindumentaria/"><img src="/images/front/fb-logo.svg" alt=""></a></li>
 		<li><a target="_blank" href="https://www.instagram.com/diseloindumentaria/"><img src="/images/front/igram-logo.svg" alt=""></a></li>
 	</ul>

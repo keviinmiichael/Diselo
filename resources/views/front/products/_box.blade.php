@@ -1,9 +1,11 @@
 @php $col_md = $col_md ?? '4' @endphp
 <div class="col-md-{{$col_md}} col-sm-6">
     <div class="product-col">
-        <div class="image">
-            <img src="/content/products/250x320/{{$product->thumb}}" alt="{{$product->name}}" class="img-responsive" />
-        </div>
+		<a href="/productos/{{$product->slug}}">
+	        <div class="image">
+	            <img src="/content/products/250x320/{{$product->thumb}}" alt="{{$product->name}}" class="img-responsive" />
+	        </div>
+		</a>
         <div class="caption">
             <h4><a href="/productos/{{$product->slug}}">{{ $product->name }}</a></h4>
             <div class="description">
