@@ -1,41 +1,16 @@
 <h3 class="side-heading">Categorías</h3>
 <div class="list-group categories">
 	<div class="panel-group">
-    	<div class="panel panel-default cats">
-			@php
-				$collapse = 1
-			@endphp
-			@foreach ($categories as $c)
-				<div class="panel-heading cat">
-					@if ($c->subcategories->count())
-		        		<h4 class="panel-title">
-		          			<a data-toggle="collapse" href="#collapse{{$collapse}}">
-								 {{ $c->name }}
-							</a>
-		        		</h4>
-				      	<div id="collapse{{$collapse}}" class="panel-collapse collapse subcat">
-				        	<ul class="list-group">
-								@foreach ($c->subcategories as $subcategory)
-									<li>
-										<a tabindex="-1" href="/{{$c->slug}}?subcategories[]={{$subcategory->id}}">
-											{{$subcategory->name}}
-										</a>
-									</li>
-									@php
-										$collapse++
-									@endphp
-								@endforeach
-				        	</ul>
-				      	</div>
-					@else
-						<h4 class="panel-title">
-		          			<a href="/{{$c->slug}}">
-								{{ $c->name }}
-							</a>
-		        		</h4>
-					@endif
-				</div>
-			@endforeach
+    	<div>
+			<ul class="ul-cat">
+				@foreach ($categories as $c)
+					<li>
+          				<a href="/{{$c->slug}}">
+							{{ $c->name }}
+						</a>
+        			</li>
+				@endforeach
+			</ul>
     	</div>
   </div>
 </div>

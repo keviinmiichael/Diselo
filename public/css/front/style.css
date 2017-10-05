@@ -604,6 +604,34 @@ hr{
 		.breadcrumb > .active{
 			color:#cb3737;
 		}
+/*cateogires in tienda starts*/
+.ul-cat{
+	padding: 0;
+}
+.ul-cat li a{
+	display: block;
+	padding: 10px;
+	margin-top: 3px;
+	text-transform: uppercase;
+	color: #000000;
+	font-size: 1.2em;
+	border-bottom: 1px solid #f4f4f4;
+	text-decoration: none;
+	transition: 350ms;
+}
+.ul-cat li a::before{
+	content: '›';
+	margin-right: 8px;
+	color: #e6a9bb;
+	font-weight: bold;
+}
+.ul-cat li a:hover{
+	color: #000000;
+	margin-left: 15px;
+	border-color: #e6a9bb;
+}
+
+/*cateogires in tienda ends*/
 
 /* Categories Banner Styles Starts */
 
@@ -1466,18 +1494,7 @@ hr{
 }
 
 @media (min-width: 750px) {
-	/*Aside of Categorie Starts*/
-	.cats .cat{
-		background-color: rgba(15, 15, 15, 0.5);
-		text-transform: uppercase;
-		color: #fff
-	}
-	.cats .subcat li a{
-		color: #000000;
-		text-transform: capitalize;
-		margin-left: 50px;
-		font-size: 18px;
-	}
+
 	/*Aside of Categories End*/
 	.logo-diselo img{
 		width: 120px;
