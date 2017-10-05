@@ -8,11 +8,8 @@
 		</a>
         <div class="caption">
             <h4><a href="/productos/{{$product->slug}}">{{ $product->name }}</a></h4>
-            <div class="description">
-                {{str_limit($product->description, 80)}}
-            </div>
             <div class="price">
-                <span class="price-new">${{ $product->price }}</span>
+				<span>${{ $product->price }}</span>
             </div>
             <div class="cart-button button-group">
                 <a data-remodal-target="modal-{{$product->id}}" class="btn btn-cart">

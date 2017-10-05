@@ -686,14 +686,6 @@ hr{
 			margin:0 0 20px;
 			font-size:24px;
 			color:#000000;
-			/*background:#cb3737;
-			text-transform:uppercase;
-			-webkit-border-radius:5px;
-			   -moz-border-radius:5px;
-					border-radius:5px;
-			-webkit-box-shadow:0 4px rgba(203, 55, 55, 0.75);
-			   -moz-box-shadow:0 4px rgba(203, 55, 55, 0.75);
-					box-shadow:0 4px rgba(203, 55, 55, 0.75);*/
 		}
 		.product-col{
 			padding:15px 10px;
@@ -702,6 +694,7 @@ hr{
 			-webkit-border-radius:15px;
 			   -moz-border-radius:15px;
 					border-radius:15px;
+			max-height: 523px;
 		}
 		.product-col.list{
 			padding:15px;
@@ -724,6 +717,7 @@ hr{
 		}
 			.product-col h4{
 				font-size:18px;
+				min-height: 45px;
 			}
 			.product-col h4,
 			.product-col h4 a{
@@ -743,9 +737,15 @@ hr{
 			.product-col.list .description{
 				padding-right:20px;
 			}
-			.product-col .price{
+			.price{
 				padding:10px 0;
 				font-weight:bold;
+				color: #1e1c1b;
+				font-size: 24px;
+				padding-right: 5px;
+				margin-top: 1px;
+				display: inline-block;
+				vertical-align: top;
 			}
 				.product-col .price .price-tax{
 					font-size:14px;
@@ -763,6 +763,9 @@ hr{
 				}
 			.product-col .cart-button{
 				padding-top:5px;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 10px;
 			}
 				.product-col .cart-button .btn{
 					-webkit-border-radius:3px;
