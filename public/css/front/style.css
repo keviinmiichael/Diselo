@@ -134,6 +134,9 @@ hr{
 /* Top Bar Styles Starts */
 /*ACAAA HAY QUE PONER STYLOS DE NAV BAR*/
 
+#main-carousel{
+	padding-top: 90px;
+}
 
 .toptop{
 	position: absolute;
@@ -214,18 +217,30 @@ hr{
 		.top-bar .btn-link i.fa{
 			margin-left:5px;
 		}
+.ul-contact ul{
+	/*padding-left: 40px;*/
+}
+
+.ul-contact a{
+	color: #000000;
+}
+
+.ul-contact a:hover {
+    color: #e6a9bb;
+}
 
 .hamburguesa{
 	position: fixed;
 	z-index: 100;
-	background: rgba(15, 15, 15, 0.5);
+	background: #e6a9bb;
 	display: inline-block;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
+	font-size: 22px;
 	right: 10px;
 	bottom: 10px;
-	color: white;
+	color: #000000;
 }
 
 .navbar-collapse{

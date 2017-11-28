@@ -8,7 +8,6 @@
     @include('front.partials.header')
 
 @section('body')
-
 	@include('front.partials.breadcrumb')
     <!-- Main Container Starts -->
     <div class="main-container container inner">

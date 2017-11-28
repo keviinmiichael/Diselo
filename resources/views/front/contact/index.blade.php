@@ -74,8 +74,30 @@
         </div>
         <!-- Ends -->
     </div>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.1083855205557!2d-58.479530150517185!3d-34.62670121654996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc99317541a87%3A0xb253864cf4629455!2zRMOtc2Vsbw!5e0!3m2!1ses!2sar!4v1506024952832" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-
+	<div class="col-md-12">
+		<div class="col-sm-3 col-md-3 col-xs-10 col-xs-offset-1 ul-contact">
+			<ul>
+				<li>
+					<h2>Dirección</h2>
+					<p>Dr. juan felipe Aranguren 3377</p>
+				</li>
+				<li>
+					<h2>Horarios</h2>
+					<p>Lunes a viernes de 7:30 a 17:30</p>
+					<p>Sabados de 8:30 a 13:00</p>
+				</li>
+				<li>
+					<h2><a href="/contacto">Contacto</a></h2>
+					<p>
+						Email: <a href="mailto:diseloindumentaria@gmail.com">diseloindumentaria@gmail.com</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-7 col-sm-8 col-xs-10" style="text-align:right;">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.1083855205557!2d-58.479530150517185!3d-34.62670121654996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc99317541a87%3A0xb253864cf4629455!2zRMOtc2Vsbw!5e0!3m2!1ses!2sar!4v1506024952832" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
 </div>
 <!-- Main Container Ends -->
 
