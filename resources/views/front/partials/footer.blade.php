@@ -4,6 +4,11 @@
         <div class="footer-links">
         <!-- Container Starts -->
             <div class="container">
+                <!-- Data Fiscal Starts -->
+                    <div class="col-md-2 col-sm-6">
+                        <img src="/images/front/qr.png" width="60%" alt="">
+                    </div>
+                <!-- Data Fiscal Ends -->
                 <!-- Information Links Starts -->
                     <div class="col-md-2 col-sm-6">
                         <h5>Dirección</h5>

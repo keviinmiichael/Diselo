@@ -67,6 +67,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 Route::group(['namespace' => 'Front'], function() {
     Route::get('/', 'IndexController@index');
 
+    Route::get('comocomprar', function(){
+        return view('front.contact.how_buy');
+    });
+    Route::get('terminos', function(){
+        return view('front.contact.terminos');
+    });
+
     Route::get('productos', 'ProductsController@index');
 	Route::get('productos/search', 'ProductsController@search');
     Route::get('productos/{product}', 'ProductsController@show');
