@@ -27,9 +27,9 @@
                 </select>
             </div>
             <div class="col-sm-4">
-                <select name="color[]" id="select-color-{{$product->id}}" class="form-control">
+                <select name="color[]" id="select-color-{{$product->id}}" class="form-control selectpicker">
                     @foreach ($availableColors as $color)
-                        <option value="{{ $color->id }}">{{ $color->value }}</option>
+                        <option value="{{$color->id}}" data-thumbnail="/content/colors/thumb/{{$color->image}}">{{$color->value}}</option>
                     @endforeach
                 </select>
             </div>
@@ -47,7 +47,7 @@
     <div class="row">
         <div class="col-md-12" style="margin-top: 30px">
             <button data-remodal-action="confirm" class="btn btn-primary agregar-producto">
-                <span class="fa fa-spin fa-spinner" style="display: none"></span> 
+                <span class="fa fa-spin fa-spinner" style="display: none"></span>
                 Aceptar
             </button>
             <button data-remodal-action="cancel" class="btn btn-danger">Cancelar</button>
@@ -55,3 +55,8 @@
     </div>
     <textarea style="display: none" class="modal-row-template">@include('front.products._modal-row')</textarea>
 </div>
+
+
+<script type="text/javascript">
+    $('select.selectpicker').selectpicker();
+</script>

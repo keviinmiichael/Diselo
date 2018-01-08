@@ -114,7 +114,7 @@
 					</div>
 					<div class="panel-body">
 						<!-- Form Starts -->
-						@php 
+						@php
 							$formOptions = ['url' => '/cart/buy', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'form'];
 							$btn_txt = 'Finaliar Compra';
 							$client = (\Auth::guard('clients')->check()) ? Auth::guard('clients')->user() : new \App\Client;
@@ -140,12 +140,11 @@
       		<h2 class="error" style="display: none">Error</h2>
     	</div>
 	    <div class="modal-body">
-	      	<p class="default">Por favor aguarda un momento.</p>
+	      	<p class="default">Te llegará un email con la informacion para finalizar la compra!</p>
 	      	<p class="error" style="display: none"></p>
 	    </div>
 	    <div class="modal-footer">
-	    <span class="close"><a href="#" class="round-button">OK</a></span>
-	      	<h3>Modal Footer</h3>
+			<span class="close"><a href="#" class="round-button">OK</a></span>
 	    </div>
   	</div>
 </div>

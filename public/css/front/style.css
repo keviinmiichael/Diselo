@@ -93,6 +93,12 @@ hr{
 	border-color:#8c8f92;
 }
 
+#myModal{
+	width: 50%;
+	left: 25%;
+	top:25%;
+}
+
 /* Form & Buttons Styles Starts */
 
 .btn-black {
@@ -194,6 +200,7 @@ hr{
 .top-bar .search {
 	float: left;
 	margin: 0;
+	margin-left: -25px;
 	font-size: 0.5;
 }
 
@@ -1527,6 +1534,10 @@ hr{
 	}
 }
 
+.top-bar .search{
+	margin-left: -10px;
+}
+
 @media (min-width: 992px) {
 	/*Aside of Categorie Starts*/
 	.cats .cat{
@@ -1541,9 +1552,9 @@ hr{
 		font-size: 18px;
 	}
 	/*Aside of Categories End*/
-	#navbar{
-		margin-left: 5%;
-	}
+	/* #navbar{
+		margin-left: 2%;
+	} */
 
 	.hamburguesa{
 		display: none;
@@ -1643,6 +1654,8 @@ hr{
 			margin: 0;
 			display: block !important;
 		}
+
+
 
 
 }

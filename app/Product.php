@@ -145,7 +145,7 @@ class Product extends Model
 
     public function availableColors($size_id=false)
     {
-        $query = Stock::select('colors.id', 'colors.value as value')
+        $query = Stock::select('*')
             ->unite('color')
             ->where('product_id', $this->id)
             ->where('amount', '>', 0)

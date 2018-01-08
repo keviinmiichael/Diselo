@@ -35,7 +35,8 @@ class DatabaseSeeder extends Seeder
             ['value' => 'S'],
             ['value' => 'M'],
             ['value' => 'L'],
-            ['value' => 'XL']
+            ['value' => 'XL'],
+            ['value' => 'Unico']
         ]);
 
         \DB::table('colors')->insert([
