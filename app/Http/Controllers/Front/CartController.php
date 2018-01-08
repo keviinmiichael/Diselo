@@ -105,7 +105,7 @@ class CartController extends Controller
 
         \Mail::to($client->email)->queue(new BuyMail);
 
-        session()->forget('cart')
+        session()->forget('cart');
 
         return ['success' => true, 'redirect' => '/pedido-exitoso'];
 
