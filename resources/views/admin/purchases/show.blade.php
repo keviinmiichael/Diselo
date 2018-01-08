@@ -122,16 +122,25 @@
                                 <table id="datatable" class="table table-striped table-hover" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>Imagen</th>
                                             <th>Producto</th>
                                             <th>Color</th>
+                                            <th>Talle</th>
                                             <th>Precio</th>
 											<th>Cantidad</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @foreach ($purchase->items as $item)
+                                            <tr>
+                                                <td>{{$item->product->name}}</td>
+                                                <td>{{$item->size->value}}</td>
+                                                <td>{{$item->color->value}}</td>
+                                                <td>{{$item->price}}</td>
+                                                <td>{{$item->amount}}</td>
+                                                <td>{{$item->price * $item->amount}}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <input id="purchase_id" type="hidden" name="purchase_id" value="{{$purchase->id}}">
