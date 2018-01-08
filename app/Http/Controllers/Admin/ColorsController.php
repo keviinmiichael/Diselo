@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Color;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ColorRequest;
+use Intervention\Image\Facades\Image;
 
 class ColorsController extends Controller
 {
@@ -27,9 +29,10 @@ class ColorsController extends Controller
         return view('admin.colors.form', compact('color'));
     }
 
-    public function store()
+    public function store(ColorRequest $request)
     {
-        Color::create(request()->all());
+        $color = new Color($request->all());
+        $this->addImage($color);
         return redirect('admin/colors#new');
     }
 
@@ -38,9 +41,10 @@ class ColorsController extends Controller
         return view('admin.colors.form', compact('color'));
     }
 
-    public function update(Color $color)
+    public function update(Color $color, ColorRequest $request)
     {
-        $color->update(request()->all());
+        $color->update($request->all());
+        $this->addImage($color);
         return redirect('admin/colors#edit');
     }
 
@@ -52,5 +56,25 @@ class ColorsController extends Controller
             $response = ['success' => true];
         }
         return $response;
+    }
+
+    private function addImage($color)
+    {
+        if (request()->hasFile('file')) {
+            $file = request()->file('file');
+            $imageName = str_slug($color->value) . '.' . $file->getClientOriginalExtension();
+            $image = Image::make($file);
+            $image->resize(1000, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->crop(200, 200);
+            $color->hex = null;
+        } else {
+            $imageName = str_slug($color->value) . '.jpg';
+            $image = Image::canvas(200, 200, request()->input('hex'));
+        }
+        $image->save(public_path( '/content/colors/thumb/'.$imageName));
+        $color->image = $imageName;
+        $color->save();
     }
 }

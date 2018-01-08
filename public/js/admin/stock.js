@@ -10,6 +10,7 @@ var Stock = (function (w, $, undefined) {
         autocomplete($('#stock tbody tr:last'));
         tabIndex();
         restrictTypes();
+        $('select.selectpicker').selectpicker();
     }
 
 

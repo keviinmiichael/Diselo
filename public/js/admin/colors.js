@@ -11,6 +11,7 @@ var Colors = (function (w, $, undefined) {
         window.DT.create('#datatable', {
             resource: 'colors',
             columns: [
+                'image|image',
                 'value|limit',
                 'id|actions'
             ]

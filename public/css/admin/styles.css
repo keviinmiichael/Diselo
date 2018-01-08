@@ -1,12 +1,15 @@
 .dataTable td:last-child, .dataTable th:last-child {text-align: right;}
 
 input[disabled] {background-color: #efefef !important; cursor: not-allowed !important}
-input:-moz-read-only { /* For Firefox */
+
+/*
+input:-moz-read-only {
     background-color: #efefef !important; cursor: not-allowed !important
 }
 input:read-only { 
     background-color: #efefef !important; cursor: not-allowed !important
 }
+*/
 
 /* nav */
 .login-info p {

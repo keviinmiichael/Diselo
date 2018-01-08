@@ -78,6 +78,7 @@
                                 <table id="datatable" class="table table-striped table-hover" width="100%">
                                     <thead>
                                         <tr>
+                                            <th>Color</th>
                                             <th>Nombre</th>
                                             <th>Acciones</th>
                                         </tr>

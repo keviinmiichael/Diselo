@@ -1,5 +1,16 @@
 @extends('admin.app')
 
+@section('head')
+    <link rel="stylesheet" href="/js/admin/plugin/bootstrap-select/bootstrap-select.css">
+    <style>
+        .media-left img {
+            width: 30px;
+            margin-right: 20px;
+        }
+        .dropdown-toggle {padding: 6px 25px 6px 12px !important}
+    </style>
+@endsection
+
 @section('content')
 <!-- MAIN PANEL -->
 <div id="main" role="main">
@@ -172,5 +183,6 @@
         var codesAutocomplete = {!! $codesAutocomplete !!};
         var namesAutocomplete = {!! $namesAutocomplete !!};
     </script>
+    <script src="/js/admin/plugin/bootstrap-select/bootstrap-select.js"></script>
     <script src="/js/admin/stock.js"></script>
 @endsection

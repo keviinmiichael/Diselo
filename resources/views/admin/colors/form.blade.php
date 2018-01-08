@@ -39,6 +39,8 @@
         </div>
         <!-- end row -->
 
+        @include('admin.partials.errors')
+
         <!--
             The ID "widget-grid" will start to initialize all widgets below
             You do not need to use widgets if you dont want to. Simply remove
@@ -74,13 +76,37 @@
                                 <fieldset>
                                     <legend>Datos</legend>
                                     <div class="row">
-                                        <section class="col col-md-12 col-sm-12 col-xs-12">
+                                        <section class="col col-md-3 col-sm-3 col-xs-12">
                                             <label class="label">Nombre:</label>
                                             <label class="input">
-                                                {!! Form::text('value', null, ['autofocus']) !!}
+                                                {!! Form::text('value', null, ['autofocus', 'placeholder' => 'Ej.: azul o estampado de flores']) !!}
+                                            </label>
+                                        </section>
+                                        <section class="col col-md-3 col-sm-3 col-xs-12">
+                                            <label class="label">Tipo:</label>
+                                            <label class="select">
+                                                <select name="tipo" id="tipo">
+                                                    <option value="1">Color</option>
+                                                    <option value="2">Imagen</option>
+                                                </select><i></i>
+                                            </label>
+                                        </section>
+                                        <section class="col col-md-3 col-sm-3 col-xs-12">
+                                            <label class="label">Color:</label>
+                                            <label class="input">
+                                                {!! Form::text('hex', null, ['id' => 'colorpicker']) !!}
+                                            </label>
+                                        </section>
+                                        <section class="col col-md-3 col-sm-3 col-xs-12">
+                                            <label class="label">Imagen:</label>
+                                            <label class="input">
+                                                <div class="input input-file">
+                                                    <span class="button"><input type="file" id="file" name="file" onchange="this.parentNode.nextSibling.value = this.value" value="">Browse</span><input id="image" type="text" placeholder="{{$color->hex ? 'Imagen' : $color->value}}" readonly="">
+                                                </div>
                                             </label>
                                         </section>
                                 </fieldset>
+                                <input type="hidden" name="id" value="{{$color->id ?? 0}}">
                             {!! Form::close() !!}
 
                             <div class="widget-footer smart-form">
@@ -120,5 +146,6 @@
 
 @section('scripts')
     <script src="/js/admin/plugin/jquery-form/jquery-form.min.js"></script>
+    <script src="/js/admin/plugin/colorpicker/bootstrap-colorpicker.min.js"></script>
     <script src="/js/admin/color.js"></script>
 @endsection
