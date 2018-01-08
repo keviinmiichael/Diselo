@@ -23,6 +23,14 @@
 <link href="/js/front/plugin/lobibox/lobibox.min.css" rel="stylesheet">
 <link href="/css/front/style.css" rel="stylesheet">
 <link href="/css/front/responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="/js/admin/plugin/bootstrap-select/bootstrap-select.css">
+<style>
+    .media-left img {
+        width: 30px;
+        margin-right: 20px;
+    }
+    .dropdown-toggle {padding: 6px 25px 6px 12px !important}
+</style>
 @yield('links')
 
 

@@ -67,6 +67,7 @@
 <script src="/js/front/jquery-migrate-1.2.1.min.js"></script>
 <script src="/js/front/bootstrap.min.js"></script>
 <script src="/js/front/bootstrap-hover-dropdown.min.js"></script>
+<script src="/js/admin/plugin/bootstrap-select/bootstrap-select.js"></script>
 <script src="/js/front/jquery.magnific-popup.min.js"></script>
 <script src="/js/front/owl.carousel.min.js"></script>
 <script src="/js/front/plugin/stepper/jquery.fs.stepper.js"></script>

@@ -7,9 +7,9 @@
         </select>
     </div>
     <div class="col-md-4">
-        <select name="color[]" id="select-color-${time}" class="form-control">
+        <select name="color[]" id="select-color-${time}" class="form-control selectpicker">
             @foreach ($availableColors as $color)
-                <option value="{{$color->id}}">{{ $color->value }}</option>
+                <option value="{{$color->id}}" data-thumbnail="/content/colors/thumb/{{$color->image}}">{{$color->value}}</option>
             @endforeach
         </select>
     </div>
@@ -22,3 +22,7 @@
         </p>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('select.selectpicker').selectpicker();
+</script>
