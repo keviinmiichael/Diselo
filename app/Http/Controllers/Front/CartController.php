@@ -90,7 +90,7 @@ class CartController extends Controller
             }
         }
 
-        $client = Client::firstOrNew(request()->email);
+        $client = Client::firstOrNew(['email' => request()->email]);
         $client->update(request()->all());
 
         if ($total < $this->min_purchase) return new JsonResponse(['message' => 'La compra mínima es de '.$this->min_purchase], 422);
