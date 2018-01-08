@@ -22,7 +22,7 @@
                         <h3 class="panel-title">Información</h3>
                     </div>
                     <div class="panel-body">
-                        @include('front.clients._form', ['btn_txt' => 'Registrase'])
+                        @include('front.clients._form', ['btn_txt' => 'Registrase', 'showPass' => true])
                     </div>
                 </div>
                 <!-- Shipment Information Block Ends -->

@@ -25,6 +25,7 @@ class ClientRequest extends FormRequest
             'zip_code' => 'required',
             'provincia_id' => 'required',
             'localidad_id' => 'required',
+            'condiciones' => 'accepted'
         ];
     }
 

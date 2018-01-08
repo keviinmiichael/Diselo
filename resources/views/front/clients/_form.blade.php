@@ -35,7 +35,7 @@
             <span class="help-block"></span>
         </div>
     </div>
-    @if (!$client->id)
+    @if (!$client->id && $showPass)
         <div class="form-group">
             <label for="password" class="col-sm-3 control-label">Contaseña :</label>
             <div class="col-sm-9">
@@ -108,8 +108,10 @@
     <div class="form-group">
         <div class="checkbox col-sm-offset-2 terminos">
             <label>
-                <input type="checkbox" value="">Aceptar términos y condiciones
+                <input type="checkbox" name="condiciones" value="1">Aceptar términos y condiciones
             </label>
+            <span class="help-block"></span>
+            <br><a target="_blank" href="/terminos">Ver términos y condiciones</a>
         </div>
         <br>
         <div class="col-sm-offset-3 col-sm-9">

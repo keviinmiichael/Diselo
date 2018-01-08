@@ -118,8 +118,9 @@
 							$formOptions = ['url' => '/cart/buy', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'form'];
 							$btn_txt = 'Finaliar Compra';
 							$client = (\Auth::guard('clients')->check()) ? Auth::guard('clients')->user() : new \App\Client;
+                            $showPass = false;
 						@endphp
-						@include('front.clients._form', compact('formOptions', 'client', 'btn_txt'))
+						@include('front.clients._form', compact('formOptions', 'client', 'btn_txt', 'noPass'))
 						<!-- Form Ends -->
 					</div>
 				</div>
