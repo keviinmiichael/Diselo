@@ -90,7 +90,7 @@ class CartController extends Controller
             }
         }
 
-        $client = Client::firstOrNew(request()->email);
+        $client = Client::firstOrCreate(['email' => request()->email]);
         $client->update(request()->all());
 
         if ($total < $this->min_purchase) return new JsonResponse(['message' => 'La compra mínima es de '.$this->min_purchase], 422);
@@ -104,6 +104,8 @@ class CartController extends Controller
         $purchase->items()->saveMany($itemsCollection);
 
         \Mail::to($client->email)->queue(new BuyMail);
+
+        session()->forget('cart');
 
         return ['success' => true, 'redirect' => '/pedido-exitoso'];
 
