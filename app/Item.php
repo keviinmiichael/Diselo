@@ -10,7 +10,17 @@ class Item extends Model
     use Unite;
     
     public $timestamps = false;
-    protected $fillable = ['name','price','cost','amount','product_id','purchase_id'];
+    protected $fillable = ['name','price','cost','amount','product_id','purchase_id', 'color', 'size'];
+
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
+
+    public function size()
+    {
+        return $this->belongsTo('App\Size');
+    }
 
     public function product()
     {
@@ -32,14 +42,16 @@ class Item extends Model
 
     public function scopeDt($query)
     {
-        $query->select(\DB::raw('items.*, products.name as product, images.src as thumb'))
+        $query->select(\DB::raw('items.*, colors.value as color, products.name as product, "images.src" as thumb'))
             ->unite('product')
-            ->leftJoin('images', function ($join) {
+            ->unite('color')
+            /*->leftJoin('images', function ($join) {
                 $join->on('products.id', '=', 'images.imageable_id')
                     ->where('images.imageable_type', '=', 'App\Product');
-            })
+            })*/
+            ->groupBy('product.id', 'item.id', 'color.id')
             ->orderBy(request('order.0.column'), request('order.0.dir'))
-            ->orderBy('images.order')
+            //->orderBy('images.order')
             ->take(request('length'))
             ->skip(request('start'))
         ;

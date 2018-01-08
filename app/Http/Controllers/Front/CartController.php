@@ -75,6 +75,7 @@ class CartController extends Controller
         
         foreach ($products as $product) {
             foreach (session('cart.'.$product->id) as $size => $cartItems) {
+                dd($cartItems);
                 foreach ($cartItems as $cartItem) {
                     $total += $product->price * $cartItem[1];
                     $cost += $product->cost * $cartItem[1];
@@ -84,6 +85,8 @@ class CartController extends Controller
                     $item->price = $product->price;
                     $item->cost = $product->cost;
                     $item->amount = $cartItem[1];
+                    $item->size_id = $size;
+                    $item->color_id = $cartItem[0];
                     $item->product_id = $product->id;
                     $itemsCollection->push($item);
                 }
@@ -105,15 +108,17 @@ class CartController extends Controller
 
         \Mail::to($client->email)->queue(new BuyMail);
 
-        session()->forget('cart');
-
         return ['success' => true, 'redirect' => '/pedido-exitoso'];
 
     }
 
     public function success()
     {
-        $products = Product::whereIn('id', array_keys(session('cart')))->with('stocks')->get();
+        if (session()->has('cart')) {
+            session(['buy' => session('cart')]);
+            session()->forget('cart');
+        }
+        $products = Product::whereIn('id', array_keys(session('buy')))->with('stocks')->get();
         return view('front.cart.success', compact('products'));
     }
 

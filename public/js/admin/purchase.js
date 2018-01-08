@@ -12,6 +12,7 @@ var Purchase = (function (w, $, undefined) {
             columns: [
                 'thumb|image:/content/products/thumb/',
                 'product|limit',
+                'color',
                 'price',
                 'amount',
                 'amount|callback:(function (row) {return row["amount"] * row["price"]})(row)'

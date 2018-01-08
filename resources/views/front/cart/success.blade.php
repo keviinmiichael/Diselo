@@ -44,7 +44,7 @@
 			<tbody>
 				@php $total = 0; @endphp
 				@foreach ($products as $product)
-					@foreach (session('cart.'.$product->id) as $size => $items)
+					@foreach (session('buy.'.$product->id) as $size => $items)
 						 @foreach ($items as $item)
 							<tr>
 								<td class="text-center">

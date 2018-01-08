@@ -124,6 +124,7 @@
                                         <tr>
                                             <th>Imagen</th>
                                             <th>Producto</th>
+                                            <th>Color</th>
                                             <th>Precio</th>
 											<th>Cantidad</th>
                                             <th>Total</th>

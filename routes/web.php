@@ -3,7 +3,19 @@
 Auth::routes();
 
 Route::get('test', function() {
-    return bcrypt('123456');
+    if (!session()->has('cart') || !count(session('cart'))) return new JsonResponse(['message' => 'No hay proudctos en el carrito'], 422);
+
+    $products = App\Product::whereIn('id', array_keys(session('cart')))->get();
+    $itemsCollection = collect();
+
+    $total = 0;
+    $cost = 0;
+    
+    foreach ($products as $product) {
+        foreach (session('cart.'.$product->id) as $size => $cartItems) {
+            var_dump($cartItems);
+        }
+    }
 });
 
 // Authentication
