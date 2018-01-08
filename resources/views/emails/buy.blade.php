@@ -72,12 +72,14 @@
                       <td>$600</td>
                     </tr>
                   </table>
-
                   <hr>
-
                   <h4>¿Cómo finalizo mi compra?</h4>
-
-                  <p>Solo falta que deposites el monto total de la compra, y nos envies un mail con el comprobante del deposito. Y nosotros nos encargaremos del resto!</p>
+                  <p>Solo falta que deposites el monto total de la compra, y te comuniques con nosotros y nos encargaremos del resto!
+                  <br>
+                  Deposito por cuenta corriente:<br> BBVA Francés 40-143-020899/6
+                  <br>
+                  Transferencia CBU: <br> 01701438-40000002089964
+                  </p>
                 </th></tr></table></th>
               </tr></tbody></table>
               <table class="row footer text-center"><tbody><tr>
