@@ -27,7 +27,9 @@
     @endif
 @endsection
 
-
+{{-- @section('banner')
+    <img src="/images/front/diselo_madera.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
+@endsection --}}
 @section('body')
 	@parent
 	@section('content')
