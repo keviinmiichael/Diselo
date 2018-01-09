@@ -66,9 +66,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="apartment" class="col-sm-3 control-label">Depto :</label>
+        <label for="aparment" class="col-sm-3 control-label">Depto :</label>
         <div class="col-sm-9">
-            {!! Form::text('apartment', null, ['class' => 'form-control', 'id' => 'apartment']) !!}
+            {!! Form::text('aparment', null, ['class' => 'form-control', 'id' => 'aparment']) !!}
             <span class="help-block"></span>
         </div>
     </div>

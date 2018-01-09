@@ -14,6 +14,17 @@ class Client extends Authenticatable
 
     protected $fillable = ['name','lastname','business_name','phone','email','street','number','floor','aparment','neighborhood','zip_code','localidad_id','provincia_id'];
 
+    public function getAddress()
+    {
+        $address = ' ' . $this->street . ' ' . $this->number . '<br>';
+        if ($this->floor) $address .= ' piso:' . $this->floor;
+        if ($this->aparment) $address .= '  departamento:' . $this->aparment . '<br>';
+        if ($this->neighborhood) $address .= ' barrio:' . $this->neighborhood . '<br>';
+        $address .= $this->provincia->value . ', ' . $this->localidad->value . '<br>';
+        $address .= 'CP: ' . $this->zip_code;
+        return $address;
+    }
+
     //relationships
     public function provincia()
     {

@@ -36,9 +36,18 @@ class PurchasesController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Purchase $purchase)
     {
-        //
+        foreach ($purchase->items as $item) {
+            \App\Stock::where([
+                'product_id' => $item->product_id,
+                'size_id' => $item->size_id,
+                'color_id' => $item->color_id
+            ])->increment('amount', $item->amount);
+        }
+        $purchase->items()->delete();
+        $purchase->delete();
+        return ['success' => true];
     }
 
     public function itemsToJson()

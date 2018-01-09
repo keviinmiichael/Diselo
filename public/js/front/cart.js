@@ -146,7 +146,7 @@ var Cart = (function (w, $, undefined) {
             data: $('#form').serialize(),
             success: function (response) {
                 $('#myModal').hide();
-                location.href = response.redirect;
+                //location.href = response.redirect;
             },
             error: function (error) {
                 if (error.responseJSON.message) {

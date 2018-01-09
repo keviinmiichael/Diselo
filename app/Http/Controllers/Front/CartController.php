@@ -72,10 +72,9 @@ class CartController extends Controller
 
         $total = 0;
         $cost = 0;
-        
+
         foreach ($products as $product) {
             foreach (session('cart.'.$product->id) as $size => $cartItems) {
-                dd($cartItems);
                 foreach ($cartItems as $cartItem) {
                     $total += $product->price * $cartItem[1];
                     $cost += $product->cost * $cartItem[1];
@@ -89,6 +88,12 @@ class CartController extends Controller
                     $item->color_id = $cartItem[0];
                     $item->product_id = $product->id;
                     $itemsCollection->push($item);
+
+                    \App\Stock::where([
+                        'product_id' => $product->id,
+                        'size_id' => $size,
+                        'color_id' => $cartItem[0]
+                    ])->decrement('amount', $cartItem[1]);
                 }
             }
         }
@@ -106,7 +111,7 @@ class CartController extends Controller
 
         $purchase->items()->saveMany($itemsCollection);
 
-        \Mail::to($client->email)->queue(new BuyMail);
+        \Mail::to($client->email)->queue(new BuyMail($purchase));
 
         return ['success' => true, 'redirect' => '/pedido-exitoso'];
 

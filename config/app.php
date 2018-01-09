@@ -182,6 +182,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
+        Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
     ],
 
     /*

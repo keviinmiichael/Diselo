@@ -134,8 +134,8 @@
                                         @foreach ($purchase->items as $item)
                                             <tr>
                                                 <td>{{$item->product->name}}</td>
-                                                <td>{{$item->size->value}}</td>
                                                 <td>{{$item->color->value}}</td>
+                                                <td>{{$item->size->value}}</td>
                                                 <td>{{$item->price}}</td>
                                                 <td>{{$item->amount}}</td>
                                                 <td>{{$item->price * $item->amount}}</td>
