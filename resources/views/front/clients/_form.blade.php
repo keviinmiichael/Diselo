@@ -115,7 +115,7 @@
         </div>
         <br>
         <div class="col-sm-offset-3 col-sm-9">
-            <button type="button" id="comprar" class="btn btn-black">
+            <button type="submit" id="comprar" class="btn btn-black">
                 {{ $btn_txt }}
             </button>
         </div>

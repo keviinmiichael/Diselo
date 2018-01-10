@@ -2198,7 +2198,7 @@ class DatabaseSeeder extends Seeder
             [ 'provincia_id' => 22, 'value' => 'Oliveros'],
             [ 'provincia_id' => 22, 'value' => 'Palacios'],
             [ 'provincia_id' => 22, 'value' => 'Pav�n'],
-            [ 'provincia_id' => 22, 'value' => 'Pav�n Arriba']
+            [ 'provincia_id' => 22, 'value' => 'Pav�n Arriba'],
             [ 'provincia_id' => 22, 'value' => 'Pedro G�mez Cello'],
             [ 'provincia_id' => 22, 'value' => 'P�rez'],
             [ 'provincia_id' => 22, 'value' => 'Peyrano'],
