@@ -2508,7 +2508,6 @@ class DatabaseSeeder extends Seeder
             [ 'provincia_id' => 25, 'value' => 'Y�nima'],
             [ 'provincia_id' => 25, 'value' => 'Yerba Buena'],
             [ 'provincia_id' => 25, 'value' => 'Yerba Buena (S)']
-
         ]);
 
     }
