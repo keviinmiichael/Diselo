@@ -82,10 +82,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿CUANTO TIEMPO TENGO PARA ABONAR UN PEDIDO?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">¿CUANTO TIEMPO TENGO PARA ABONAR UN PEDIDO?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseSix" class="panel-collapse collapse">
                       <div class="panel-body">
                           Luego de enviarle el monto total y los datos de la cuenta para el pago al cliente, el mismo tiene 7 (siete) días para realizar el pago. Si pasados los 7 días no se abona el pedido, se procede a cancelarlo y desarmarlo.
                       </div>
@@ -94,10 +94,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿HACEN ENVIOS?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">¿HACEN ENVIOS?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseSeven" class="panel-collapse collapse">
                       <div class="panel-body">
                           Si, hacemos envíos a todo el país con el medio de transporte que vos elijas. Trabajamos con todos los expresos y transportes.
                       </div>
@@ -106,10 +106,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿CUANTO DEMORA EL ENVIO?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseEigth">¿CUANTO DEMORA EL ENVIO?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseEigth" class="panel-collapse collapse">
                       <div class="panel-body">
                           El tiempo de envio depende del transporte seleccionado y la distancia por recorrer. Por lo general a través de expresos y transportes tarda entre 2 y 5 días aproximadamente.
                       </div>
@@ -118,10 +118,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿SE PUEDE PASAR A RETIRAR EL PEDIDO?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">¿SE PUEDE PASAR A RETIRAR EL PEDIDO?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseNine" class="panel-collapse collapse">
                       <div class="panel-body">
                           Si, podés pasar a retirar tu pedido por nuestro local de venta .A su vez, retirando por nuestro local es posible abonar el pedido en efectivo en el momento.
                       </div>
@@ -130,10 +130,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿CUALES SON LOS MEDIOS DE PAGO?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">¿CUALES SON LOS MEDIOS DE PAGO?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseTen" class="panel-collapse collapse">
                       <div class="panel-body">
                           Podés abonar tu pedido a través de depósito o transferencia bancaria. Trabajamos con el BANCO BBVA FRANCES. Es necesario notificar el pago con su respectivo comprobante al ejecutivo de cuentas para poder poner en marcha el envío del mismo.
                       </div>
@@ -142,10 +142,10 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">¿CUAL ES LA POLITICA DE CAMBIO?</a>
+                          <a class="accordion-toggle lead" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">¿CUAL ES LA POLITICA DE CAMBIO?</a>
                       </h4>
                   </div>
-                  <div id="collapseFive" class="panel-collapse collapse">
+                  <div id="collapseEleven" class="panel-collapse collapse">
                       <div class="panel-body">
                           La mercadería se cambia únicamente por fallas de forma presencial en el local. Si tenés una prenda fallada es necesario notificarla y traerla al local para realizar el cambio.
                       </div>

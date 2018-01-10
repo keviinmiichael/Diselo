@@ -45,7 +45,7 @@
 					<li><a href="/">HOME</a></li>
 					<li><a href="/productos">TIENDA</a></li>
 					<li><a href="/contacto">CONTACTO</a></li>
-					<li><a href="/contacto">CÓMO COMPRAR</a></li>
+					<li><a href="/comocomprar">CÓMO COMPRAR</a></li>
 	            </ul>
 	        </div>
             <!-- Shopping Cart Starts -->

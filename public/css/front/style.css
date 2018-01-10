@@ -759,7 +759,7 @@ hr{
 			.product-col.list .description{
 				padding-right:20px;
 			}
-			.price{
+			.caption .price{
 				padding:10px 0;
 				font-weight:bold;
 				color: #1e1c1b;

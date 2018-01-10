@@ -165,6 +165,17 @@ class Database extends Migration
             //índices
             $table->primary(['product1', 'product2']);
         });
+
+        Schema::create('provincia', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('value',127);
+        });
+
+        Schema::create('localidad', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('value',127);
+            $table->smallInteger('provincia_id')->unsigned()->index();
+        });
     }
 
     /**
@@ -175,6 +186,8 @@ class Database extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('provincia');
+        Schema::dropIfExists('localidad');
         Schema::dropIfExists('stock');
         Schema::dropIfExists('sizes');
         Schema::dropIfExists('colors');

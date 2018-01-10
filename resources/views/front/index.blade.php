@@ -9,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/front/slick/slick-theme.css"/>
 @endsection
 
+@section('banner')
+	<img src="/images/front/diselo_madera.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
+@endsection
+
 @section('body')
 	<!-- Main Container Starts -->
 		<div class="main-container container">
