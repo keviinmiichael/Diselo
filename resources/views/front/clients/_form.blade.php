@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Nombre :</label>
         <div class="col-sm-9">
-            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'autofocus'=>'autofocus']) !!}
             <span class="help-block"></span>
         </div>
     </div>
