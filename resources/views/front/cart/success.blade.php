@@ -7,14 +7,14 @@
 @section('body')
 <!-- Main Container Starts -->
 <div class="main-container container">
-	
+
 	<h2 class="main-heading text-center">Pedido exitoso</h2>
 
-	<div>
+	{{-- <div>
 		<p class="text-center">Para abonar su pedido puede hacerlo orem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ut</p>
 		<p class="text-center">Puede ponser en contacto con nosotros Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, sint.</p>
-	</div>
-	
+	</div> --}}
+
 	<!-- Shopping Cart Table Starts -->
 	<div class="table-responsive shopping-cart-table">
 		<table class="table table-bordered">
