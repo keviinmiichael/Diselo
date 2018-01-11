@@ -84,8 +84,8 @@
                                 @if ($purchase->client->floor)
                                     <p><strong>Piso:</strong> {{ $purchase->client->floor }}</p>
                                 @endif
-                                @if ($purchase->client->aparment)
-                                    <p><strong>Departamento:</strong> {{ $purchase->client->aparment }}</p>
+                                @if ($purchase->client->apartment)
+                                    <p><strong>Departamento:</strong> {{ $purchase->client->apartment }}</p>
                                 @endif
                             </div>
                         </div>

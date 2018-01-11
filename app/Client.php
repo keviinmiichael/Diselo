@@ -12,13 +12,13 @@ class Client extends Authenticatable
 
     use SoftDeletes, Unite;
 
-    protected $fillable = ['name','lastname','business_name','phone','email','street','number','floor','aparment','neighborhood','zip_code','localidad_id','provincia_id'];
+    protected $fillable = ['name','lastname','business_name','phone','email','street','number','floor','apartment','neighborhood','zip_code','localidad_id','provincia_id'];
 
     public function getAddress()
     {
         $address = ' ' . $this->street . ' ' . $this->number . '<br>';
         if ($this->floor) $address .= ' piso:' . $this->floor;
-        if ($this->aparment) $address .= '  departamento:' . $this->aparment . '<br>';
+        if ($this->apartment) $address .= '  departamento:' . $this->apartment . '<br>';
         if ($this->neighborhood) $address .= ' barrio:' . $this->neighborhood . '<br>';
         $address .= $this->provincia->value . ', ' . $this->localidad->value . '<br>';
         $address .= 'CP: ' . $this->zip_code;
@@ -35,7 +35,7 @@ class Client extends Authenticatable
     {
         return $this->belongsTo('App\Localidad');
     }
-    
+
     public function purchases()
     {
         return $this->hasMany('App\Purchase');
