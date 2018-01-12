@@ -20,6 +20,9 @@ class BuyMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Completá tu compra')->view('emails.buy');
+        return $this->bcc('diseloindumentaria@gmail.com')
+            ->subject('Completá tu compra')
+            ->view('emails.buy')
+        ;
     }
 }
