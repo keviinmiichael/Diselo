@@ -145,7 +145,7 @@
 	      	<p class="error" style="display: none"></p>
 	    </div>
 	    <div class="modal-footer">
-			<span class="close"><a href="#" class="round-button">OK</a></span>
+			<span class="close"><a href="javascript:void(0);" class="round-button">OK</a></span>
 	    </div>
   	</div>
 </div>

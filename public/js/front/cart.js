@@ -23,6 +23,12 @@ var Cart = (function (w, $, undefined) {
         $('#comprar').on('click', function () {
             comprar();
         });
+        $('input, select').on('focus', function () {
+            removeError($(this));
+        });
+        $('#provincia').on('change', function() {
+            localidadesByProvincia();
+        });
     }
 
     function modalInit () {
@@ -36,12 +42,6 @@ var Cart = (function (w, $, undefined) {
         });
         $('#myModal').on('click', function (e) {
             if(e.target.className == 'modal') $('#myModal').hide();
-        });
-        $('input, select').on('focus', function () {
-            removeError($(this));
-        });
-        $('#provincia').on('change', function() {
-            localidadesByProvincia();
         });
     }
 
@@ -146,7 +146,7 @@ var Cart = (function (w, $, undefined) {
             data: $('#form').serialize(),
             success: function (response) {
                 $('#myModal').hide();
-                //location.href = response.redirect;
+                location.href = response.redirect;
             },
             error: function (error) {
                 if (error.responseJSON.message) {
@@ -204,5 +204,4 @@ var Cart = (function (w, $, undefined) {
 
 $(document).ready(function () {
     Cart.init();
-	
 });

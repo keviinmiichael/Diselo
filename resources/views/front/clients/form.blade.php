@@ -33,8 +33,26 @@
     <!-- Shipping Section Ends -->
 </div>
 <!-- Main Container Ends -->
+
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="default">Estamos procesando tu registración</h2>
+            <h2 class="error" style="display: none">Error</h2>
+        </div>
+        <div class="modal-body">
+            <p class="default">Por favor aguardá un momento</p>
+            <p class="error" style="display: none"></p>
+        </div>
+        <div class="modal-footer">
+            <span class="close"><a href="javascript:void(0);" class="round-button">OK</a></span>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')
-    <script src="/js/front/cart.js"></script>
+    <script src="/js/front/client.js"></script>
 @endsection
