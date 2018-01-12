@@ -39,7 +39,7 @@
                         <p>
                           <strong>Cliente</strong><br>
                           Nro: {{ $purchase->client->id }} <br>
-                          Nombre: {{ $purchase->client->name $purchase->client->lastname }} <br>
+                          Nombre: {{ $purchase->client->name }} {{ $purchase->client->lastname }} <br>
                           Mail: {{ $purchase->client->email }} <br>
                           Tel: {{ $purchase->client->phone }}
                         </p>
