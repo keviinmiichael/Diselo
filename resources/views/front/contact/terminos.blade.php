@@ -4,6 +4,11 @@
 @section('description', 'Términos y condiciones')
 
 
+@section('banner')
+	<img src="" alt="" class="img-responsive"/>
+@endsection
+
+
 @section('body')
     <div style="margin-top:30px;" class="row">
         <!-- Contact Form Starts -->

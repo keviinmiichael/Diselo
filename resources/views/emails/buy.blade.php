@@ -37,12 +37,11 @@
                     <table class="row"><tbody><tr>
                       <th class="small-12 large-6 columns first"><table><tr><th>
                         <p>
-                          <strong>Nro de Cliente</strong><br>
-                          {{ $purchase->client->id }} <br>
-                          {{ $purchase->client->name }} <br>
-                          {{ $purchase->client->lastname }} <br>
-                          {{ $purchase->client->email }} <br>
-                          {{ $purchase->client->phone }}
+                          <strong>Cliente</strong><br>
+                          Nro: {{ $purchase->client->id }} <br>
+                          Nombre: {{ $purchase->client->name $purchase->client->lastname }} <br>
+                          Mail: {{ $purchase->client->email }} <br>
+                          Tel: {{ $purchase->client->phone }}
                         </p>
                         <p>
                           <strong>Nro de compra</strong><br>
