@@ -28,7 +28,7 @@
 
               <table class="row"><tbody><tr>
                 <th class="small-12 large-12 columns first last"><table><tr><th>
-                  <h1><img src="{{url('images/front/logo-diselo.svg')}}" alt="Diselo" class="img-responsive" ></h1>
+                  <h1><img src="/images/front/logo-diselo.svg" alt="Diselo" class="img-responsive" ></h1>
                   <p>¡Gracias por comprar en Diselo!</p>
 
                   <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
@@ -38,7 +38,9 @@
                       <th class="small-12 large-6 columns first"><table><tr><th>
                         <p>
                           <strong>Nro de Cliente</strong><br>
-                          {{ $purchase->client->id }}
+                          {{ $purchase->client->id }} <br>
+                          {{ $purchase->client->name }} <br>
+                          {{ $purchase->client->lastname }}
                         </p>
                         <p>
                           <strong>Nro de compra</strong><br>
