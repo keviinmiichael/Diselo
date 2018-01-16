@@ -3,6 +3,9 @@
 @section('title', 'Contacto')
 @section('description', 'Contacto')
 
+@section('banner')
+	<img src="" alt="" class="img-responsive"/>
+@endsection
 
 @section('body')
 <!-- Main Container Starts -->
