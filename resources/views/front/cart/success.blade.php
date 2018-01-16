@@ -3,6 +3,9 @@
 @section('title', 'Diselo')
 @section('description', 'home')
 
+@section('banner')
+	<img src="" alt="" class="img-responsive" />
+@endsection
 
 @section('body')
 <!-- Main Container Starts -->
