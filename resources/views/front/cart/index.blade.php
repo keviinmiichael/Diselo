@@ -102,7 +102,7 @@
 		</div>
 		<!-- Shopping Cart Table Ends -->
 
-	@if (\Auth::check())
+	@if (Auth::check())
 		<!-- Main Container Starts -->
 
 			<!-- Shipping Section Starts -->
