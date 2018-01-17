@@ -111,7 +111,7 @@ class Database extends Migration
             $table->string('lastname',127);
             $table->string('business_name',127);
             $table->string('shipping',127);
-            $table->string('email',127);
+            $table->string('email',127)->unique();
             $table->string('phone',50);
             $table->string('street',127);
             $table->string('number',10);
