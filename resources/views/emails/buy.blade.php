@@ -28,7 +28,7 @@
 
               <table class="row"><tbody><tr>
                 <th class="small-12 large-12 columns first last"><table><tr><th>
-                  <h1><img src="http://diselo.com.ar/images/front/logo-diselo.svg" alt="Diselo" class="img-responsive" ></h1>
+                  <h1><img src="http://diselo.com.ar/images/front/logo-diselo.jpeg" alt="Diselo" class="img-responsive" ></h1>
                   <p>¡Gracias por comprar en Diselo!</p>
 
                   <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
