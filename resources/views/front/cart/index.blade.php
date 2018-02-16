@@ -134,8 +134,8 @@
 			</section>
 			<!-- Shipping Section Ends -->
 	@else
-		<h3>Para completar su compra debes estar logueado !</h3>
-		<h3>Si no tienes usuario registrarte <a href="/clients/create">Aqui</a> </h3>
+		<h3>¡ Para completar su compra debes estar logueado !</h3>
+		<h3>Si no tienes usuario, regístrate <a href="/clients/create">aquí</a> </h3>
 	@endif
 
 </div>
