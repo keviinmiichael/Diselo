@@ -3,6 +3,7 @@
 Auth::routes();
 
 Route::get('test', function() {
+    /*
     if (!session()->has('cart') || !count(session('cart'))) return new JsonResponse(['message' => 'No hay proudctos en el carrito'], 422);
 
     $products = App\Product::whereIn('id', array_keys(session('cart')))->get();
@@ -16,6 +17,8 @@ Route::get('test', function() {
             var_dump($cartItems);
         }
     }
+    */
+    dd(Auth::guard('clients')->user()->toArray());
 });
 
 // Authentication
