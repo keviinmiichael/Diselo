@@ -10,7 +10,7 @@
 @endsection
 
 @section('banner')
-	<img src="/images/front/main-banner.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
+	<img src="/images/front/banner_invierno.jpg" alt="{{ config('app.name') }}" class="img-responsive" />
 @endsection
 
 @section('body')
